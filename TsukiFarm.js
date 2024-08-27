@@ -1429,13 +1429,13 @@ function calculateBoard(){
 
     document.getElementById("cdnd0").innerHTML = totalPlots;
     document.getElementById("cdnd1").innerHTML = plotCount[1];
-    document.getElementById("cdnd2").innerHTML = plotCount[2]/3;
-    document.getElementById("cdnd3").innerHTML = plotCount[3];
-    document.getElementById("cdnd4").innerHTML = plotCount[4]/2;
-    document.getElementById("cdnd5").innerHTML = plotCount[5];
-    document.getElementById("cdnd6").innerHTML = plotCount[6]/4;
-    document.getElementById("cdnd7").innerHTML = plotCount[7]/9;
-    document.getElementById("cdnd8").innerHTML = plotCount[8];
+    document.getElementById("cdnd2").innerHTML = plotCount[2];
+    document.getElementById("cdnd3").innerHTML = plotCount[3]/2;
+    document.getElementById("cdnd4").innerHTML = plotCount[4];
+    document.getElementById("cdnd5").innerHTML = plotCount[5]/4;
+    document.getElementById("cdnd6").innerHTML = plotCount[6]/9;
+    document.getElementById("cdnd7").innerHTML = plotCount[7];
+    document.getElementById("cdnd8").innerHTML = plotCount[8]/3;
     document.getElementById("cdnd9").innerHTML = plotCount[9];
     document.getElementById("cdnd10").innerHTML = plotCount[10];
     document.getElementById("cdnd11").innerHTML = plotCount[11];
