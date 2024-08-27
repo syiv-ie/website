@@ -350,29 +350,29 @@ class group {
                                 let multiName = multi[1];
 
                                 document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML += 
-                                    "<img class=\"multiOverlay\" style=\"rotate: " + multiRotation + "\" src=\"/images/farmPlots/" + multiName + ".png\">"
+                                    "<img class=\"multiOverlay\" style=\"rotate: " + multiRotation + "\" src=\"images/farmPlots/" + multiName + ".png\">"
         
                                 document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML += 
                                     "<img class=\"plotMainItem\" src=\""+ plotList[chosenFarmPlot].img + "\">";
         
                                 if(plotList[this.plots[rowOffset + row*2][colOffset + col*2]].isUV){
                                     document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML += 
-                                        "<img class=\"" + plotList[chosenFarmPlot].arrow(chosenFarmPlotDirection) + "\" src=\"/images/farmPlots/Arrow.png\">"
+                                        "<img class=\"" + plotList[chosenFarmPlot].arrow(chosenFarmPlotDirection) + "\" src=\"images/farmPlots/Arrow.png\">"
                                 }
 
         
                                 if(plotList[this.plots[rowOffset + row*2][colOffset + col*2]].isCrop){
                                     if(this.fert[rowOffset + row*2][colOffset + col*2] > 0){
                                         document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML += 
-                                            "<img class=\"plotFert\" src=\"/images/farmPlots/fert.png\">"
+                                            "<img class=\"plotFert\" src=\"images/farmPlots/fert.png\">"
                                     }
                                     if(this.uv[rowOffset + row*2][colOffset + col*2] > 0){
                                         document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML += 
-                                            "<img class=\"plotUv\" src=\"/images/farmPlots/uv.png\">"
+                                            "<img class=\"plotUv\" src=\"images/farmPlots/uv.png\">"
                                     }
                                     if(this.watered[rowOffset + row*2][colOffset + col*2] > 0){
                                         document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML += 
-                                            "<img class=\"plotWatered\" src=\"/images/farmPlots/watered.png\">"
+                                            "<img class=\"plotWatered\" src=\"images/farmPlots/watered.png\">"
                                     }
                                     if(this.strawberried[rowOffset + row*2][colOffset + col*2] > 0 && 
                                        !(plotList[this.plots[rowOffset + row*2][colOffset + col*2]].isStrawberry)){
@@ -384,7 +384,7 @@ class group {
                                 if(plotList[this.plots[rowOffset + row*2][colOffset + col*2]].isBreedable){
                                     for(let x=1; x<5; x++){
                                         document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML += 
-                                            "<img class=\"plotBreed" + x + "\" style=\"filter:invert(77%) sepia(10%) saturate(1308%) hue-rotate(305deg) brightness(0%) contrast(102%)\" src=\"/images/farmPlots/heart.png\">"
+                                            "<img class=\"plotBreed" + x + "\" style=\"filter:invert(77%) sepia(10%) saturate(1308%) hue-rotate(305deg) brightness(0%) contrast(102%)\" src=\"images/farmPlots/heart.png\">"
                                     }
                                 }
                             }
@@ -392,7 +392,7 @@ class group {
                                 if(plotList[this.plots[rowOffset + row*2][colOffset + col*2]].isCrop && 
                                     this.watered[rowOffset + row*2][colOffset + col*2] == 0){
                                     document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML += 
-                                        "<img class=\"plotWatered\" src=\"/images/farmPlots/watered.png\">";
+                                        "<img class=\"plotWatered\" src=\"images/farmPlots/watered.png\">";
                                 }
                                 this.watered[rowOffset + row*2][colOffset + col*2]++;
                             }
@@ -400,7 +400,7 @@ class group {
                                 if(plotList[this.plots[rowOffset + row*2][colOffset + col*2]].isCrop && 
                                     this.uv[rowOffset + row*2][colOffset + col*2] == 0){
                                     document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML += 
-                                        "<img class=\"plotUv\" src=\"/images/farmPlots/uv.png\">"
+                                        "<img class=\"plotUv\" src=\"images/farmPlots/uv.png\">"
                                 }
                                 this.uv[rowOffset + row*2][colOffset + col*2]++;
                             }
@@ -408,7 +408,7 @@ class group {
                                 if(plotList[this.plots[rowOffset + row*2][colOffset + col*2]].isCrop && 
                                     this.fert[rowOffset + row*2][colOffset + col*2] == 0){
                                     document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML += 
-                                        "<img class=\"plotFert\" src=\"/images/farmPlots/fert.png\">"
+                                        "<img class=\"plotFert\" src=\"images/farmPlots/fert.png\">"
                                 }
                                 this.fert[rowOffset + row*2][colOffset + col*2]++;
                             }
@@ -518,7 +518,7 @@ class group {
                                     this.watered[rowOffset + row*2][colOffset + col*2] == 0){
                                     document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML =
                                     document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML.replace(
-                                        "<img class=\"plotWatered\" src=\"/images/farmPlots/watered.png\">",
+                                        "<img class=\"plotWatered\" src=\"images/farmPlots/watered.png\">",
                                         ""
                                         );
                                 }
@@ -529,7 +529,7 @@ class group {
                                     this.uv[rowOffset + row*2][colOffset + col*2] == 0){
                                     document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML =
                                     document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML.replace(
-                                        "<img class=\"plotUv\" src=\"/images/farmPlots/uv.png\">",
+                                        "<img class=\"plotUv\" src=\"images/farmPlots/uv.png\">",
                                         ""
                                         );
                                 }
@@ -540,7 +540,7 @@ class group {
                                     this.fert[rowOffset + row*2][colOffset + col*2] == 0){
                                     document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML =
                                     document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML.replace(
-                                        "<img class=\"plotFert\" src=\"/images/farmPlots/fert.png\">",
+                                        "<img class=\"plotFert\" src=\"images/farmPlots/fert.png\">",
                                         ""
                                         );
                                 }
