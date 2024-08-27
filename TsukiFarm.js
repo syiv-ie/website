@@ -253,7 +253,7 @@ function buildFarm(){
     // chosenFarmSpot = document.getElementById("farmPlotSelect").value;
     
     
-    document.getElementById("englishOrSpanish").innerHTML = "<img id=\"englishOrSpanishImg\" src=\"/images/farmPlots/English.png\">"
+    document.getElementById("englishOrSpanish").innerHTML = "<img id=\"englishOrSpanishImg\" src=\"images/farmPlots/English.png\">"
     makeGroups();
     let charCode = "A".charCodeAt(0);
     let farm = document.getElementById("Farm");
@@ -571,7 +571,7 @@ function buildFarm(){
         let hoeDropDownDiv = document.createElement("div");
         hoeDisplayDiv.appendChild(hoeDropDownDiv);
         hoeDropDownDiv.id = "hoeDropDownDiv"; 
-        hoeDropDownDiv.innerHTML = "<img id=\"hoedropDownImg\" src=\"/images/farmPlots/dropDownArrow.png\">";
+        hoeDropDownDiv.innerHTML = "<img id=\"hoedropDownImg\" src=\"images/farmPlots/dropDownArrow.png\">";
         hoeDropDownDiv.onclick = function(){
             hoeSelectorDiv.style.display = "";
             calculateBoard();
