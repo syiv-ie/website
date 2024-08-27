@@ -569,8 +569,8 @@ class group {
                             }
                             if((structure[row][col]).localeCompare('b') == 0){
                                 if(plotList[this.plots[rowOffset + row*2][colOffset + col*2]].namae.includes(plotList[rPlot].namae)){
-                                    this.breedChanceList[rowOffset + row*2][colOffset + col*2][chosenFarmPlot]--;
-                                    this.breedChanceList[rRow][rCol][chosenFarmPlot]--;
+                                    this.breedChanceList[rowOffset + row*2][colOffset + col*2][rPlot]--;
+                                    this.breedChanceList[rRow][rCol][rPlot]--;
                                     
                                     //its gonna place a baby of itself so it should check and see if its ok
                                     if(this.canPlace(rPlot, chosenFarmPlotDirection, rowOffset + row*2, rCol)){
