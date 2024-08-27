@@ -180,17 +180,17 @@ let turnip = new plot(
 let potato = new plot(
     [['x']],  
     'Potato',
-    1,1,0,10,10);
+    1,1,0,11,11);
     potato.isSeedCapped = true;
 let onion = new plot(
     [['x']],  
     'Onion',
-    3,3,0,4,4);
+    3,3,0,6,6);
     onion.isSeedCapped = true;
 let pumpkin = new plot(
     [['x']],  
     'Pumpkin',
-    2,120,50,1,1);
+    2,100,50,1,1);
 let melon = new plot(
     [['x']],  
     'Melon',
