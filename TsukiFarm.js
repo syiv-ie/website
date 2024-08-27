@@ -199,13 +199,13 @@ let melon = new plot(
 let plotList = [        // I HATEEEE having IDs so much but idk how to move on from them for now...ugh
     clear,              //0
     sprinkler,          //1
-    laneSprinkler,      //2
     megagrow,           //3
     gigagrow,           //4
     goatFert,           //5
     bullFert,           //6
     elephantFert,       //7
     plantFlower,        //8
+    laneSprinkler,      //2
     fourLeafClover,     //9
     sixteenLeafClover,  //10
     sixtyfourLeafClover,//11
@@ -215,8 +215,8 @@ let plotList = [        // I HATEEEE having IDs so much but idk how to move on f
     gloamroot,          //15
     strawberry,         //16
     turnip,             //17
-    onion,              //18
     potato,             //19
+    onion,              //18
     pumpkin,            //20
     melon               //21
 ];
