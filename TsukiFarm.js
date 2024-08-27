@@ -455,7 +455,7 @@ function buildFarm(){
         let eraseFarmImg = document.createElement("img");
         eraseFarmImg.id = "eraseFarmImg";
         eraseFarmDiv.appendChild(eraseFarmImg);
-        eraseFarmImg.src = "/images/farmPlots/Remove.png";
+        eraseFarmImg.src = "images/farmPlots/Remove.png";
         eraseFarmImg.onclick = function(){
             undoRedoList[undoRedoPosition] = "";
             undoRedoList[undoRedoPosition] = printFarmstructure();
