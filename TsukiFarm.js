@@ -374,7 +374,7 @@ function buildFarm(){
                     let breedSpotImg = document.createElement("img");
                     breedSpotImg.id = "breedSpotImg";
                     breedSpotImgDiv.appendChild(breedSpotImg);
-                    breedSpotImg.src = "/images/farmPlots/alone.png";
+                    breedSpotImg.src = "images/farmPlots/alone.png";
                 let breedChanceImgDiv = document.createElement("div");
                 breedChanceImgDiv.id = "breedChanceImgDiv";
                 breedChanceImgDiv.className = "breedDisplayImgDiv";
@@ -382,7 +382,7 @@ function buildFarm(){
                     let breedChanceImg = document.createElement("img");
                     breedChanceImg.id = "breedChanceImg";
                     breedChanceImgDiv.appendChild(breedChanceImg);
-                    breedChanceImg.src = "/images/farmPlots/heart.png";
+                    breedChanceImg.src = "images/farmPlots/heart.png";
                 
                 let breedableCounter = 0;
                 for(let i = 0; i < plotList.length; i++){
@@ -390,7 +390,7 @@ function buildFarm(){
                         let c = document.createElement("div");
                         c.className = "breedDisplayImgDiv";
                         c.id = "bdid" + i;      //breed display img div
-                        c.innerHTML = "<img class=\"bdImg\" src=\"/images/farmPlots/" + plotList[i].namae + ".png\">";
+                        c.innerHTML = "<img class=\"bdImg\" src=\"images/farmPlots/" + plotList[i].namae + ".png\">";
                         c.style.top  = (3.6 + breedableCounter * 4.1) + "vw";
                         c.style.left = (.4) + "vw";
                         breedTableDiv.appendChild(c);
@@ -480,7 +480,7 @@ function buildFarm(){
             undoRedo.appendChild(undoBox);
                 let undoImg = document.createElement("img");
                 undoImg.id = "undoImg";
-                undoImg.src = "/images/farmPlots/undo.png";
+                undoImg.src = "images/farmPlots/undo.png";
                 undoBox.appendChild(undoImg);
                 undoBox.onclick = function(){
                     if(undoRedoPosition > 0){
@@ -497,7 +497,7 @@ function buildFarm(){
             undoRedo.appendChild(redoBox);
                 let redoImg = document.createElement("img");
                 redoImg.id = "redoImg";
-                redoImg.src = "/images/farmPlots/redo.png";
+                redoImg.src = "images/farmPlots/redo.png";
                 redoBox.appendChild(redoImg);
                 redoBox.onclick = function(){
                     if(canRedo){
@@ -523,7 +523,7 @@ function buildFarm(){
             saveLoad.appendChild(loadIconBox);
                 let loadIcon = document.createElement("img");
                 loadIcon.id = "loadIcon";
-                loadIcon.src = "/images/farmPlots/loadIcon.png";
+                loadIcon.src = "images/farmPlots/loadIcon.png";
                 loadIconBox.appendChild(loadIcon);
 
             let farmIconBox = document.createElement("div");
@@ -531,7 +531,7 @@ function buildFarm(){
             saveLoad.appendChild(farmIconBox);
                 let farmIcon = document.createElement("img");
                 farmIcon.id = "farmIcon";
-                farmIcon.src = "/images/farmPlots/farmIcon.png";
+                farmIcon.src = "images/farmPlots/farmIcon.png";
                 farmIconBox.appendChild(farmIcon);
 
             let importBox = document.createElement("div");
@@ -561,7 +561,7 @@ function buildFarm(){
             }
                 let importButton = document.createElement("img");
                 importButton.id = "importButton";
-                importButton.src = "/images/farmPlots/import.png";
+                importButton.src = "images/farmPlots/import.png";
                 importButtonBox.appendChild(importButton);
 
     ///////////////////////////hoe stufs///////////////////////////////////
@@ -579,7 +579,7 @@ function buildFarm(){
         let hoeTool = document.createElement("div");
         hoeTool.id = "hoeTool";
         hoeDisplayDiv.appendChild(hoeTool);
-        hoeTool.innerHTML = "<img class=\"hoeToolImg\" src=\"/images/farmPlots/Hoe0.png\">";
+        hoeTool.innerHTML = "<img class=\"hoeToolImg\" src=\"images/farmPlots/Hoe0.png\">";
         hoeTool.onclick = function(){
             hoeSelectorDiv.style.display = "";
             calculateBoard();
@@ -592,14 +592,14 @@ function buildFarm(){
                 let c = document.createElement("img");
                 c.className = "hoeSelectorImg";
                 c.id = "hoeSelector" + i;
-                c.src = "/images/farmPlots/Hoe" + i + ".png";
+                c.src = "images/farmPlots/Hoe" + i + ".png";
                 c.style.position = "relative";
                 c.style.height = "5.3vw";
                 c.style.left = ".5vw";
                 c.onclick = function(){
                     chosenHoe = i;
                     hoeSelectorDiv.style.display = "none";
-                    hoeTool.innerHTML = "<img class=\"hoeToolImg\" src=\"/images/farmPlots/Hoe" + i + ".png\">";
+                    hoeTool.innerHTML = "<img class=\"hoeToolImg\" src=\"images/farmPlots/Hoe" + i + ".png\">";
                     calculateBoard();
                 }
                 hoeSelectorDiv.appendChild(c);
@@ -656,7 +656,7 @@ function buildFarm(){
             let sickleDropDownDiv = document.createElement("div");
             sickleDisplay.appendChild(sickleDropDownDiv);
             sickleDropDownDiv.id = "sickleDropDownDiv"; 
-            sickleDropDownDiv.innerHTML = "<img id=\"sickledropDownImg\" src=\"/images/farmPlots/dropDownArrow.png\">";
+            sickleDropDownDiv.innerHTML = "<img id=\"sickledropDownImg\" src=\"images/farmPlots/dropDownArrow.png\">";
             sickleDropDownDiv.onclick = function(){
                 sickleSelectorDiv.style.display = "";
             } 
@@ -669,7 +669,7 @@ function buildFarm(){
             let sickleYieldDiv = document.createElement("div");
             sickleDisplay.appendChild(sickleYieldDiv);
             sickleYieldDiv.id = "sickleYieldDiv"; 
-            sickleYieldDiv.innerHTML = "&nbsp+&nbsp" + sickleYield + "&nbsp" + "<img id=\"sickleYieldImg\" src=\"/images/farmPlots/yield.png\">";
+            sickleYieldDiv.innerHTML = "&nbsp+&nbsp" + sickleYield + "&nbsp" + "<img id=\"sickleYieldImg\" src=\"images/farmPlots/yield.png\">";
             
             let sickleProfitLabel = document.createElement("div");
             sickleDisplay.appendChild(sickleProfitLabel);
@@ -687,20 +687,20 @@ function buildFarm(){
                     let c = document.createElement("img");
                     c.className = "sickleSelectorImg";
                     c.id = "sickleSelector" + i;
-                    c.src = "/images/farmPlots/Sickle" + i + ".png";
+                    c.src = "images/farmPlots/Sickle" + i + ".png";
                     c.style.position = "relative";
                     c.style.width = "5.3vw";
                     c.style.left = ".5vw";
                     c.onclick = function(){
                         chosenSickle = i;
                         sickleSelectorDiv.style.display = "none";
-                        sickleImgDiv.innerHTML = "<img id=\"sickleImg\" src=\"/images/farmPlots/Sickle" + i + ".png\">";
+                        sickleImgDiv.innerHTML = "<img id=\"sickleImg\" src=\"images/farmPlots/Sickle" + i + ".png\">";
                         calculateBoard();
                     }
                     sickleSelectorDiv.appendChild(c);
                 }
     
-    document.getElementById("sickleImgDiv").innerHTML = "<img id=\"sickleImg\" src=\"/images/farmPlots/Sickle1.png\">";
+    document.getElementById("sickleImgDiv").innerHTML = "<img id=\"sickleImg\" src=\"images/farmPlots/Sickle1.png\">";
 
     //////////////////////////////reveal stuffs///////////////////////////////////
     let revealDisplayDiv = document.createElement("div");
@@ -713,7 +713,7 @@ function buildFarm(){
             revealWatered.id = "revealWatered";
             revealWatered.className = "revealImg";
             revealDisplay.appendChild(revealWatered);
-            revealWatered.src = "/images/farmPlots/watered.png";
+            revealWatered.src = "images/farmPlots/watered.png";
             revealWatered.style.filter = "invert(0%) sepia(0%) saturate(50%) hue-rotate(0deg) brightness(0%) contrast(100%)";
             revealWatered.onclick = function(){
                 if(revealWateredSelected == true){
@@ -730,7 +730,7 @@ function buildFarm(){
             revealFert.id = "revealFert";
             revealFert.className = "revealImg";
             revealDisplay.appendChild(revealFert);
-            revealFert.src = "/images/farmPlots/fert.png";
+            revealFert.src = "images/farmPlots/fert.png";
             revealFert.style.filter = "invert(0%) sepia(0%) saturate(50%) hue-rotate(0deg) brightness(0%) contrast(100%)";
             revealFert.onclick = function(){
                 if(revealFertSelected == true){
@@ -747,7 +747,7 @@ function buildFarm(){
             revealUV.id = "revealUV";
             revealUV.className = "revealImg";
             revealDisplay.appendChild(revealUV);
-            revealUV.src = "/images/farmPlots/uv.png";
+            revealUV.src = "images/farmPlots/uv.png";
             revealUV.style.filter = "invert(0%) sepia(0%) saturate(50%) hue-rotate(0deg) brightness(0%) contrast(100%)";
             revealUV.onclick = function(){
                 if(revealUVSelected == true){
@@ -773,11 +773,11 @@ function buildFarm(){
                 let rotationSelectorUp = document.createElement("img");
                 rotationSelectorUp.id = "rotationSelectorUp";
                 rotationSelectorUp.className = "rotationSelectorImg";
-                rotationSelectorUp.src = "/images/farmPlots/Rotate.png";
+                rotationSelectorUp.src = "images/farmPlots/Rotate.png";
                 rotationSelector.appendChild(rotationSelectorUp);
                 let rotationSelectorOverlay = document.createElement("img");
                 rotationSelectorOverlay.id = "rotationSelectorOverlay";
-                rotationSelectorOverlay.src = "/images/farmPlots/Arrow.png";
+                rotationSelectorOverlay.src = "images/farmPlots/Arrow.png";
                 rotationSelectorOverlay.style.rotate = "0deg"
                 rotationSelector.appendChild(rotationSelectorOverlay);
                 rotationSelector.onclick = function(){//GOTTA REWRITE THIS
@@ -798,7 +798,7 @@ function buildFarm(){
             erasePlotDiv.appendChild(erasePlot);
                 let erasePlotImg = document.createElement("img");
                 erasePlotImg.id = "erasePlotImg";
-                erasePlotImg.src = "/images/farmPlots/circleX.png";
+                erasePlotImg.src = "images/farmPlots/circleX.png";
                 erasePlot.appendChild(erasePlotImg);
             erasePlot.onclick = function(){
                 chosenFarmSpot = 0;
@@ -819,9 +819,9 @@ function buildFarm(){
             c.className = "counterDisplayImgDiv";
             c.id = "cdid" + i;      //counter display img div
             if(i==0){
-                c.innerHTML = "<img class=\"cdImg\" src=\"/images/farmPlots/Crops.png\">";
+                c.innerHTML = "<img class=\"cdImg\" src=\"images/farmPlots/Crops.png\">";
             }else{
-                c.innerHTML = "<img class=\"cdImg\" src=\"/images/farmPlots/" + plotList[i].namae + ".png\">";
+                c.innerHTML = "<img class=\"cdImg\" src=\"images/farmPlots/" + plotList[i].namae + ".png\">";
                 c.onclick = function(){
                     chosenFarmSpot = i;
                     if(chosenFarmSpot != previousPlot){
@@ -933,7 +933,7 @@ function buildFarm(){
             toggleDisplay.appendChild(fertToggle);
                 let fertToggleImg = document.createElement("img");
                 fertToggleImg.id = "fertToggleImg";
-                fertToggleImg.src = "/images/farmPlots/fert.png";
+                fertToggleImg.src = "images/farmPlots/fert.png";
                 fertToggle.appendChild(fertToggleImg);
                 fertToggleImg.onclick = function(){
                     fertToggleX.style.display = ""
@@ -943,7 +943,7 @@ function buildFarm(){
                 let fertToggleX = document.createElement("img");
                 fertToggleX.id = "fertToggleX";
                 fertToggleX.style.display = "";
-                fertToggleX.src = "/images/farmPlots/orbAdd.png";
+                fertToggleX.src = "images/farmPlots/orbAdd.png";
                 fertToggle.appendChild(fertToggleX);
                 fertToggleX.onclick = function(){
                     fertToggleX.style.display = "none"
@@ -956,7 +956,7 @@ function buildFarm(){
             toggleDisplay.appendChild(strangeToggle);
                 let strangeToggleImg = document.createElement("img");
                 strangeToggleImg.id = "strangeToggleImg";
-                strangeToggleImg.src = "/images/farmPlots/Gold4LeafClover.png";
+                strangeToggleImg.src = "images/farmPlots/Gold4LeafClover.png";
                 strangeToggle.appendChild(strangeToggleImg);
                 strangeToggleImg.onclick = function(){
                     strangeToggleX.style.display = ""
@@ -966,7 +966,7 @@ function buildFarm(){
                 let strangeToggleX = document.createElement("img");
                 strangeToggleX.id = "strangeToggleX";
                 strangeToggleX.style.display = "";
-                strangeToggleX.src = "/images/farmPlots/orbAdd.png";
+                strangeToggleX.src = "images/farmPlots/orbAdd.png";
                 strangeToggle.appendChild(strangeToggleX);
                 strangeToggleX.onclick = function(){
                     strangeToggleX.style.display = "none"
@@ -978,13 +978,13 @@ function buildFarm(){
     
     document.getElementById("englishOrSpanish").onclick = function(){
         if(englishSelected){
-            document.getElementById("englishOrSpanish").innerHTML = "<img id=\"englishOrSpanishImg\" src=\"/images/farmPlots/Espanol.png\">"
+            document.getElementById("englishOrSpanish").innerHTML = "<img id=\"englishOrSpanishImg\" src=\"images/farmPlots/Espanol.png\">"
             document.getElementById("instructions").innerHTML = 
                 "Instrucciones:\<br\>" +
                 "--N/A :(";
             englishSelected = false;
         }else{
-            document.getElementById("englishOrSpanish").innerHTML = "<img id=\"englishOrSpanishImg\" src=\"/images/farmPlots/English.png\">"
+            document.getElementById("englishOrSpanish").innerHTML = "<img id=\"englishOrSpanishImg\" src=\"images/farmPlots/English.png\">"
             document.getElementById("instructions").innerHTML = 
                 "Instructions:\<br\>" +
                 "--N/A :(";
@@ -1127,7 +1127,7 @@ function orbUpdate(){
         totalOrbPrice += orbPrices[l];
     }
 
-    sickleOrbCount.innerHTML = orbs + "&nbsp<img id=\"sickleOrbImg\" src=\"/images/farmPlots/orbIcon.png\">";
+    sickleOrbCount.innerHTML = orbs + "&nbsp<img id=\"sickleOrbImg\" src=\"images/farmPlots/orbIcon.png\">";
 
     document.getElementById("orbPricing").innerHTML = "$" + numberWithCommas(totalOrbPrice) + "<br>----------------<br>";
     for(let l=0; l<orbs; l++){// i want to put the total at the top.. so idk ggs gotta loop again
@@ -1163,7 +1163,7 @@ function calculateBoard(){
     }else{
         sickleYield = chosenSickle;
     }
-    document.getElementById("sickleYieldDiv").innerHTML = "&nbsp+&nbsp" + sickleYield + "&nbsp" + "<img id=\"sickleYieldImg\" src=\"/images/farmPlots/yield.png\">";
+    document.getElementById("sickleYieldDiv").innerHTML = "&nbsp+&nbsp" + sickleYield + "&nbsp" + "<img id=\"sickleYieldImg\" src=\"images/farmPlots/yield.png\">";
 
     for(let l=0; l<plotList.length; l++){
         plotCount[l] = 0;
@@ -1286,25 +1286,25 @@ function calculateBoard(){
                         if(parents[p] == 0){
                             document.getElementById("plot" + String.fromCharCode("A".charCodeAt(0) + l) + i + "," + j).innerHTML =
                             document.getElementById("plot" + String.fromCharCode("A".charCodeAt(0) + l) + i + "," + j).innerHTML.replace(
-                                "<img class=\"plotBreed" + (p+1) + "\" style=\"filter:invert(77%) sepia(10%) saturate(1308%) hue-rotate(305deg) brightness(416%) contrast(102%)\" src=\"/images/farmPlots/heart.png\">",
-                                "<img class=\"plotBreed" + (p+1) + "\" style=\"filter:invert(77%) sepia(10%) saturate(1308%) hue-rotate(305deg) brightness(0%) contrast(102%)\" src=\"/images/farmPlots/heart.png\">"
+                                "<img class=\"plotBreed" + (p+1) + "\" style=\"filter:invert(77%) sepia(10%) saturate(1308%) hue-rotate(305deg) brightness(416%) contrast(102%)\" src=\"images/farmPlots/heart.png\">",
+                                "<img class=\"plotBreed" + (p+1) + "\" style=\"filter:invert(77%) sepia(10%) saturate(1308%) hue-rotate(305deg) brightness(0%) contrast(102%)\" src=\"images/farmPlots/heart.png\">"
                                 );
                         }else{
                             document.getElementById("plot" + String.fromCharCode("A".charCodeAt(0) + l) + i + "," + j).innerHTML =
                             document.getElementById("plot" + String.fromCharCode("A".charCodeAt(0) + l) + i + "," + j).innerHTML.replace(
-                                "<img class=\"plotBreed" + (p+1) + "\" style=\"filter:invert(77%) sepia(10%) saturate(1308%) hue-rotate(305deg) brightness(0%) contrast(102%)\" src=\"/images/farmPlots/heart.png\">",
-                                "<img class=\"plotBreed" + (p+1) + "\" style=\"filter:invert(77%) sepia(10%) saturate(1308%) hue-rotate(305deg) brightness(416%) contrast(102%)\" src=\"/images/farmPlots/heart.png\">"
+                                "<img class=\"plotBreed" + (p+1) + "\" style=\"filter:invert(77%) sepia(10%) saturate(1308%) hue-rotate(305deg) brightness(0%) contrast(102%)\" src=\"images/farmPlots/heart.png\">",
+                                "<img class=\"plotBreed" + (p+1) + "\" style=\"filter:invert(77%) sepia(10%) saturate(1308%) hue-rotate(305deg) brightness(416%) contrast(102%)\" src=\"images/farmPlots/heart.png\">"
                                 );
                         }
                     }
                 }
                 if(groups[l].breedTotal[i][j] > 0 && groups[l].canPlace(0, 0, i, j) && !groups[l].isOccupied(i, j)){
                     document.getElementById("plot" + String.fromCharCode("A".charCodeAt(0) + l) + i + "," + j).innerHTML = 
-                        "<img class=\"breedDot\" src=\"/images/farmPlots/alone.png\">";
+                        "<img class=\"breedDot\" src=\"images/farmPlots/alone.png\">";
                 }else if(groups[l].breedTotal[i][j] == 0 && groups[l].canPlace(0, 0, i, j) && !groups[l].isOccupied(i, j)){
                     document.getElementById("plot" + String.fromCharCode("A".charCodeAt(0) + l) + i + "," + j).innerHTML =
                     document.getElementById("plot" + String.fromCharCode("A".charCodeAt(0) + l) + i + "," + j).innerHTML.replace(
-                        "<img class=\"breedDot\" src=\"/images/farmPlots/alone.png\">",
+                        "<img class=\"breedDot\" src=\"images/farmPlots/alone.png\">",
                         ""
                         );
                 }
