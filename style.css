@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
 body{
-    background-image: url(/images/Backgrounds/grass.png);
+    background-image: url(images/Backgrounds/grass.png);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
