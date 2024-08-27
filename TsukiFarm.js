@@ -175,7 +175,7 @@ let strawberry = new plot(
 let turnip = new plot(
     [['x']],  
     'Turnip',
-    2,1,0,10,30);
+    2,1,0,12,32);
     turnip.isSeedCapped = true;
 let potato = new plot(
     [['x']],  
