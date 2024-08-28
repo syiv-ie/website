@@ -1445,10 +1445,10 @@ function calculateBoard(){
     document.getElementById("cdnd15").innerHTML = plotCount[15];
     document.getElementById("cdnd16").innerHTML = plotCount[16];
     document.getElementById("cdnd17").innerHTML = plotCount[17];
-    document.getElementById("cdnd18").innerHTML = plotCount[17];
-    document.getElementById("cdnd19").innerHTML = lowestBabies[10];
-    document.getElementById("cdnd20").innerHTML = highestBabies[10];
-    document.getElementById("cdnd21").innerHTML = avgBabies[10];
+    document.getElementById("cdnd18").innerHTML = plotCount[18];
+    document.getElementById("cdnd19").innerHTML = plotCount[19];
+    document.getElementById("cdnd20").innerHTML = plotCount[20];
+    document.getElementById("cdnd21").innerHTML = plotCount[21];
 
     //document.getElementById("breedProfitTable10,2").innerHTML = averageLuckChange;
     //document.getElementById("breedProfitTable9,2").innerHTML = averageLuck;
