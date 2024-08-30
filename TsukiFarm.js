@@ -937,7 +937,7 @@ function buildFarm(){
                 fertToggle.appendChild(fertToggleImg);
                 fertToggleImg.onclick = function(){
                     fertToggleX.style.display = ""
-                    fertSelected = true;
+                    fertSelected = false;
                     calculateBoard();
                 }
                 let fertToggleX = document.createElement("img");
