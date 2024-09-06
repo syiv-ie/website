@@ -61,7 +61,7 @@ const data = {//width/height x/y are swapped in here.. oops? idk it doesnt rlly 
         },
         {
             left: "70.5vw",
-            top: "-78vw",
+            top: "-84vw",
             width:14,
             height:6,
             heightOffset:1,
@@ -86,7 +86,7 @@ const data = {//width/height x/y are swapped in here.. oops? idk it doesnt rlly 
         },
         {
             left: "83.5vw",
-            top: "-106vw",
+            top: "-112vw",
             width:5,
             height:3,
             heightOffset:1,
@@ -95,7 +95,7 @@ const data = {//width/height x/y are swapped in here.. oops? idk it doesnt rlly 
         },
         {
             left: "81.5vw",
-            top: "-98vw",
+            top: "-106vw",
             width:6,
             height:4,
             heightOffset:1,
