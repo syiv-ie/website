@@ -201,11 +201,11 @@ let onion = new plot(
 let pumpkin = new plot(
     [['x']],  
     'Pumpkin',
-    2,100,50,1,1);
+    2,100,60,1,1);
 let melon = new plot(
     [['x']],  
     'Melon',
-    6,200,50,1,1);
+    6,200,60,1,1);
 
 let plotList = [        // I HATEEEE having IDs so much but idk how to move on from them for now...ugh
     clear,              //0
@@ -1786,6 +1786,7 @@ function calculateBoard(){
     let sickleHourlyProfit = 0;
     let totalProfit = 0;
     let fullHarvest = 0
+    let fullConsumableHarvest = 0
 
 
     let cloverVal = 0;
@@ -2022,7 +2023,11 @@ function calculateBoard(){
                     minProfit = Math.round(yieldBoost*minProfit);
                     maxProfit = Math.round(yieldBoost*maxProfit);
 
-                    fullHarvest += strawberryLoops * ((minProfit + maxProfit)/2) * (plotList[groups[l].plots[i][j]].value);
+                    if(plotList[Math.max(0,groups[l].plots[i][j])].isConsumable){
+                        fullConsumableHarvest += strawberryLoops * ((minProfit + maxProfit)/2) * ((plotList[groups[l].plots[i][j]].value - plotList[groups[l].plots[i][j]].price));
+                    }else{
+                        fullHarvest += strawberryLoops * ((minProfit + maxProfit)/2) * (plotList[groups[l].plots[i][j]].value);
+                    }
 
                     sickleBoost *= 
                         ((plotList[groups[l].plots[i][j]].value - plotList[groups[l].plots[i][j]].price)); 
@@ -2063,6 +2068,7 @@ function calculateBoard(){
 
     totalProfit = baseProfit;
     if(consumableSelected){
+        fullHarvest += fullConsumableHarvest
         totalProfit += consumableProfit;
         strangeProfit += (consumableProfit * ((1 - cloverStrangeEffect) + (5 * cloverStrangeEffect))) - consumableProfit ;
         strangeProfit += cloverConsumableTimeCost;
