@@ -201,7 +201,7 @@ let onion = new plot(
 let pumpkin = new plot(
     [['x']],  
     'Pumpkin',
-    2,100,60,1,1);
+    2,100,50,1,1);
 let melon = new plot(
     [['x']],  
     'Melon',
