@@ -2,8 +2,10 @@
 //disord @syiv 
 //top ten "id rather do it in js" codes
 
-let currentWebsiteVersion = "2.1.0";
+let currentWebsiteVersion = "2.2";
 let startingFarm = "`/2.1.0/gg52/-ad2f-cobodof-eobbdof-gobodof-id0bd0dbf-kd1bodof/-bbfd2jbld2nd2pbrd2td2vlx-dqdqfd3hqjd2lqnqpd2rqtqvlx-fbbodofohd2jolonoporotovbx-he1bqdqfbhqjblqnqpbrqtqve3x-jodofohd1jolonoporotov-lbbqdqfd0hqjd1lqnqpbrqtqvbx-ne1bodofbhd1jblonoporotove3x-pqdqfd2hqjd1lqnqpbrqtqv-rbbodofohd1jolonoporotovbx-te1bqdqfbhqjblqnqpd0rqtqvd3x-vodofohd1jolonopbre3t-xbbqdqfbhqjblqnqpd3r/-bd2bd2d-dobod-fobbd-hobod///-bobodofoh-dobbdbfoh-fobodofoh-hd0bd0dd0fd0h/`"
+startingFarm = "";
+startingFarm = window.location.search
 
 let tutorialFarm = "`/2.1.0/ag10//-bqlmnbpd3r-dqlfn-hll-jlj/////`"
 let pausedFarm = ""
@@ -16,6 +18,8 @@ let chosenFarmSpotDirection = 0;
 let orbs = 0;
 let chosenHoe = 0;
 let chosenSickle = 0;
+let chosenMoon = 0;
+let chosenMoonYield = 0;
 let sickleYield = chosenSickle;
 
 let revealWateredSelected = false;
@@ -174,7 +178,7 @@ let grape = new plot(
 let gloamroot = new plot(
     [['x']],  
     'Gloamroot',
-    2,5,0,5,10);
+    2,5,0,5,5);//can be ten max with moon..
     gloamroot.isSeedCapped = true;
 let strawberry = new plot(
     [['s','s','s'],
@@ -201,7 +205,7 @@ let onion = new plot(
 let pumpkin = new plot(
     [['x']],  
     'Pumpkin',
-    2,100,60,1,1);
+    2,100,50,1,1);
 let melon = new plot(
     [['x']],  
     'Melon',
@@ -955,6 +959,7 @@ function buildFarm(){
             for(let i=0; i<toggleCount; i++){
                 let c = document.createElement("div");
                 c.className = "profitToggle";
+                c.style.backgroundColor = "rgba(30, 30, 30, 0.764)";
                 c.id = "profitToggle" + i;
                 c.style.width = "8vw";
                 c.style.top  = (-21.25+ i*.5) + "vw";
@@ -1055,6 +1060,43 @@ function buildFarm(){
                 fullHarvestEqual.className = "profitText"
                 fullHarvestDisplay.appendChild(fullHarvestEqual);
                 fullHarvestEqual.innerHTML = "="
+
+    //////////////////////////////moon stuffs///////////////////////////////////
+    let moonDiv = document.createElement("div");
+    moonDiv.id = "moonDiv";
+    uiDiv.appendChild(moonDiv);
+        let moonBox = document.createElement("div");
+        moonBox.id = "moonBox";
+        moonDiv.appendChild(moonBox);
+        moonBox.innerHTML = "<img class=\"moonSelectorImg\" src=\"images/farmPlots/moon0.png\">";
+        moonBox.onclick = function(){
+            moonSelectorDiv.style.display = "";
+            calculateBoard();
+        } 
+        let moonSelectorDiv = document.createElement("div");
+        moonDiv.appendChild(moonSelectorDiv);
+        moonSelectorDiv.id = "moonSelectorDiv";  
+        moonSelectorDiv.style.display = "none";
+            for(let i=0; i<=8; i++){
+                let c = document.createElement("img");
+                c.className = "moonSelectorImg";
+                c.id = "moonSelector" + i;
+                c.src = "images/farmPlots/moon" + i + ".png";
+                c.onclick = function(){
+                    chosenMoon = i;
+                    if(i <= 3){
+                        chosenMoonYield = i;
+                    }else if(i == 4){
+                        chosenMoonYield = 5;
+                    }else{
+                        chosenMoonYield = 8 - i;
+                    }
+                    moonSelectorDiv.style.display = "none";
+                    moonBox.innerHTML = "<img class=\"moonSelectorImg\" src=\"images/farmPlots/moon" + i + ".png\">";
+                    calculateBoard();
+                }
+                moonSelectorDiv.appendChild(c);
+            }
 
     //////////////////////////////help stuffs///////////////////////////////////
     let helpDiv = document.createElement("div");
@@ -1483,9 +1525,9 @@ function buildFarm(){
                             let hourlyProfitHelp4 = document.createElement("div");
                             hourlyProfitHelp4.className = "helpSubTextRight";
                             hourlyProfitHelp4.id = "breedCountHelp";
-                            hourlyProfitHelp4.innerHTML = "Tap the checkboxes to remove/add a value to the calculation"
+                            hourlyProfitHelp4.innerHTML = "Tap the checkboxes to remove/add a value to the calculation\nAlso! you can choose the moon phase"
                             hourlyProfitHelp4.style.left = "-25vw"
-                            hourlyProfitHelp4.style.top = "36.2vw"
+                            hourlyProfitHelp4.style.top = "35.2vw"
                             hourlyProfitHelp4.style.width = "37.5vw"
                             helpOverlayDiv.appendChild(hourlyProfitHelp4);
                             let hourlyProfitHelp5 = document.createElement("div");
@@ -1493,7 +1535,7 @@ function buildFarm(){
                             hourlyProfitHelp5.id = "breedCountHelp";
                             hourlyProfitHelp5.innerHTML = "The first Sum is for [HOURLY] and the second is for a [FULL HARVEST]"
                             hourlyProfitHelp5.style.left = "-25vw"
-                            hourlyProfitHelp5.style.top = "41.1vw"
+                            hourlyProfitHelp5.style.top = "42.1vw"
                             hourlyProfitHelp5.style.width = "37.5vw"
                             helpOverlayDiv.appendChild(hourlyProfitHelp5);
 
@@ -1608,7 +1650,7 @@ function buildFarm(){
 
     /////////////////////////////////////////////////////////////////
     
-    readFarmstructure("");
+    readFarmstructure(startingFarm);
     calculateBoard();
 }
 
@@ -1983,6 +2025,11 @@ function calculateBoard(){
                         maxProfit = plotList[groups[l].plots[i][j]].minYield + groups[l].planted[i][j];
                     }
 
+                    if((plotList[groups[l].plots[i][j]].namae).localeCompare('Gloamroot') == 0){
+                        minProfit = plotList[groups[l].plots[i][j]].minYield + chosenMoonYield;
+                        maxProfit = plotList[groups[l].plots[i][j]].minYield + chosenMoonYield;
+                    }
+
                     if(groups[l].uv[i][j] > 0){
                         if(plotList[groups[l].plots[i][j]].isConsumable){
                             timeBoost /= 1.25;
@@ -2091,12 +2138,22 @@ function calculateBoard(){
 
     document.getElementById("baseProfit").innerHTML = (Math.round(100 * baseProfit) / 100)
     document.getElementById("consumableProfit").innerHTML = (Math.round(100 * consumableProfit) / 100)
+
+    if(fertCost > 0){//its greater than 0 here because fert cost is positive in calculations but negative in display.. 
+        document.getElementById("profitToggle1").style.backgroundColor = "rgba(164, 78, 78, 0.764)"
+    }else{
+        document.getElementById("profitToggle1").style.backgroundColor = "rgba(30, 30, 30, 0.764)"
+    }
     document.getElementById("fertCost").innerHTML = (Math.round(100 * fertCost) / 100)
 
     if(strangeProfit < 0){
         document.getElementById("plusMinus2").innerHTML = "-"
+        document.getElementById("plusMinus2").style.left = (-10.95) + "vw";
+        document.getElementById("profitToggle2").style.backgroundColor = "rgba(164, 78, 78, 0.764)"
     }else{
         document.getElementById("plusMinus2").innerHTML = "+"
+        document.getElementById("plusMinus2").style.left = (-10.8) + "vw";
+        document.getElementById("profitToggle2").style.backgroundColor = "rgba(30, 30, 30, 0.764)"
     }
     document.getElementById("strangeProfit").innerHTML = Math.abs(Math.round(100 * strangeProfit) / 100)
 
@@ -2182,7 +2239,12 @@ function calculateBoard(){
 /////////////////////////////////////////////////////////////////////////////////////
 function printFarmstructure(){
     let rowPopulated = false;
-    let farmStructure = "/" + currentWebsiteVersion + "/" + String.fromCharCode("a".charCodeAt(0) + chosenHoe) + String.fromCharCode("a".charCodeAt(0) + chosenSickle) + orbs + "/" 
+    let farmStructure = "/" + currentWebsiteVersion + "/" + 
+    String.fromCharCode("a".charCodeAt(0) + chosenHoe) + 
+    String.fromCharCode("a".charCodeAt(0) + chosenSickle) + 
+    String.fromCharCode("a".charCodeAt(0) + chosenMoon) + 
+    orbs + 
+    "/" 
     for(let l=0; l<6; l++){
         for(let i=0; i<groups[l].height; i++){
             for(let j=0; j<groups[l].width; j++){
@@ -2225,6 +2287,8 @@ function readFarmstructure(farmCode0){//haha i hate error handling haha
         read1(farmImport);
     }else if((farmImport[1]).localeCompare("2.1.0") == 0){
         read2(farmImport);
+    }else if((farmImport[1]).localeCompare("2.2") == 0){
+        read3(farmImport);
     }else{
         return;
     }
@@ -2306,6 +2370,54 @@ function read2(farmImport){
 
     document.getElementById("hoeTool").innerHTML = "<img class=\"hoeToolImg\" src=\"images/farmPlots/Hoe" + chosenHoe + ".png\">";
     document.getElementById("sickleImgDiv").innerHTML = "<img id=\"sickleImg\" src=\"images/farmPlots/Sickle" + chosenSickle + ".png\">";
+
+    for(let l=0; l<6; l++){
+        let g = farmImport[l+3];
+
+        if(g.localeCompare("") != 0){
+            const plotImport = g.split("-");
+
+            for(let k=1; k<plotImport.length; k++){//start at 1 because split will count before the first - as well
+                const plotData = plotImport[k].split("");
+                let x = 1;
+                let i = (plotData[0]).charCodeAt(0) - 97;
+
+                do{
+                    if((plotList[(plotData[x]).charCodeAt(0) - 97]).isDirectional){
+                        groups[l].updatePlot(
+                            ((plotData[x]).charCodeAt(0) - 97), 
+                            parseInt(plotData[x+1]), 
+                            i, 
+                            ((plotData[x+2]).charCodeAt(0) - 97), 
+                            String.fromCharCode("A".charCodeAt(0) + l));
+                        x += 3;
+                    }else{
+                        groups[l].updatePlot(
+                            ((plotData[x]).charCodeAt(0) - 97), 0, 
+                            i, 
+                            ((plotData[x+1]).charCodeAt(0) - 97),
+                            String.fromCharCode("A".charCodeAt(0) + l));
+                        x += 2;
+                    }
+                }while(x<plotData.length);
+            }
+        }
+    }
+}
+function read3(farmImport){
+    for(let l=0; l<6; l++){
+        groups[l].clearfarm(String.fromCharCode("A".charCodeAt(0) + l));
+    }
+
+    const tools = farmImport[2].split("");
+    chosenHoe = ((tools[0]).charCodeAt(0) - 97)
+    chosenSickle = ((tools[1]).charCodeAt(0) - 97)
+    chosenMoon = ((tools[2]).charCodeAt(0) - 97)
+    document.getElementById("moonBox").innerHTML = "<img class=\"moonSelectorImg\" src=\"images/farmPlots/moon" + chosenMoon + ".png\">";
+    document.getElementById("hoeTool").innerHTML = "<img class=\"hoeToolImg\" src=\"images/farmPlots/Hoe" + chosenHoe + ".png\">";
+    document.getElementById("sickleImgDiv").innerHTML = "<img id=\"sickleImg\" src=\"images/farmPlots/Sickle" + chosenSickle + ".png\">";
+
+    orbs = parseInt(farmImport[2].slice(3, farmImport[2].length))
 
     for(let l=0; l<6; l++){
         let g = farmImport[l+3];
