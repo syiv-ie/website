@@ -89,11 +89,11 @@ let sprinkler = new plot(
     'Sprinkler',    
     0,0,0,0,0);
 let laneSprinkler = new plot(
-    [['w','z','w'],
-     ['w','x','w'],
-     ['w','x','w'],
-     ['w','x','w'],
-     ['w','z','w']],  
+    [['z','w','z','w','z'],
+     ['w','w','x','w','w'],
+     ['w','w','x','w','w'],
+     ['w','w','x','w','w'],
+     ['z','w','z','w','z']],  
     'LaneSprinkler',
     0,0,0,0,0);
     laneSprinkler.isDirectional = true;
