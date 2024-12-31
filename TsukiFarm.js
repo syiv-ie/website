@@ -2110,7 +2110,7 @@ function calculateBoard(){
     }
 
     strangeProfit = ((baseProfit * ((1 - cloverStrangeEffect) + (5 * cloverStrangeEffect))) - baseProfit) + cloverTimeCost;
-    fertCost = (((plotCount[5] * 1) + (plotCount[6] * 3 / 4) + (plotCount[7] * 9 / 9)) * 500 / 24);
+    fertCost = (((plotCount[5] * 1) + (plotCount[6] * 3 / 4) + (plotCount[7] * 9 / 9)) * 250 / 24);
     sickleHourlyProfit = sickleProfit/6
 
     totalProfit = baseProfit;
