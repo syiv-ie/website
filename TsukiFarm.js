@@ -2189,7 +2189,7 @@ function calculateBoard(){
 
     let sov = 0;//18
     let soc = 0;
-    soc = cloverStrangeEffect * plotCount[18];
+    soc =1 - Math.pow((1-cloverStrangeEffect), plotCount[18]);
     sov = (plotList[18].minYield + plotCount[8]) * plotList[18].value * 5;
     document.getElementById("1").innerHTML = "Chance of 1 S.Onion: " + Math.round(100000 * soc) / 1000 + "% Strange Onion Value: " + sov;
     
