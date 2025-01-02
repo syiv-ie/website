@@ -2187,6 +2187,12 @@ function calculateBoard(){
     document.getElementById("cdnd20").innerHTML = plotCount[20];
     document.getElementById("cdnd21").innerHTML = plotCount[21];
 
+    let sov = 0;//18
+    let soc = 0;
+    soc = Math.pow(cloverStrangeEffect, plotCount[18]);
+    sov = (plotList[18].minYield + plotCount[8]) * plotList[18].value * 5;
+    document.getElementById("1").innerHTML = "Chance of 1 S.Onion: " + Math.round(100000 * soc) / 1000 + "% Strange Onion Value: " + sov;
+    
     //document.getElementById("breedProfitTable10,2").innerHTML = averageLuckChange;
     //document.getElementById("breedProfitTable9,2").innerHTML = averageLuck;
 
