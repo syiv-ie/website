@@ -15,8 +15,7 @@ const data = {//width/height x/y are swapped in here.. oops? idk it doesnt rlly 
                 {x:0,y:4},
                 {x:1,y:0},
                 {x:1,y:1},
-                {x:1,y:2},
-                {x:2,y:0}
+                {x:1,y:2}
             ]
         },
         {
