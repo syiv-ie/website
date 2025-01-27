@@ -617,7 +617,7 @@ a:hover{
         width: 0vw;
         height: 0vw;
         left: .7vw;
-        top: 60.5vw;
+        top: 59.7vw;
         white-space: 0vw;
     }
         #saveLoad{
@@ -627,7 +627,7 @@ a:hover{
             border-radius: .4vw; 
             border-width: 0px; 
             width: 15.5vw;
-            height: 13vw;
+            height: 15.5vw;
             padding: 0vw;
             font-size: 2vw;
         }
@@ -657,7 +657,7 @@ a:hover{
                 border-radius: .4vw; 
                 padding: 0vw;
                 width: 14.5vw;
-                height: 4vw;
+                height: 2.5vw;
                 left: .5vw;
                 top: -3.5vw;
                 white-space: 0vw;
@@ -672,7 +672,7 @@ a:hover{
                 width: 3vw;
                 height: 3vw;
                 left: 6vw;
-                top: -11vw;
+                top: -9.5vw;
                 white-space: 0vw;
             }
                 #importButton{
@@ -727,6 +727,49 @@ a:hover{
                     height: 2.7vw;
                     left: 0.05vw;
                     top: 0vw;
+                    white-space: 0vw;
+                }
+
+            #linkIconBox{
+                background-color: #2a3950;
+                font-size: 0vw;
+                position: absolute;
+                border-radius: .4vw; 
+                padding: 0vw;
+                width: 5vw;
+                height: 3.5vw;
+                left: 1.5vw;
+                top: 11.5vw;
+                white-space: 0vw;
+            }
+                #linkIcon{
+                    position: absolute;
+                    rotate: 00deg;
+                    padding: 0vw;
+                    height: 2.7vw;
+                    left: 1.1vw;
+                    top: 0.35vw;
+                    white-space: 0vw;
+                }  
+            #copyIconBox{
+                background-color: #2a3950;
+                font-size: 0vw;
+                position: absolute;
+                border-radius: .4vw; 
+                padding: 0vw;
+                width: 5vw;
+                height: 3.5vw;
+                left: 9vw;
+                top: 11.5vw;
+                white-space: 0vw;
+            }
+                #copyIcon{
+                    position: absolute;
+                    rotate: 0deg;
+                    padding: 0vw;
+                    height: 2.7vw;
+                    left: 1.5vw;
+                    top: 0.35vw;
                     white-space: 0vw;
                 }
 

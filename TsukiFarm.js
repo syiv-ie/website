@@ -600,6 +600,30 @@ function buildFarm(){
                 importButton.src = "images/farmPlots/import.png";
                 importButtonBox.appendChild(importButton);
 
+
+
+            let linkIconBox = document.createElement("div");
+            linkIconBox.id = "linkIconBox";
+            saveLoad.appendChild(linkIconBox);
+                let linkIcon = document.createElement("img");
+                linkIcon.id = "linkIcon";
+                linkIcon.src = "images/farmPlots/linkIcon.png";
+                linkIconBox.appendChild(linkIcon);
+            linkIconBox.onclick = function(){
+                navigator.clipboard.writeText("https://syivie.com/TsukiFarm.html?" + currentBox.textContent);
+            }
+    
+            let copyIconBox = document.createElement("div");
+            copyIconBox.id = "copyIconBox";
+            saveLoad.appendChild(copyIconBox);
+                let copyIcon = document.createElement("img");
+                copyIcon.id = "copyIcon";
+                copyIcon.src = "images/farmPlots/copyIcon.png";
+                copyIconBox.appendChild(copyIcon);
+            copyIconBox.onclick = function(){
+                navigator.clipboard.writeText(currentBox.textContent);
+            }
+                
     ///////////////////////////hoe stufs///////////////////////////////////
     let hoeDisplayDiv = document.createElement("div");
     hoeDisplayDiv.id = "hoeDisplayDiv";
@@ -2192,7 +2216,7 @@ function calculateBoard(){
     soc =1 - Math.pow((1-cloverStrangeEffect), plotCount[18]);
     sov = (plotList[18].minYield + plotCount[8]) * plotList[18].value * 5;
     sovuv = (plotList[18].minYield + plotCount[8]) * 1.25 * plotList[18].value * 5;
-    document.getElementById("1").innerHTML = "Chance of 1 S.Onion: " + Math.round(100000 * soc) / 1000 + "% S.Onion Value: " + sov + "*UV=" + sovuv;
+    document.getElementById("2").innerHTML = "Chance of 1 S.Onion: " + Math.round(100000 * soc) / 1000 + "% <br>S.Onion Value: " + sov + "*UV=" + sovuv;
     
     //document.getElementById("breedProfitTable10,2").innerHTML = averageLuckChange;
     //document.getElementById("breedProfitTable9,2").innerHTML = averageLuck;
