@@ -43,6 +43,7 @@ var toggleList = [
 let baseStrangeRate = .0015;
 let baseOrbPrice = 10000;
 
+let lastProfit = 0;
 var plotCount = [];
 let groups = [];
 
@@ -610,7 +611,7 @@ function buildFarm(){
                 linkIcon.src = "images/farmPlots/linkIcon.png";
                 linkIconBox.appendChild(linkIcon);
             linkIconBox.onclick = function(){
-                navigator.clipboard.writeText("https://syivie.com/TsukiFarm.html?" + currentBox.textContent);
+                navigator.clipboard.writeText("[syivie Farmulator :: " + lastProfit + "](https://syivie.com/TsukiFarm.html?" + currentBox.textContent + ")");
             }
     
             let copyIconBox = document.createElement("div");
@@ -1922,7 +1923,7 @@ function calculateBoard(){
     //i is row
     //j is col
     //x is breed chances per clover
-    let repetitions = 300
+    let repetitions = 0
     let luckChangeTotal = 0;
     let luckTotal =0;
     for(let r = 0; r < repetitions; r++){
@@ -2183,6 +2184,7 @@ function calculateBoard(){
 
     document.getElementById("sickleProfit").innerHTML = (Math.round(100 * sickleHourlyProfit) / 100);
     document.getElementById("totalProfit").innerHTML = (Math.round(100 * totalProfit) / 100);
+    lastProfit = (Math.round(100 * totalProfit) / 100);
     document.getElementById("fullHarvestProfit").innerHTML = (Math.round(100 * fullHarvest) / 100);
     
     document.getElementById("strangeRateScore").innerHTML = Math.round(100000 * cloverStrangeEffect) / 1000 + "%";
