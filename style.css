@@ -1158,22 +1158,6 @@ a:hover{
                 height: 10vw;
                 white-space: 0vw;
             }
-            #dPadUP{
-                left: 0vw;
-                top: -7.7vw;                
-            }
-            #dPadRIGHT{
-                left: -7.7vw;
-                top: 0vw;
-            }
-            #dPadDOWN{
-                left: 0vw;
-                top: 7.7vw;
-            }
-            #dPadLEFT{
-                left: 7.7vw;
-                top: 0vw;
-            }
         #grabBox{
             background-color: #605776;
             font-size: 0vw;

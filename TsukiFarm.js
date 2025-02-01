@@ -62,6 +62,7 @@ for(let i = 0; i < undoRedoList.length; i++){
 }
 
 let buildMode = false;
+let gridShift = 1;
 
 //variables for the brute force thing
 let winnerWinner = 0;
@@ -989,22 +990,95 @@ function buildFarm(){
         let dPad = document.createElement("div");
         dPad.id = "dPad";
         grabDiv.appendChild(dPad);
-            let dPadUP = document.createElement("div");
+            for(let i = 0; i < 4; i++){
+                let d = document.createElement("div");
+                d.style.top  = ((i%2)*(Math.floor(((i)/2)%2)*2-1)*(7.7)) + "vw";// this is a bit complicated but..
+                d.style.left = (((i+1)%2)*(Math.floor(((i)/2)%2)*2-1)*(7.7)) + "vw";
+                d.className = "dPadArrow";
+                dPad.appendChild(d);
+                d.onclick = function(){
+                    let shiftedFarm = "";
+                    let currentFarm = printFarmstructure();
+
+                    if(i%2 == 1){//up/down
+                        const plotImport = currentFarm.split("-");
+                        shiftedFarm += plotImport[0];
+
+                        for(let k=1; k<plotImport.length; k++){//start at 1 because split will count before the first - as well
+                            const plotData = plotImport[k].split("");
+                            //console.log(plotData[0])
+                            plotData[0] = String.fromCharCode((plotData[0]).charCodeAt(0) + gridShift*(Math.floor(((i)/2)%2)*2-1));
+                            //console.log(plotData[0])
+                            plotImport[k] = "-" + plotData[0] + plotImport[k].substring(1);
+                            shiftedFarm += plotImport[k];
+                        }
+                    }else{//left/right
+                        const plotImport = currentFarm.split("-");
+                        shiftedFarm += plotImport[0];
+
+                        for(let k=1; k<plotImport.length; k++){//start at 1 because split will count before the first - as well
+                            const plotData = plotImport[k].split("");
+                            let x = 1;
+                            let shiftedPlots = plotData[0];
+
+                            do{
+                                if((plotList[(plotData[x]).charCodeAt(0) - 97]).isDirectional){
+                                    shiftedPlots += plotData[x] + plotData[x+1] + String.fromCharCode((plotData[x+2]).charCodeAt(0) + gridShift*(Math.floor(((i)/2)%2)*2-1))
+                                    x += 3;
+                                }else{
+                                    shiftedPlots += plotData[x] + String.fromCharCode((plotData[x+1]).charCodeAt(0) + gridShift*(Math.floor(((i)/2)%2)*2-1))
+                                    x += 2;
+                                }
+                                if(plotData[x] == '/'){
+                                    do{
+                                        shiftedPlots += plotData[x]
+                                        x++
+                                    }while(x<plotData.length);
+                                }
+                            }while(x<plotData.length);
+                            shiftedFarm += "-" + shiftedPlots;
+                        }
+                    }
+
+                    undoRedoList[undoRedoPosition] = "";
+                    undoRedoList[undoRedoPosition] = printFarmstructure();
+                    canRedo = false;
+                    highestRedoPosition = undoRedoPosition;
+                    undoRedoPosition++
+                    readFarmstructure(shiftedFarm);
+                    calculateBoard();
+                }
+            }
+
+
+            /*let dPadUP = document.createElement("div");
             dPadUP.id = "dPadUP";
             dPadUP.className = "dPadArrow";
             dPad.appendChild(dPadUP);
+            dPadUP.onclick = function(){
+
+            }
             let dPadRIGHT = document.createElement("div");
             dPadRIGHT.id = "dPadRIGHT";
             dPadRIGHT.className = "dPadArrow";
             dPad.appendChild(dPadRIGHT);
+            dPadRIGHT.onclick = function(){
+                
+            }
             let dPadDOWN = document.createElement("div");
             dPadDOWN.id = "dPadDOWN";
             dPadDOWN.className = "dPadArrow";
             dPad.appendChild(dPadDOWN);
+            dPadDOWN.onclick = function(){
+                
+            }
             let dPadLEFT = document.createElement("div");
             dPadLEFT.id = "dPadLEFT";
             dPadLEFT.className = "dPadArrow";
             dPad.appendChild(dPadLEFT);
+            dPadLEFT.onclick = function(){
+                
+            }*/
 
 
         let grabBox = document.createElement("div");
@@ -1932,6 +2006,7 @@ function orbUpdate(){
 //////////////////////////////////////////////////////////////////////////
 function calculateBoard(){
     orbUpdate();
+    gridShift = 1;
     let minHourlyProfit = 0;
     let maxHourlyProfit = 0;
     let baseProfit = 0;
@@ -1990,6 +2065,10 @@ function calculateBoard(){
                     if(plotList[Math.max(0,groups[l].plots[i][j])].isCrop){
                         totalPlots++;
                     }
+
+                    if(!(plotList[Math.max(0,groups[l].plots[i][j])].canFreePlace) && groups[l].plots[i][j] > 0){
+                        gridShift = 2;
+                    }
     
                     plotCount[groups[l].plots[i][j]]++;
                     for(let k=0; k<plotList.length; k++){
@@ -2011,7 +2090,7 @@ function calculateBoard(){
     //i is row
     //j is col
     //x is breed chances per clover
-    let repetitions = 300
+    let repetitions = 0
     let luckChangeTotal = 0;
     let luckTotal =0;
     for(let r = 0; r < repetitions; r++){
