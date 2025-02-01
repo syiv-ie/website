@@ -122,7 +122,7 @@ const data = {//width/height x/y are swapped in here.. oops? idk it doesnt rlly 
         },
         {
             left: "17.5vw",
-            top: "-74.5vw",
+            top: "-75vw",
             width:10,
             height:10,
             heightOffset:1,

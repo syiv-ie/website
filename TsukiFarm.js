@@ -43,6 +43,7 @@ var toggleList = [
 let baseStrangeRate = .0015;
 let baseOrbPrice = 10000;
 
+let lastProfit = 0;
 var plotCount = [];
 let groups = [];
 
@@ -59,6 +60,8 @@ undoRedoList.length = 1000;
 for(let i = 0; i < undoRedoList.length; i++){
     undoRedoList[i] = "";
 }
+
+let buildMode = false;
 
 //variables for the brute force thing
 let winnerWinner = 0;
@@ -336,12 +339,16 @@ function buildFarm(){
                 else{
                     plot.className = "plot";
                     plot.onclick = function(){
-                        undoRedoList[undoRedoPosition] = "";
-                        undoRedoList[undoRedoPosition] = printFarmstructure();
-                        canRedo = false;
-                        highestRedoPosition = undoRedoPosition;
-                        undoRedoPosition++
-                        groups[l].updatePlot(chosenFarmSpot, chosenFarmSpotDirection, i, j, letta);
+                        if(buildMode){
+
+                        }else{
+                            undoRedoList[undoRedoPosition] = "";
+                            undoRedoList[undoRedoPosition] = printFarmstructure();
+                            canRedo = false;
+                            highestRedoPosition = undoRedoPosition;
+                            undoRedoPosition++
+                            groups[l].updatePlot(chosenFarmSpot, chosenFarmSpotDirection, i, j, letta);
+                        }
                         calculateBoard();
                     }
                 }
@@ -610,7 +617,7 @@ function buildFarm(){
                 linkIcon.src = "images/farmPlots/linkIcon.png";
                 linkIconBox.appendChild(linkIcon);
             linkIconBox.onclick = function(){
-                navigator.clipboard.writeText("https://syivie.com/TsukiFarm.html?" + currentBox.textContent);
+                navigator.clipboard.writeText("[syivie Farmulator :: " + lastProfit + "](https://syivie.com/TsukiFarm.html?" + currentBox.textContent + ")");
             }
     
             let copyIconBox = document.createElement("div");
@@ -812,15 +819,45 @@ function buildFarm(){
                 calculateBoard();
             }
 
-    //////////////////////////////counter stuffs///////////////////////////////////
+    //////////////////////////////selector/counter stuffs///////////////////////////////////
     let counterDisplayDiv = document.createElement("div");
     counterDisplayDiv.id = "counterDisplayDiv";
     uiDiv.appendChild(counterDisplayDiv);
+        let buildModeSwap = document.createElement("div");
+        buildModeSwap.id = "buildModeSwap";
+        buildModeSwap.style.backgroundColor = "#463455";
+        counterDisplayDiv.appendChild(buildModeSwap);
+                let buildModeSwapImg = document.createElement("img");
+                buildModeSwapImg.id = "buildModeSwapImg";
+                buildModeSwapImg.className = "buildModeSwapImg";
+                buildModeSwapImg.src = "images/farmPlots/Rotate.png";
+
+        buildModeSwap.onclick = function(){
+            buildMode = !buildMode;
+            if(buildMode){
+                erasePlot.style.display = "none";
+                counterDisplay.style.display = "none";
+                grabDiv.style.display = "";
+                counterDisplayBox.style.backgroundColor = "#463455";
+                rotationSelector.style.backgroundColor = "#463455";
+                buildModeSwap.style.backgroundColor = "#ffd1dc";
+            }else{
+                erasePlot.style.display = "";
+                counterDisplay.style.display = "";
+                grabDiv.style.display = "none";
+                counterDisplayBox.style.backgroundColor = "#ffd1dc";
+                rotationSelector.style.backgroundColor = "#ffd1dc";
+                buildModeSwap.style.backgroundColor = "#463455";
+            }
+            previousPlot = chosenFarmSpot;
+        }
+
         let rotationSelectorDiv = document.createElement("div");
         rotationSelectorDiv.id = "rotationSelectorDiv";
         counterDisplayDiv.appendChild(rotationSelectorDiv);
             let rotationSelector = document.createElement("div");
             rotationSelector.id = "rotationSelector";
+            rotationSelector.style.backgroundColor = "#ffd1dc";
             rotationSelectorDiv.appendChild(rotationSelector);
                 let rotationSelectorUp = document.createElement("img");
                 rotationSelectorUp.id = "rotationSelectorUp";
@@ -832,7 +869,7 @@ function buildFarm(){
                 rotationSelectorOverlay.src = "images/farmPlots/Arrow.png";
                 rotationSelectorOverlay.style.rotate = "0deg"
                 rotationSelector.appendChild(rotationSelectorOverlay);
-                rotationSelector.onclick = function(){//GOTTA REWRITE THIS
+                rotationSelector.onclick = function(){//GOTTA REWRITE THIS (i dont remember why i wrote this note)
                     if(chosenFarmSpotDirection == 3){
                         chosenFarmSpotDirection = 0;
                     }else{
@@ -855,17 +892,24 @@ function buildFarm(){
             erasePlot.onclick = function(){
                 chosenFarmSpot = 0;
                 if(chosenFarmSpot != previousPlot){
+                    document.getElementById("cdid" + Math.abs(previousPlot)).style.filter = "";
                     erasePlot.style.filter = "invert(0%) sepia(0%) saturate(50%) hue-rotate(0deg) brightness(150%) contrast(100%)";
-                    document.getElementById("cdid" + previousPlot).style.filter = "";
+                    //grabBox.style.filter = "";
                 }
                 previousPlot = chosenFarmSpot;
             }
 
 
+        let counterDisplayBox = document.createElement("div");
+        counterDisplayBox.id = "counterDisplayBox";
+        counterDisplayDiv.appendChild(counterDisplayBox);
+        counterDisplayBox.style.backgroundColor = "#ffd1dc";
+        
         let counterDisplay = document.createElement("div");
         counterDisplay.id = "counterDisplay";
-        counterDisplayDiv.appendChild(counterDisplay);
-        
+        counterDisplayBox.appendChild(counterDisplay);
+
+
         for(let i = 0; i < plotList.length; i++){
             let c = document.createElement("div");
             c.className = "counterDisplayImgDiv";
@@ -877,9 +921,10 @@ function buildFarm(){
                 c.onclick = function(){
                     chosenFarmSpot = i;
                     if(chosenFarmSpot != previousPlot){
+                        document.getElementById("cdid" + Math.abs(previousPlot)).style.filter = "";
                         document.getElementById("cdid" + i).style.filter = "invert(0%) sepia(0%) saturate(50%) hue-rotate(0deg) brightness(150%) contrast(100%)";
                         erasePlot.style.filter = "";
-                        document.getElementById("cdid" + previousPlot).style.filter = "";
+                        //grabBox.style.filter = "";
                     }
                     previousPlot = chosenFarmSpot;
                 }
@@ -935,6 +980,50 @@ function buildFarm(){
             }
         }
         document.getElementById("cdid" + chosenFarmSpot).style.filter = "invert(0%) sepia(0%) saturate(50%) hue-rotate(0deg) brightness(150%) contrast(100%)";
+        
+    //////////////////////////grab stuffs///////////////////////////////////////
+    let grabDiv = document.createElement("div");
+    grabDiv.id = "grabDiv";
+    counterDisplayBox.appendChild(grabDiv);
+    grabDiv.style.display = "none";
+        let dPad = document.createElement("div");
+        dPad.id = "dPad";
+        grabDiv.appendChild(dPad);
+            let dPadUP = document.createElement("div");
+            dPadUP.id = "dPadUP";
+            dPadUP.className = "dPadArrow";
+            dPad.appendChild(dPadUP);
+            let dPadRIGHT = document.createElement("div");
+            dPadRIGHT.id = "dPadRIGHT";
+            dPadRIGHT.className = "dPadArrow";
+            dPad.appendChild(dPadRIGHT);
+            let dPadDOWN = document.createElement("div");
+            dPadDOWN.id = "dPadDOWN";
+            dPadDOWN.className = "dPadArrow";
+            dPad.appendChild(dPadDOWN);
+            let dPadLEFT = document.createElement("div");
+            dPadLEFT.id = "dPadLEFT";
+            dPadLEFT.className = "dPadArrow";
+            dPad.appendChild(dPadLEFT);
+
+
+        let grabBox = document.createElement("div");
+        grabBox.id = "grabBox";
+        //grabBox.style.backgroundColor = "#463455";
+        grabDiv.appendChild(grabBox);
+            let grabIcon = document.createElement("img");
+            grabIcon.id = "grabIcon";
+            grabIcon.src = "images/farmPlots/grabIcon.png";
+            grabBox.appendChild(grabIcon);
+            
+        let blueBox = document.createElement("div");
+        blueBox.id = "blueBox";
+        blueBox.style.backgroundColor = "#58d7ee";
+        grabDiv.appendChild(blueBox);
+        let redBox = document.createElement("div");
+        redBox.id = "redBox";
+        redBox.style.backgroundColor = "#ff7272";
+        grabDiv.appendChild(redBox);
 
     //////////////////////////profit display stuffs///////////////////////////////////////
     let profitDisplayDiv = document.createElement("div");
@@ -2183,6 +2272,7 @@ function calculateBoard(){
 
     document.getElementById("sickleProfit").innerHTML = (Math.round(100 * sickleHourlyProfit) / 100);
     document.getElementById("totalProfit").innerHTML = (Math.round(100 * totalProfit) / 100);
+    lastProfit = (Math.round(100 * totalProfit) / 100);
     document.getElementById("fullHarvestProfit").innerHTML = (Math.round(100 * fullHarvest) / 100);
     
     document.getElementById("strangeRateScore").innerHTML = Math.round(100000 * cloverStrangeEffect) / 1000 + "%";
