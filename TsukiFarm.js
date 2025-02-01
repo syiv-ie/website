@@ -2011,7 +2011,7 @@ function calculateBoard(){
     //i is row
     //j is col
     //x is breed chances per clover
-    let repetitions = 0
+    let repetitions = 300
     let luckChangeTotal = 0;
     let luckTotal =0;
     for(let r = 0; r < repetitions; r++){
