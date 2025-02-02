@@ -62,7 +62,12 @@ for(let i = 0; i < undoRedoList.length; i++){
 }
 
 let buildMode = false;
+let selectionLocked = false;
 let gridShift = 1;
+
+let grabCoords = [0,0,0,0]
+let grabGroup = 0;
+let grabStructure = ""
 
 //variables for the brute force thing
 let winnerWinner = 0;
@@ -828,10 +833,10 @@ function buildFarm(){
         buildModeSwap.id = "buildModeSwap";
         buildModeSwap.style.backgroundColor = "#463455";
         counterDisplayDiv.appendChild(buildModeSwap);
-                let buildModeSwapImg = document.createElement("img");
-                buildModeSwapImg.id = "buildModeSwapImg";
-                buildModeSwapImg.className = "buildModeSwapImg";
-                buildModeSwapImg.src = "images/farmPlots/Rotate.png";
+                let grabIcon = document.createElement("img");
+                grabIcon.id = "grabIcon";
+                grabIcon.src = "images/farmPlots/grabIcon.png";
+                buildModeSwap.appendChild(grabIcon);
 
         buildModeSwap.onclick = function(){
             buildMode = !buildMode;
@@ -839,6 +844,7 @@ function buildFarm(){
                 erasePlot.style.display = "none";
                 counterDisplay.style.display = "none";
                 grabDiv.style.display = "";
+                grabIcon.src = "images/farmPlots/farmIcon.png";
                 counterDisplayBox.style.backgroundColor = "#463455";
                 rotationSelector.style.backgroundColor = "#463455";
                 buildModeSwap.style.backgroundColor = "#ffd1dc";
@@ -846,6 +852,7 @@ function buildFarm(){
                 erasePlot.style.display = "";
                 counterDisplay.style.display = "";
                 grabDiv.style.display = "none";
+                grabIcon.src = "images/farmPlots/grabIcon.png";
                 counterDisplayBox.style.backgroundColor = "#ffd1dc";
                 rotationSelector.style.backgroundColor = "#ffd1dc";
                 buildModeSwap.style.backgroundColor = "#463455";
@@ -992,8 +999,8 @@ function buildFarm(){
         grabDiv.appendChild(dPad);
             for(let i = 0; i < 4; i++){
                 let d = document.createElement("div");
-                d.style.top  = ((i%2)*(Math.floor(((i)/2)%2)*2-1)*(7.7)) + "vw";// this is a bit complicated but..
-                d.style.left = (((i+1)%2)*(Math.floor(((i)/2)%2)*2-1)*(7.7)) + "vw";
+                d.style.top  = ((i%2)*(Math.floor(((i)/2)%2)*2-1)*(10.7)) + "vw";// this is a bit complicated but..
+                d.style.left = (((i+1)%2)*(Math.floor(((i)/2)%2)*2-1)*(10.7)) + "vw";
                 d.className = "dPadArrow";
                 dPad.appendChild(d);
                 d.onclick = function(){
@@ -1006,9 +1013,7 @@ function buildFarm(){
 
                         for(let k=1; k<plotImport.length; k++){//start at 1 because split will count before the first - as well
                             const plotData = plotImport[k].split("");
-                            //console.log(plotData[0])
                             plotData[0] = String.fromCharCode((plotData[0]).charCodeAt(0) + gridShift*(Math.floor(((i)/2)%2)*2-1));
-                            //console.log(plotData[0])
                             plotImport[k] = "-" + plotData[0] + plotImport[k].substring(1);
                             shiftedFarm += plotImport[k];
                         }
@@ -1050,45 +1055,31 @@ function buildFarm(){
                 }
             }
 
-
-            /*let dPadUP = document.createElement("div");
-            dPadUP.id = "dPadUP";
-            dPadUP.className = "dPadArrow";
-            dPad.appendChild(dPadUP);
-            dPadUP.onclick = function(){
-
-            }
-            let dPadRIGHT = document.createElement("div");
-            dPadRIGHT.id = "dPadRIGHT";
-            dPadRIGHT.className = "dPadArrow";
-            dPad.appendChild(dPadRIGHT);
-            dPadRIGHT.onclick = function(){
-                
-            }
-            let dPadDOWN = document.createElement("div");
-            dPadDOWN.id = "dPadDOWN";
-            dPadDOWN.className = "dPadArrow";
-            dPad.appendChild(dPadDOWN);
-            dPadDOWN.onclick = function(){
-                
-            }
-            let dPadLEFT = document.createElement("div");
-            dPadLEFT.id = "dPadLEFT";
-            dPadLEFT.className = "dPadArrow";
-            dPad.appendChild(dPadLEFT);
-            dPadLEFT.onclick = function(){
-                
-            }*/
-
-
         let grabBox = document.createElement("div");
         grabBox.id = "grabBox";
         //grabBox.style.backgroundColor = "#463455";
         grabDiv.appendChild(grabBox);
-            let grabIcon = document.createElement("img");
-            grabIcon.id = "grabIcon";
-            grabIcon.src = "images/farmPlots/grabIcon.png";
-            grabBox.appendChild(grabIcon);
+            let lockIcon = document.createElement("img");
+            lockIcon.id = "lockIcon";
+            lockIcon.src = "images/farmPlots/unlocked.png";
+            grabBox.appendChild(lockIcon);
+
+        grabBox.onclick = function(){
+            //grabCoords = [0,0,0,0]
+            //grabGroup = 0;
+            //grabStructure = ""
+
+            selectionLocked = !selectionLocked;
+            if(selectionLocked){
+                lockIcon.src = "images/farmPlots/locked.png";
+                brChain.style.display = "";
+
+            }else{
+                lockIcon.src = "images/farmPlots/unlocked.png";
+                brChain.style.display = "none";
+
+            }
+        }
             
         let blueBox = document.createElement("div");
         blueBox.id = "blueBox";
@@ -1098,6 +1089,81 @@ function buildFarm(){
         redBox.id = "redBox";
         redBox.style.backgroundColor = "#ff7272";
         grabDiv.appendChild(redBox);
+
+        let brChain = document.createElement("img");
+        brChain.id = "brChain";
+        brChain.src = "images/farmPlots/chained.png";
+        brChain.style.display = "none";
+        grabDiv.appendChild(brChain);
+        
+        let previewDiv = document.createElement("div");
+        previewDiv.id = "previewDiv";
+        grabDiv.appendChild(previewDiv);
+            let previewBox = document.createElement("div");
+            previewBox.id = "previewBox";
+            previewDiv.appendChild(previewBox);
+                let previewSquare1 = document.createElement("div");
+                previewSquare1.id = "previewSquare1";
+                previewSquare1.className = "previewSquare";
+                previewBox.appendChild(previewSquare1);
+                let previewSquare2 = document.createElement("div");
+                previewSquare2.id = "previewSquare2";
+                previewSquare2.className = "previewSquare";
+                previewBox.appendChild(previewSquare2);
+                let previewSquare3 = document.createElement("div");
+                previewSquare3.id = "previewSquare3";
+                previewSquare3.className = "previewSquare";
+                previewBox.appendChild(previewSquare3);
+                let previewSquare4 = document.createElement("div");
+                previewSquare4.id = "previewSquare4";
+                previewSquare4.className = "previewSquare";
+                previewBox.appendChild(previewSquare4);
+            
+            let previewX = document.createElement("div");
+            previewX.id = "previewX";
+            previewX.className = "previewXY";
+            previewX.innerHTML = "0"
+            previewDiv.appendChild(previewX);
+
+            let previewY = document.createElement("div");
+            previewY.id = "previewY";
+            previewY.className = "previewXY";
+            previewY.innerHTML = "0"
+            previewDiv.appendChild(previewY);
+
+            let previewArrow1 = document.createElement("img");
+            previewArrow1.id = "previewArrow1";
+            previewArrow1.className = "previewArrow";
+            previewArrow1.src = "images/farmPlots/previewArrow.png";
+            previewArrow1.style.left = "2vw"
+            previewDiv.appendChild(previewArrow1);
+            
+            let previewArrow2 = document.createElement("img");
+            previewArrow2.id = "previewArrow2";
+            previewArrow2.className = "previewArrow";
+            previewArrow2.src = "images/farmPlots/previewArrow.png";
+            previewArrow2.style.left = "10vw"
+            previewArrow2.style.rotate = "180deg"
+            previewDiv.appendChild(previewArrow2);
+            
+            let previewArrow3 = document.createElement("img");
+            previewArrow3.id = "previewArrow3";
+            previewArrow3.className = "previewArrow";
+            previewArrow3.src = "images/farmPlots/previewArrow.png";
+            previewArrow3.style.top = "3.47vw"
+            previewArrow3.style.left = "-1.1vw"
+            previewArrow3.style.rotate = "90deg"
+            previewDiv.appendChild(previewArrow3);
+            
+            let previewArrow4 = document.createElement("img");
+            previewArrow4.id = "previewArrow4";
+            previewArrow4.className = "previewArrow";
+            previewArrow4.src = "images/farmPlots/previewArrow.png";
+            previewArrow4.style.top = "10.97vw"
+            previewArrow4.style.left = "-1.1vw"
+            previewArrow4.style.rotate = "270deg"
+            previewDiv.appendChild(previewArrow4);
+
 
     //////////////////////////profit display stuffs///////////////////////////////////////
     let profitDisplayDiv = document.createElement("div");
