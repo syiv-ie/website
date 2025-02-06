@@ -1180,85 +1180,87 @@ function buildFarm(){
             filLBox.appendChild(fillIcon);
         
         filLBox.onclick = function(){
-            undoRedoList[undoRedoPosition] = "";
-            undoRedoList[undoRedoPosition] = printFarmstructure();
-            canRedo = false;
-            highestRedoPosition = undoRedoPosition;
-            undoRedoPosition++
-
-
-            let grabWidth = Math.abs(grabCoords[1] - grabCoords[3]);
-            let grabHeight = Math.abs(grabCoords[0] - grabCoords[2]);
-
-            let placerWidth = Math.abs(placerCoords[1] - placerCoords[3]);
-            let placerHeight = Math.abs(placerCoords[0] - placerCoords[2]);
-            let placerSourceX = Math.min(placerCoords[1] , placerCoords[3]);
-            let placerSourceY = Math.min(placerCoords[0] , placerCoords[2]);
-
-            for(let row = 0; row<=placerHeight; row++){//clear the placer area selection b4 .. placing
-                for(let col = 0; col<=placerWidth ; col++){
-                    let currX = placerSourceX + col;
-                    let currY = placerSourceY + row;
-                    //console.log(String.fromCharCode(charCode + placerGroup)  + "," +  currX + "," + currY)
-
-                    groups[placerGroup].updatePlot(0, 0, currY, currX, String.fromCharCode(charCode + placerGroup));
-                }
-            }
-
-            let tileX = 0;
-            let tileY = 0;
-            let adjustX = 0;
-            let adjustY = 0;
-            if(isGrabLocked){
-                if(placerSourceX%2 != data.groups[placerGroup].widthOffset){
-                    adjustX = 1;
-                }
-                if(placerSourceY%2 != data.groups[placerGroup].heightOffset){
-                    adjustY = 1;
-                }
-            }
-            console.log(adjustX + "," + adjustY + "," + grabAdjustX + "," + grabAdjustY)
-
-            const placerStructure = grabStructure.split("+");
-
-            do{
-                for(let row=1; row<placerStructure.length; row++){
-                    let currY = placerSourceY + row + tileY-1;
-
-                    const placerRow = placerStructure[row].split("=");
-                    tileX = 0
-
-                    do{
-                        for(let col = 1; col<placerRow.length ; col++){
-                            const placerPlot = placerRow[col].split("");
-
-                            let currX = placerSourceX + col + tileX-1;
-                            //console.log(placerRow[col]  + "," +  currX + "," + ((placerPlot[0]).charCodeAt(0) - 97) )
-                            if(((placerPlot[0]).charCodeAt(0) - 97) > 0){
-                                groups[placerGroup].updatePlot(
-                                    ((placerPlot[0]).charCodeAt(0) - 97), 
-                                    parseInt(placerPlot[1]), 
-                                    currY + adjustY - grabAdjustY, 
-                                    currX + adjustX - grabAdjustX, 
-                                    String.fromCharCode(charCode + placerGroup));
-                            }
-        
-                            if((col + tileX + adjustX) >= placerWidth){
-                                col = placerRow.length;
-                            }
-                        }
-                        tileX += (placerRow.length) + (placerRow.length)%2;
-                    }while((tileX + adjustX) < placerWidth);
-
-                    if((row + tileY + adjustY) >= placerHeight){
-                        row = placerStructure.length;
+            if(grabMode >= 5){
+                undoRedoList[undoRedoPosition] = "";
+                undoRedoList[undoRedoPosition] = printFarmstructure();
+                canRedo = false;
+                highestRedoPosition = undoRedoPosition;
+                undoRedoPosition++
+    
+    
+                let grabWidth = Math.abs(grabCoords[1] - grabCoords[3]);
+                let grabHeight = Math.abs(grabCoords[0] - grabCoords[2]);
+    
+                let placerWidth = Math.abs(placerCoords[1] - placerCoords[3]);
+                let placerHeight = Math.abs(placerCoords[0] - placerCoords[2]);
+                let placerSourceX = Math.min(placerCoords[1] , placerCoords[3]);
+                let placerSourceY = Math.min(placerCoords[0] , placerCoords[2]);
+    
+                for(let row = 0; row<=placerHeight; row++){//clear the placer area selection b4 .. placing
+                    for(let col = 0; col<=placerWidth ; col++){
+                        let currX = placerSourceX + col;
+                        let currY = placerSourceY + row;
+                        //console.log(String.fromCharCode(charCode + placerGroup)  + "," +  currX + "," + currY)
+    
+                        groups[placerGroup].updatePlot(0, 0, currY, currX, String.fromCharCode(charCode + placerGroup));
                     }
                 }
-                tileY += (placerStructure.length) + (placerStructure.length)%2;
-            }while((tileY + adjustY) < placerHeight);
-
-                
-            calculateBoard();
+    
+                let tileX = 0;
+                let tileY = 0;
+                let adjustX = 0;
+                let adjustY = 0;
+                if(isGrabLocked){
+                    if(placerSourceX%2 != data.groups[placerGroup].widthOffset){
+                        adjustX = 1;
+                    }
+                    if(placerSourceY%2 != data.groups[placerGroup].heightOffset){
+                        adjustY = 1;
+                    }
+                }
+                console.log(adjustX + "," + adjustY + "," + grabAdjustX + "," + grabAdjustY)
+    
+                const placerStructure = grabStructure.split("+");
+    
+                do{
+                    for(let row=1; row<placerStructure.length; row++){
+                        let currY = placerSourceY + row + tileY-1;
+    
+                        const placerRow = placerStructure[row].split("=");
+                        tileX = 0
+    
+                        do{
+                            for(let col = 1; col<placerRow.length ; col++){
+                                const placerPlot = placerRow[col].split("");
+    
+                                let currX = placerSourceX + col + tileX-1;
+                                //console.log(placerRow[col]  + "," +  currX + "," + ((placerPlot[0]).charCodeAt(0) - 97) )
+                                if(((placerPlot[0]).charCodeAt(0) - 97) > 0){
+                                    groups[placerGroup].updatePlot(
+                                        ((placerPlot[0]).charCodeAt(0) - 97), 
+                                        parseInt(placerPlot[1]), 
+                                        currY + adjustY - grabAdjustY, 
+                                        currX + adjustX - grabAdjustX, 
+                                        String.fromCharCode(charCode + placerGroup));
+                                }
+            
+                                if((col + tileX + adjustX) >= placerWidth){
+                                    col = placerRow.length;
+                                }
+                            }
+                            tileX += (placerRow.length) + (placerRow.length)%2;
+                        }while((tileX + adjustX) < placerWidth);
+    
+                        if((row + tileY + adjustY) >= placerHeight){
+                            row = placerStructure.length;
+                        }
+                    }
+                    tileY += (placerStructure.length) + (placerStructure.length)%2;
+                }while((tileY + adjustY) < placerHeight);
+    
+                    
+                calculateBoard();
+            }
         }
 
         let greyBox1 = document.createElement("div");
