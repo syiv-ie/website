@@ -1208,13 +1208,14 @@ function buildFarm(){
             let adjustX = 0;
             let adjustY = 0;
             if(isGrabLocked){
-                if(placerSourceX%2 != data.groups[placerGroup].heightOffset){
+                if(placerSourceX%2 != data.groups[placerGroup].widthOffset){
                     adjustX = 1;
                 }
-                if(placerSourceY%2 != data.groups[placerGroup].widthOffset){
+                if(placerSourceY%2 != data.groups[placerGroup].heightOffset){
                     adjustY = 1;
                 }
             }
+            console.log(adjustX + "," + adjustY + "," + grabAdjustX + "," + grabAdjustY)
 
             const placerStructure = grabStructure.split("+");
 
@@ -1331,10 +1332,10 @@ function buildFarm(){
 
                                 grabAdjustX = 0;
                                 grabAdjustY = 0;
-                                if(grabSourceX%2 != data.groups[grabGroup].heightOffset){
+                                if(grabSourceX%2 != data.groups[grabGroup].widthOffset){
                                     grabAdjustX = 1;
                                 }
-                                if(grabSourceY%2 != data.groups[grabGroup].widthOffset){
+                                if(grabSourceY%2 != data.groups[grabGroup].heightOffset){
                                     grabAdjustY = 1;
                                 }
                             }
