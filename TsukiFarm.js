@@ -1314,10 +1314,12 @@ function buildFarm(){
                             let currX = grabSourceX + col;
                             let currY = grabSourceY + row;
 
-                            if(groups[grabGroup].plots[currY][currX] > -1){
+                            if(groups[grabGroup].iSource[currY][currX] == currY && groups[grabGroup].jSource[currY][currX] == currX && groups[grabGroup].plots[currY][currX] > -1){
                                 grabStructure += "=" + String.fromCharCode(
                                     "a".charCodeAt(0) + groups[grabGroup].plots[currY][currX]) + 
                                     Math.max(0 , groups[grabGroup].direction[currY][currX]);
+                            }else{
+                                grabStructure += "=a0"
                             }
 
                             if(!(plotList[Math.max(0,groups[grabGroup].plots[currY][currX])].canFreePlace) && groups[grabGroup].plots[currY][currX] > 0){
