@@ -70,6 +70,8 @@ let grabCoords = [0,0,0,0]
 let grabGroup = 0;
 let grabStructure = ""
 let isGrabLocked = false
+let grabAdjustX = 0;
+let grabAdjustY = 0;
 
 let placerCoords = [0,0,0,0]
 let placerGroup = 0;
@@ -1228,13 +1230,13 @@ function buildFarm(){
                             const placerPlot = placerRow[col].split("");
 
                             let currX = placerSourceX + col + tileX-1;
-                            console.log(placerRow[col]  + "," +  currX + "," + ((placerPlot[0]).charCodeAt(0) - 97) )
+                            //console.log(placerRow[col]  + "," +  currX + "," + ((placerPlot[0]).charCodeAt(0) - 97) )
                             if(((placerPlot[0]).charCodeAt(0) - 97) > 0){
                                 groups[placerGroup].updatePlot(
                                     ((placerPlot[0]).charCodeAt(0) - 97), 
                                     parseInt(placerPlot[1]), 
-                                    currY + adjustY, 
-                                    currX + adjustX, 
+                                    currY + adjustY - grabAdjustY, 
+                                    currX + adjustX - grabAdjustX, 
                                     String.fromCharCode(charCode + placerGroup));
                             }
         
@@ -1242,14 +1244,14 @@ function buildFarm(){
                                 col = placerRow.length;
                             }
                         }
-                        tileX += (placerRow.length);
+                        tileX += (placerRow.length) + (placerRow.length)%2;
                     }while((tileX + adjustX) < placerWidth);
 
                     if((row + tileY + adjustY) >= placerHeight){
                         row = placerStructure.length;
                     }
                 }
-                tileY += (placerStructure.length);
+                tileY += (placerStructure.length) + (placerStructure.length)%2;
             }while((tileY + adjustY) < placerHeight);
 
                 
@@ -1326,6 +1328,15 @@ function buildFarm(){
                                 isGrabLocked = true;
                                 exclamationIcon.style.display = "";
                                 gridlockedIcon.style.display = "";
+
+                                grabAdjustX = 0;
+                                grabAdjustY = 0;
+                                if(grabSourceX%2 != data.groups[grabGroup].heightOffset){
+                                    grabAdjustX = 1;
+                                }
+                                if(grabSourceY%2 != data.groups[grabGroup].widthOffset){
+                                    grabAdjustY = 1;
+                                }
                             }
                         }
                     }
