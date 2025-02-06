@@ -932,6 +932,7 @@ function buildFarm(){
                 grabIcon.src = "images/farmPlots/farmIcon.png";
                 counterDisplayBox.style.backgroundColor = "#463455";
                 rotationSelector.style.backgroundColor = "#463455";
+                rotationSelector.style.display = "none";
                 buildModeSwap.style.backgroundColor = "#ffd1dc";
             }else{
                 erasePlot.style.display = "";
@@ -940,6 +941,7 @@ function buildFarm(){
                 grabIcon.src = "images/farmPlots/grabIcon.png";
                 counterDisplayBox.style.backgroundColor = "#ffd1dc";
                 rotationSelector.style.backgroundColor = "#ffd1dc";
+                rotationSelector.style.display = "";
                 buildModeSwap.style.backgroundColor = "#463455";
 
                 
