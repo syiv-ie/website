@@ -965,6 +965,8 @@ function buildFarm(){
                 lockIcon.style.display = "none"
                 fillIcon.style.display = "none"
                 brChain.style.display = "none";
+                exclamationIcon.style.display = "none";
+                gridlockedIcon.style.display = "none";
                 grabMode = 0;
                 selectionLocked = false
                 lockIcon.src = "images/farmPlots/unlocked.png";
