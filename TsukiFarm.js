@@ -1188,7 +1188,6 @@ function buildFarm(){
             let placerHeight = Math.abs(placerCoords[0] - placerCoords[2]);
             let placerSourceX = Math.min(placerCoords[1] , placerCoords[3]);
             let placerSourceY = Math.min(placerCoords[0] , placerCoords[2]);
-            const placerStructure = grabStructure.split("+");
 
             for(let row = 0; row<=placerHeight; row++){//clear the placer area selection b4 .. placing
                 for(let col = 0; col<=placerWidth ; col++){
@@ -1202,33 +1201,54 @@ function buildFarm(){
 
             let tileX = 0;
             let tileY = 0;
-
-            for(let row=0; row<placerHeight; row++){
-                let currY = placerSourceY + row;
-
-                const placerRow = placerStructure[row+1].split("=");
-                tileX = 0
-
-                do{
-                    for(let col = 0; col<grabWidth ; col++){
-                        const placerPlot = placerRow[col+1].split("");
-
-                        let currX = placerSourceX + col + tileX;
-                        //console.log(String.fromCharCode(charCode + placerGroup)  + "," +  currX + "," + currY)
-                        groups[placerGroup].updatePlot(
-                            ((placerPlot[0]).charCodeAt(0) - 97), 
-                            parseInt(placerPlot[1]), 
-                            currY, 
-                            currX, 
-                            String.fromCharCode(charCode + placerGroup));
-    
-                        if((col + tileX) > placerWidth){
-                            col = grabWidth;
-                        }
-                    }
-                    tileX += grabWidth;
-                }while(tileX < placerWidth);
+            let adjustX = 0;
+            let adjustY = 0;
+            if(isGrabLocked){
+                if(placerSourceX%2 != data.groups[placerGroup].heightOffset){
+                    adjustX = 1;
+                }
+                if(placerSourceY%2 != data.groups[placerGroup].widthOffset){
+                    adjustY = 1;
+                }
             }
+
+            const placerStructure = grabStructure.split("+");
+
+            do{
+                for(let row=1; row<placerStructure.length; row++){
+                    let currY = placerSourceY + row + tileY-1;
+
+                    const placerRow = placerStructure[row].split("=");
+                    tileX = 0
+
+                    do{
+                        for(let col = 1; col<placerRow.length ; col++){
+                            const placerPlot = placerRow[col].split("");
+
+                            let currX = placerSourceX + col + tileX-1;
+                            console.log(placerRow[col]  + "," +  currX + "," + ((placerPlot[0]).charCodeAt(0) - 97) )
+                            if(((placerPlot[0]).charCodeAt(0) - 97) > 0){
+                                groups[placerGroup].updatePlot(
+                                    ((placerPlot[0]).charCodeAt(0) - 97), 
+                                    parseInt(placerPlot[1]), 
+                                    currY + adjustY, 
+                                    currX + adjustX, 
+                                    String.fromCharCode(charCode + placerGroup));
+                            }
+        
+                            if((col + tileX + adjustX) >= placerWidth){
+                                col = placerRow.length;
+                            }
+                        }
+                        tileX += (placerRow.length);
+                    }while((tileX + adjustX) < placerWidth);
+
+                    if((row + tileY + adjustY) >= placerHeight){
+                        row = placerStructure.length;
+                    }
+                }
+                tileY += (placerStructure.length);
+            }while((tileY + adjustY) < placerHeight);
 
                 
             calculateBoard();
