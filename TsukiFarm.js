@@ -65,9 +65,14 @@ let buildMode = false;
 let selectionLocked = false;
 let gridShift = 1;
 
+let grabMode = 0;               //4 modes; 0=blue square 1=red square 2=refresh red blue 3=grey square 4=final placement grey square
 let grabCoords = [0,0,0,0]
 let grabGroup = 0;
 let grabStructure = ""
+let isGrabLocked = false
+
+let placerCoords = [0,0,0,0]
+let placerGroup = 0;
 
 //variables for the brute force thing
 let winnerWinner = 0;
@@ -346,7 +351,87 @@ function buildFarm(){
                     plot.className = "plot";
                     plot.onclick = function(){
                         if(buildMode){
+                            switch(grabMode){
+                                case 0://place blue square
+                                    grabGroup = l;
+                                    grabCoords[0] = i;
+                                    grabCoords[1] = j;
 
+                                    document.getElementById("placer" + letta + i + "," + j).style.backgroundColor = "#58d7ee";
+                                    blueBox.style.backgroundColor = "#58d7ee";
+                                    grabMode = 1;
+                                    break;
+                                case 1://place red square
+                                    if(l != grabGroup){
+                                        blueBox.style.backgroundColor = "#605776";
+                                        redBox.style.backgroundColor = "#605776";
+                                        document.getElementById("placer" + String.fromCharCode(charCode + grabGroup) + grabCoords[0] + "," + grabCoords[1]).style.backgroundColor = "#ffffff00";
+
+                                        grabGroup = l;
+                                        grabCoords[0] = i;
+                                        grabCoords[1] = j;
+
+                                        document.getElementById("placer" + letta + i + "," + j).style.backgroundColor = "#58d7ee";
+                                        blueBox.style.backgroundColor = "#58d7ee";
+                                        break;
+                                    }
+                                    
+                                    lockIcon.style.display = ""
+                                    grabCoords[2] = i;
+                                    grabCoords[3] = j;
+                                    document.getElementById("placer" + letta + i + "," + j).style.backgroundColor = "#ff7272";
+                                    redBox.style.backgroundColor = "#ff7272";
+                                    grabMode = 2;
+                                    break;
+
+                                case 2://intermediate clear for blue red 
+                                    lockIcon.style.display = "none"
+                                    blueBox.style.backgroundColor = "#605776";
+                                    redBox.style.backgroundColor = "#605776";
+                                    document.getElementById("placer" + String.fromCharCode(charCode + grabGroup) + grabCoords[0] + "," + grabCoords[1]).style.backgroundColor = "#ffffff00";
+                                    document.getElementById("placer" + String.fromCharCode(charCode + grabGroup) + grabCoords[2] + "," + grabCoords[3]).style.backgroundColor = "#ffffff00";
+                                    grabMode = 0;
+                                    break;
+
+                                case 3://place 1st grey square, should only be available if selection was locked
+                                    placerGroup = l;
+                                    placerCoords[0] = i;
+                                    placerCoords[1] = j;
+
+                                    document.getElementById("placer" + letta + i + "," + j).style.backgroundColor = "#808080";
+                                    greyBox1.style.backgroundColor = "#808080";
+                                    grabMode = 4;
+                                    break;
+                                case 4://place 2nd grey and ready for filling
+                                    if(l != placerGroup){
+                                        greyBox1.style.backgroundColor = "#605776";
+                                        greyBox2.style.backgroundColor = "#605776";
+                                        document.getElementById("placer" + String.fromCharCode(charCode + placerGroup) + placerCoords[0] + "," + placerCoords[1]).style.backgroundColor = "#ffffff00";
+
+                                        placerGroup = l;
+                                        placerCoords[0] = i;
+                                        placerCoords[1] = j;
+
+                                        document.getElementById("placer" + letta + i + "," + j).style.backgroundColor = "#808080";
+                                        greyBox1.style.backgroundColor = "#808080";
+                                        break;
+                                    }
+                                    
+                                    fillIcon.style.display = ""
+                                    placerCoords[2] = i;
+                                    placerCoords[3] = j;
+                                    document.getElementById("placer" + letta + i + "," + j).style.backgroundColor = "#808080";
+                                    greyBox2.style.backgroundColor = "#808080";
+                                    grabMode = 5;
+                                    break;
+                                case 5://intermediate clear for greys 
+                                    fillIcon.style.display = "none"
+                                    greyBox1.style.backgroundColor = "#605776";
+                                    greyBox2.style.backgroundColor = "#605776";
+                                    document.getElementById("placer" + String.fromCharCode(charCode + placerGroup) + placerCoords[0] + "," + placerCoords[1]).style.backgroundColor = "#ffffff00";
+                                    document.getElementById("placer" + String.fromCharCode(charCode + placerGroup) + placerCoords[2] + "," + placerCoords[3]).style.backgroundColor = "#ffffff00";
+                                    grabMode = 3;
+                            }
                         }else{
                             undoRedoList[undoRedoPosition] = "";
                             undoRedoList[undoRedoPosition] = printFarmstructure();
@@ -856,6 +941,29 @@ function buildFarm(){
                 counterDisplayBox.style.backgroundColor = "#ffd1dc";
                 rotationSelector.style.backgroundColor = "#ffd1dc";
                 buildModeSwap.style.backgroundColor = "#463455";
+
+                
+                document.getElementById("placer" + String.fromCharCode(charCode + grabGroup) + grabCoords[0] + "," + grabCoords[1]).style.backgroundColor = "#ffffff00";
+                document.getElementById("placer" + String.fromCharCode(charCode + grabGroup) + grabCoords[2] + "," + grabCoords[3]).style.backgroundColor = "#ffffff00";
+                document.getElementById("placer" + String.fromCharCode(charCode + placerGroup) + placerCoords[0] + "," + placerCoords[1]).style.backgroundColor = "#ffffff00";
+                document.getElementById("placer" + String.fromCharCode(charCode + placerGroup) + placerCoords[2] + "," + placerCoords[3]).style.backgroundColor = "#ffffff00";
+                previewSquare1.style.backgroundColor = "#605776";
+                previewSquare2.style.backgroundColor = "#605776";
+                previewSquare3.style.backgroundColor = "#605776";
+                previewSquare4.style.backgroundColor = "#605776";
+                previewX.innerHTML = "0"
+                previewY.innerHTML = "0"
+                blueBox.style.backgroundColor = "#605776";
+                redBox.style.backgroundColor = "#605776";
+                greyBox1.style.backgroundColor = "#605776";
+                greyBox2.style.backgroundColor = "#605776";
+                previewBox.style.backgroundColor = "#463455";
+                lockIcon.style.display = "none"
+                fillIcon.style.display = "none"
+                brChain.style.display = "none";
+                grabMode = 0;
+                selectionLocked = false
+                lockIcon.src = "images/farmPlots/unlocked.png";
             }
             previousPlot = chosenFarmSpot;
         }
@@ -1055,46 +1163,197 @@ function buildFarm(){
                 }
             }
 
+
+        let filLBox = document.createElement("div");
+        filLBox.id = "filLBox";
+        grabDiv.appendChild(filLBox);
+            let fillIcon = document.createElement("img");
+            fillIcon.id = "fillIcon";
+            fillIcon.src = "images/farmPlots/fillIcon.png";
+            fillIcon.style.display = "none"
+            filLBox.appendChild(fillIcon);
+        
+        filLBox.onclick = function(){
+            undoRedoList[undoRedoPosition] = "";
+            undoRedoList[undoRedoPosition] = printFarmstructure();
+            canRedo = false;
+            highestRedoPosition = undoRedoPosition;
+            undoRedoPosition++
+
+
+            let grabWidth = Math.abs(grabCoords[1] - grabCoords[3]);
+            let grabHeight = Math.abs(grabCoords[0] - grabCoords[2]);
+
+            let placerWidth = Math.abs(placerCoords[1] - placerCoords[3]);
+            let placerHeight = Math.abs(placerCoords[0] - placerCoords[2]);
+            let placerSourceX = Math.min(placerCoords[1] , placerCoords[3]);
+            let placerSourceY = Math.min(placerCoords[0] , placerCoords[2]);
+            const placerStructure = grabStructure.split("+");
+
+            for(let row = 0; row<=placerHeight; row++){//clear the placer area selection b4 .. placing
+                for(let col = 0; col<=placerWidth ; col++){
+                    let currX = placerSourceX + col;
+                    let currY = placerSourceY + row;
+                    //console.log(String.fromCharCode(charCode + placerGroup)  + "," +  currX + "," + currY)
+
+                    groups[placerGroup].updatePlot(0, 0, currY, currX, String.fromCharCode(charCode + placerGroup));
+                }
+            }
+
+            let tileX = 0;
+            let tileY = 0;
+
+            for(let row=0; row<placerHeight; row++){
+                let currY = placerSourceY + row;
+
+                const placerRow = placerStructure[row+1].split("=");
+                tileX = 0
+
+                do{
+                    for(let col = 0; col<grabWidth ; col++){
+                        const placerPlot = placerRow[col+1].split("");
+
+                        let currX = placerSourceX + col + tileX;
+                        //console.log(String.fromCharCode(charCode + placerGroup)  + "," +  currX + "," + currY)
+                        groups[placerGroup].updatePlot(
+                            ((placerPlot[0]).charCodeAt(0) - 97), 
+                            parseInt(placerPlot[1]), 
+                            currY, 
+                            currX, 
+                            String.fromCharCode(charCode + placerGroup));
+    
+                        if((col + tileX) > placerWidth){
+                            col = grabWidth;
+                        }
+                    }
+                    tileX += grabWidth;
+                }while(tileX < placerWidth);
+            }
+
+                
+            calculateBoard();
+        }
+
+        let greyBox1 = document.createElement("div");
+        greyBox1.id = "greyBox1";
+        greyBox1.style.backgroundColor = "#605776";
+        grabDiv.appendChild(greyBox1);
+        let greyBox2 = document.createElement("div");
+        greyBox2.id = "greyBox2";
+        greyBox2.style.backgroundColor = "#605776";
+        grabDiv.appendChild(greyBox2);
+
+
+
         let grabBox = document.createElement("div");
         grabBox.id = "grabBox";
-        //grabBox.style.backgroundColor = "#463455";
         grabDiv.appendChild(grabBox);
             let lockIcon = document.createElement("img");
             lockIcon.id = "lockIcon";
             lockIcon.src = "images/farmPlots/unlocked.png";
+            lockIcon.style.display = "none"
             grabBox.appendChild(lockIcon);
 
         grabBox.onclick = function(){
-            //grabCoords = [0,0,0,0]
-            //grabGroup = 0;
-            //grabStructure = ""
+            if(grabMode >= 2){
+                document.getElementById("placer" + String.fromCharCode(charCode + grabGroup) + grabCoords[0] + "," + grabCoords[1]).style.backgroundColor = "#ffffff00";
+                document.getElementById("placer" + String.fromCharCode(charCode + grabGroup) + grabCoords[2] + "," + grabCoords[3]).style.backgroundColor = "#ffffff00";
+                
+                selectionLocked = !selectionLocked;
+                if(selectionLocked){
+                    if(grabCoords[0] > grabCoords[2]){
+                        if(grabCoords[1] > grabCoords[3]){
+                            previewSquare4.style.backgroundColor = "#58d7ee";
+                            previewSquare1.style.backgroundColor = "#ff7272";
+                        }else{
+                            previewSquare3.style.backgroundColor = "#58d7ee";
+                            previewSquare2.style.backgroundColor = "#ff7272";    
+                        }
+                    }else{
+                        if(grabCoords[1] > grabCoords[3]){
+                            previewSquare2.style.backgroundColor = "#58d7ee";
+                            previewSquare3.style.backgroundColor = "#ff7272";
+                        }else{
+                            previewSquare1.style.backgroundColor = "#58d7ee";
+                            previewSquare4.style.backgroundColor = "#ff7272";
+                        }
+                    }
 
-            selectionLocked = !selectionLocked;
-            if(selectionLocked){
-                lockIcon.src = "images/farmPlots/locked.png";
-                brChain.style.display = "";
+                    grabStructure = ""
+                    let grabWidth = Math.abs(grabCoords[1] - grabCoords[3]);
+                    let grabHeight = Math.abs(grabCoords[0] - grabCoords[2]);
+                    let grabSourceX = Math.min(grabCoords[1] , grabCoords[3]);
+                    let grabSourceY = Math.min(grabCoords[0] , grabCoords[2]);
+                    isGrabLocked = false;
 
-            }else{
-                lockIcon.src = "images/farmPlots/unlocked.png";
-                brChain.style.display = "none";
+                    for(let row=0; row<grabHeight; row++){
+                        grabStructure += "+"
+                        for(let col=0; col<grabWidth ; col++){
+                            let currX = grabSourceX + col;
+                            let currY = grabSourceY + row;
 
+                            if(groups[grabGroup].plots[currY][currX] > -1){
+                                grabStructure += "=" + String.fromCharCode(
+                                    "a".charCodeAt(0) + groups[grabGroup].plots[currY][currX]) + 
+                                    Math.max(0 , groups[grabGroup].direction[currY][currX]);
+                            }
+
+                            if(!(plotList[Math.max(0,groups[grabGroup].plots[currY][currX])].canFreePlace) && groups[grabGroup].plots[currY][currX] > 0){
+                                isGrabLocked = true;
+                                exclamationIcon.style.display = "";
+                                gridlockedIcon.style.display = "";
+                            }
+                        }
+                    }
+                    
+                    console.log(grabStructure)
+                    
+                    previewBox.style.backgroundColor = "#b2dfbc";
+                    previewX.innerHTML = Math.abs(grabCoords[1] - grabCoords[3]) + 1
+                    previewY.innerHTML = Math.abs(grabCoords[0] - grabCoords[2]) + 1
+                    grabMode = 3;
+                    lockIcon.src = "images/farmPlots/locked.png";
+                    brChain.style.display = "";
+    
+                }else{
+                    document.getElementById("placer" + String.fromCharCode(charCode + placerGroup) + placerCoords[0] + "," + placerCoords[1]).style.backgroundColor = "#ffffff00";
+                    document.getElementById("placer" + String.fromCharCode(charCode + placerGroup) + placerCoords[2] + "," + placerCoords[3]).style.backgroundColor = "#ffffff00";
+                    fillIcon.style.display = "none"
+                    greyBox1.style.backgroundColor = "#605776";
+                    greyBox2.style.backgroundColor = "#605776";
+                    
+                    previewBox.style.backgroundColor = "#463455";
+                    previewX.innerHTML = "0"
+                    previewY.innerHTML = "0"
+                    previewSquare1.style.backgroundColor = "#605776";
+                    previewSquare2.style.backgroundColor = "#605776";
+                    previewSquare3.style.backgroundColor = "#605776";
+                    previewSquare4.style.backgroundColor = "#605776";
+                    exclamationIcon.style.display = "none";
+                    gridlockedIcon.style.display = "none";
+                    document.getElementById("placer" + String.fromCharCode(charCode + grabGroup) + grabCoords[0] + "," + grabCoords[1]).style.backgroundColor = "#58d7ee";
+                    document.getElementById("placer" + String.fromCharCode(charCode + grabGroup) + grabCoords[2] + "," + grabCoords[3]).style.backgroundColor = "#ff7272";
+                    grabMode = 2;
+                    lockIcon.src = "images/farmPlots/unlocked.png";
+                    brChain.style.display = "none";
+    
+                }
             }
         }
-            
+        
         let blueBox = document.createElement("div");
         blueBox.id = "blueBox";
-        blueBox.style.backgroundColor = "#58d7ee";
+        blueBox.style.backgroundColor = "#605776";
         grabDiv.appendChild(blueBox);
         let redBox = document.createElement("div");
         redBox.id = "redBox";
-        redBox.style.backgroundColor = "#ff7272";
+        redBox.style.backgroundColor = "#605776";
         grabDiv.appendChild(redBox);
-
-        let brChain = document.createElement("img");
-        brChain.id = "brChain";
-        brChain.src = "images/farmPlots/chained.png";
-        brChain.style.display = "none";
-        grabDiv.appendChild(brChain);
+            let brChain = document.createElement("img");
+            brChain.id = "brChain";
+            brChain.src = "images/farmPlots/chained.png";
+            brChain.style.display = "none";
+            grabDiv.appendChild(brChain);
         
         let previewDiv = document.createElement("div");
         previewDiv.id = "previewDiv";
@@ -1118,6 +1377,17 @@ function buildFarm(){
                 previewSquare4.id = "previewSquare4";
                 previewSquare4.className = "previewSquare";
                 previewBox.appendChild(previewSquare4);
+
+                let gridlockedIcon = document.createElement("img");
+                gridlockedIcon.id = "gridlockedIcon";
+                gridlockedIcon.src = "images/farmPlots/gridlockedIcon.png";
+                gridlockedIcon.style.display = "none";
+                previewBox.appendChild(gridlockedIcon);
+                let exclamationIcon = document.createElement("img");
+                exclamationIcon.id = "exclamationIcon";
+                exclamationIcon.src = "images/farmPlots/exclamationIcon.png";
+                exclamationIcon.style.display = "none";
+                previewBox.appendChild(exclamationIcon);
             
             let previewX = document.createElement("div");
             previewX.id = "previewX";
@@ -2502,7 +2772,7 @@ function calculateBoard(){
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////// 
 function printFarmstructure(){
     let rowPopulated = false;
     let farmStructure = "/" + currentWebsiteVersion + "/" + 

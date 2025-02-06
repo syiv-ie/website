@@ -1166,7 +1166,7 @@ a:hover{
             padding: 0vw;
             width: 5vw;
             height: 5vw;
-            left: 22vw;
+            left: 24.8vw;
             top: 3vw;
             white-space: 0vw;
         }
@@ -1180,38 +1180,82 @@ a:hover{
                 top: 0.48vw;
                 white-space: 0vw;
             }
-        #blueBox{
+            #blueBox{
+                font-size: 0vw;
+                position: absolute;
+                border-radius: .4vw; 
+                padding: 0vw;
+                width: 2vw;
+                height: 2vw;
+                left: 21.8vw;
+                top: 3vw;
+                white-space: 0vw;
+            }
+            #redBox{
+                font-size: 0vw;
+                position: absolute;
+                border-radius: .4vw; 
+                padding: 0vw;
+                width: 2vw;
+                height: 2vw;
+                left: 21.8vw;
+                top: 6vw;
+                white-space: 0vw;
+            }
+            #brChain{
+                position: absolute;
+                filter: invert(93%) sepia(6%) saturate(1466%) hue-rotate(182deg) brightness(103%) contrast(105%);
+                rotate: 45deg;
+                padding: 0vw;
+                height: 3vw;
+                left: 21.3vw;
+                top: 4vw;
+                white-space: 0vw;
+            }
+        #filLBox{
+            background-color: #605776;
             font-size: 0vw;
             position: absolute;
-            border-radius: .4vw; 
+            border-radius: 1vw; 
             padding: 0vw;
-            width: 2vw;
-            height: 2vw;
-            left: 22vw;
-            top: 9vw;
+            width: 5vw;
+            height: 5vw;
+            left: 24.8vw;
+            top: 10vw;
             white-space: 0vw;
         }
-        #redBox{
-            font-size: 0vw;
-            position: absolute;
-            border-radius: .4vw; 
-            padding: 0vw;
-            width: 2vw;
-            height: 2vw;
-            left: 25vw;
-            top: 9vw;
-            white-space: 0vw;
-        }
-        #brChain{
-            position: absolute;
-            filter: invert(93%) sepia(6%) saturate(1466%) hue-rotate(182deg) brightness(103%) contrast(105%);
-            rotate: 135deg;
-            padding: 0vw;
-            height: 3vw;
-            left: 23vw;
-            top: 8.5vw;
-            white-space: 0vw;
-        }
+            #fillIcon{
+                position: absolute;
+                filter: invert(93%) sepia(6%) saturate(1466%) hue-rotate(182deg) brightness(103%) contrast(105%);
+                rotate: 0deg;
+                padding: 0vw;
+                height: 4vw;
+                left: 0.5vw;
+                top: 0.48vw;
+                white-space: 0vw;
+            }
+            #greyBox1{
+                font-size: 0vw;
+                position: absolute;
+                border-radius: .4vw; 
+                padding: 0vw;
+                width: 2vw;
+                height: 2vw;
+                left: 21.8vw;
+                top: 10vw;
+                white-space: 0vw;
+            }
+            #greyBox2{
+                font-size: 0vw;
+                position: absolute;
+                border-radius: .4vw; 
+                padding: 0vw;
+                width: 2vw;
+                height: 2vw;
+                left: 21.8vw;
+                top: 13vw;
+                white-space: 0vw;
+            }
 
         #previewDiv{
             position: absolute;
@@ -1226,8 +1270,6 @@ a:hover{
             #previewBox{
                 border-color: #605776;
                 position: absolute;
-                overflow-y: hidden; 
-                overflow-x: hidden; 
                 border-style: solid; 
                 font-size: 0vw;
                 border-radius: 1vw; 
@@ -1265,6 +1307,28 @@ a:hover{
                     left: 8.5vw;
                     top: 8.5vw;
                 }
+                #gridlockedIcon{
+                    position: absolute;
+                    filter: invert(39%) sepia(11%) saturate(1039%) hue-rotate(216deg) brightness(85%) contrast(91%);
+                    font-size: 0vw;
+                    border-radius: .4vw; 
+                    padding: 0vw;
+                    height: 1.5vw;
+                    left: 2.7vw;
+                    top: 9.3vw;
+                    white-space: 0vw;
+                }
+                #exclamationIcon{
+                    position: absolute;
+                    filter: invert(39%) sepia(3%) saturate(3990%) hue-rotate(216deg) brightness(55%) contrast(88%);
+                    font-size: 0vw;
+                    border-radius: .4vw; 
+                    padding: 0vw;
+                    height: 1.5vw;
+                    left: 4.5vw;
+                    top: 9.3vw;
+                    white-space: 0vw;
+                }
             .previewArrow{
                 position: absolute;
                 filter: invert(39%) sepia(11%) saturate(1039%) hue-rotate(216deg) brightness(85%) contrast(91%);
@@ -1288,8 +1352,8 @@ a:hover{
                 top: -.2vw;
             }
             #previewY{
-                rotate: 90deg;
-                left: -.7vw;
+                rotate: 270deg;
+                left: -.9vw;
                 top: 7vw;
             }
 
