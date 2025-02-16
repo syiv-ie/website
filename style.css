@@ -166,6 +166,208 @@ a:hover{
         background-color: #cdffcd;
     }
 /*////////////////////////////////////*/
+#MiscData{
+    background-color: #fbfaff;
+    border-radius: 2vw; 
+    color: #000000;
+    text-decoration: none;
+    padding: 0vw;
+    width: 90vw;
+    height: 93vw;
+    margin-top: 17vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+    #navbarDiv{
+        position: relative;
+        padding: 0vw;
+        width: 0vw;
+        height: 0vw;
+        white-space: 0vw;
+        top: -13.5vw;
+        left: 0vw;    
+    }
+        #navbarTitleBox{
+            position: absolute;
+            background-color: #fbfaff;
+            font-size: 0vw;
+            border-radius: 1vw; 
+            padding: 0vw;
+            width: 25.5vw;
+            height: 6vw;
+            left: 1vw;
+            top: 0vw;
+            white-space: 0vw;
+        }
+            #navbarTitle{
+                position: absolute;
+                height: 0vw;
+                color: #493d68;
+                font-size: 3vw;
+                left: 1vw;
+                top: .5vw;
+            }
+        #lineBox{
+            overflow-y: hidden; 
+            overflow-x: hidden;
+            position: absolute;
+            background-color: #493d68;
+            font-size: 0vw;
+            border-radius: 1vw; 
+            padding: 0vw;
+            width: 90vw;
+            height: 3vw;
+            left: 0vw;
+            top: 4.4vw;
+            white-space: 0vw;
+        }
+        .navTab{
+            position: absolute;
+            text-align: center;
+            font-size: 0vw;
+            border-radius: 1vw; 
+            padding: 0vw;
+            height: 5.5vw;
+            top: 6vw;
+            white-space: 0vw;
+        }
+            .navTitle{          
+                position: absolute;
+                color: #493d68;
+                font-size: 3vw;
+                left: 1vw;
+                top: 1.5vw;
+            }
+        #dataTab{
+            left: 1vw;
+            width: 18vw;
+        }
+        #cardsTab{
+            left: 20vw;
+            width: 10.5vw;
+        }
+        #updatesTab{
+            left: 31.5vw;
+            width: 14.5vw;
+        }
+        #guidesTab{
+            left: 47vw;
+            width: 12vw;
+        }
+    #dataDiv{
+        position: relative;
+        padding: 0vw;
+        width: 0vw;
+        height: 0vw;
+        white-space: 0vw;
+        top: 0vw;
+        left: 0vw;    
+    }
+        #strangeDataDiv{
+            position: absolute;
+            background-color: #493d68;
+            border-style:solid; 
+            border-color: #fbfaff; 
+            border-width: 1vw; 
+            border-radius: 2vw; 
+            padding: 0vw;
+            width: 28vw;
+            height: 63vw;
+            white-space: 0vw;
+            top: 2vw;
+            left: 2vw;    
+        }
+            #strangeDataTitleBox{
+                position: absolute;
+                text-align: center;
+                font-size: 0vw;
+                border-radius: 1vw; 
+                padding: 0vw;
+                height: 0vw;
+                width: 28vw;
+                top: 0vw;
+                left: 0vw;
+                white-space: 0vw;
+            }
+                #strangeDataTitle{
+                    position: absolute;
+                    color: #fbfaff;
+                    font-size: 2.3vw;
+                    left: 1.6vw;
+                    top: 1.5vw;
+                }
+            #strangeCropDisplay{
+                position: absolute;
+                background-color: #fbfaff;
+                font-size: 0vw;
+                border-radius: 1vw; 
+                padding: 0vw;
+                width: 7vw;
+                height: 55vw;
+                left: 4.5vw;
+                top: 6.5vw;
+                white-space: 0vw;
+            }
+                .scDiv{
+                    position: relative;
+                    width: 0vw;
+                    height: 5vw;
+                    left: 1vw;
+                    padding-top: 1vw;
+                }
+                    .scImg{
+                        position: relative;
+                        height: 5vw;
+                        left: 0vw;
+                    }
+                .sccDiv{
+                    position: relative;
+                    text-align: center;
+                    background-color: #fbfaff;
+                    border-radius: 1vw; 
+                    width: 9vw;
+                    height: 3vw;
+                    left: 9vw;
+                    top: -55vw;
+                    margin-top: 3vw;
+                }
+                    .scc{
+                        position: absolute;
+                        text-align: right;
+                        color: #493d68;
+                        font-size: 2vw;
+                        left: .8vw;
+                        width: 7.9vw;
+                        top: .1vw;
+                    }
+    #cardsDiv{
+        position: relative;
+        padding: 0vw;
+        width: 0vw;
+        height: 0vw;
+        white-space: 0vw;
+        top: 0vw;
+        left: 0vw;    
+    }
+    #updatesDiv{
+        position: relative;
+        padding: 0vw;
+        width: 0vw;
+        height: 0vw;
+        white-space: 0vw;
+        top: 0vw;
+        left: 0vw;    
+    }
+    #guidesDiv{
+        position: relative;
+        padding: 0vw;
+        width: 0vw;
+        height: 0vw;
+        white-space: 0vw;
+        top: 0vw;
+        left: 0vw;    
+    }
+/*////////////////////////////////////*/
 #Farm{
     overflow-y: hidden; 
     overflow-x: hidden;

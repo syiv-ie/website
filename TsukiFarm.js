@@ -10,6 +10,7 @@ startingFarm = window.location.search
 let tutorialFarm = "`/2.1.0/ag10//-bqlmnbpd3r-dqlfn-hll-jlj/////`"
 let pausedFarm = ""
 
+let miscMode = 0;
 
 let chosenFarmSpot = 12;
 let previousPlot = chosenFarmSpot;
@@ -277,6 +278,7 @@ function numberWithCommas(x) {//thanks stackoverflow i love you
 
 
 
+buildMiscData();
 buildFarm();
 function buildFarm(){
     console.log(strawberry.isClover)
@@ -2217,6 +2219,201 @@ function buildFarm(){
     calculateBoard();
 }
 
+
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+////////////////////////buildMiscData////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+function buildMiscData(){
+    let MiscData = document.getElementById("MiscData");
+
+    var tabList = [];
+    var divList = [];
+    var bgList = [
+        "#fbfaffa0",
+        "#fbfaff40",
+        "#fbfaffa0",
+        "#fbfaffa0"
+    ];
+
+
+    /////////////////////////////////////////////////////////////
+    let navbarDiv = document.createElement("div");
+    navbarDiv.id = "navbarDiv";
+    MiscData.appendChild(navbarDiv);
+        
+        let navbarTitleBox = document.createElement("div");
+        navbarTitleBox.id = "navbarTitleBox";
+        navbarDiv.appendChild(navbarTitleBox);
+            let navbarTitle = document.createElement("div");
+            navbarTitle.id = "navbarTitle";
+            navbarTitleBox.appendChild(navbarTitle);
+            navbarTitle.innerHTML = "Miscellaneous ..."
+
+        let dataTab = document.createElement("div");
+        dataTab.id = "dataTab";
+        dataTab.className = "navTab"
+        dataTab.style.backgroundColor = "#cfc3ff"
+        tabList[0] = dataTab;
+        dataTab.onclick = function(){
+            miscModeSwapper(miscMode, 0);
+        }
+        navbarDiv.appendChild(dataTab);
+            let dataTitle = document.createElement("div");
+            dataTitle.id = "dataTitle";
+            dataTitle.className = "navTitle"
+            dataTab.appendChild(dataTitle);
+            dataTitle.innerHTML = "Extra Data"
+
+        let cardsTab = document.createElement("div");
+        cardsTab.id = "cardsTab";
+        cardsTab.className = "navTab"
+        cardsTab.style.backgroundColor = "#cfc3ff"
+        tabList[1] = cardsTab;
+        cardsTab.onclick = function(){
+            miscModeSwapper(miscMode, 1);
+        }
+        navbarDiv.appendChild(cardsTab);
+            let cardsTitle = document.createElement("div");
+            cardsTitle.id = "cardsTitle";
+            cardsTitle.className = "navTitle"
+            cardsTab.appendChild(cardsTitle);
+            cardsTitle.innerHTML = "Cards"
+
+        let updatesTab = document.createElement("div");
+        updatesTab.id = "updatesTab";
+        updatesTab.className = "navTab"
+        updatesTab.style.backgroundColor = "#cfc3ff"
+        tabList[2] = updatesTab;
+        updatesTab.onclick = function(){
+            miscModeSwapper(miscMode, 2);
+        }
+        navbarDiv.appendChild(updatesTab);
+            let updatesTitle = document.createElement("div");
+            updatesTitle.id = "updatesTitle";
+            updatesTitle.className = "navTitle"
+            updatesTab.appendChild(updatesTitle);
+            updatesTitle.innerHTML = "Updates"
+
+
+        let guidesTab = document.createElement("div");
+        guidesTab.id = "guidesTab";
+        guidesTab.className = "navTab"
+        guidesTab.style.backgroundColor = "#cfc3ff"
+        tabList[3] = guidesTab;
+        guidesTab.onclick = function(){
+            miscModeSwapper(miscMode, 3);
+        }
+        navbarDiv.appendChild(guidesTab);
+            let guidesTitle = document.createElement("div");
+            guidesTitle.id = "guidesTitle";
+            guidesTitle.className = "navTitle"
+            guidesTab.appendChild(guidesTitle);
+            guidesTitle.innerHTML = "Guides"
+
+        let lineBox = document.createElement("div");
+        lineBox.id = "lineBox";
+        navbarDiv.appendChild(lineBox);
+
+    /////////////////////////////////////////////////////////////
+    let dataDiv = document.createElement("div");
+    dataDiv.id = "dataDiv";
+    dataDiv.style.display = "none"
+    divList[0] = dataDiv;
+    MiscData.appendChild(dataDiv);
+
+        /////////////////////////////////////////////////////////////
+        let strangeDataDiv = document.createElement("div");
+        strangeDataDiv.id = "strangeDataDiv";
+        dataDiv.appendChild(strangeDataDiv);
+
+            let strangeCropDisplay = document.createElement("div");
+            strangeCropDisplay.id = "strangeCropDisplay";
+            strangeDataDiv.appendChild(strangeCropDisplay);
+                for(let i=0; i<plotList.length; i++){
+                    if(plotList[i].isCrop && i != 12){
+                        let sc = document.createElement("div");
+                        sc.id = "scDiv" + i; //strange crop Div #
+                        sc.className = "scDiv";
+                        strangeCropDisplay.appendChild(sc);
+                            let scImg = document.createElement("img");
+                            scImg.id = "scImg" + i;
+                            scImg.className = "scImg";
+                            scImg.src = "images/farmPlots/strange" + plotList[i].namae + ".png";
+                            sc.appendChild(scImg);
+                    }
+                }
+                for(let i=0; i<plotList.length; i++){
+                    if(plotList[i].isCrop && i != 12){
+                        let sccDiv = document.createElement("div");
+                        sccDiv.id = "sccDiv" + i; //strange crop Div #
+                        sccDiv.className = "sccDiv";
+                        strangeCropDisplay.appendChild(sccDiv);
+                            let scc = document.createElement("div");
+                            scc.id = "scc" + i;
+                            scc.className = "scc";
+                            sccDiv.appendChild(scc);
+                            scc.innerHTML = "0%"
+                    }
+                }
+                
+            let strangeDataTitleBox = document.createElement("div");
+            strangeDataTitleBox.id = "strangeDataTitleBox";
+            strangeDataDiv.appendChild(strangeDataTitleBox);
+                let strangeDataTitle = document.createElement("div");
+                strangeDataTitle.id = "strangeDataTitle";
+                strangeDataTitleBox.appendChild(strangeDataTitle);
+                strangeDataTitle.innerHTML = "Strange Crop Chances"
+
+
+
+    /////////////////////////////////////////////////////////////
+    let cardsDiv = document.createElement("div");
+    cardsDiv.id = "cardsDiv";
+    cardsDiv.style.display = "none"
+    divList[1] = cardsDiv;
+    MiscData.appendChild(cardsDiv);
+
+
+    /////////////////////////////////////////////////////////////
+    let updatesDiv = document.createElement("div");
+    updatesDiv.id = "updatesDiv";
+    updatesDiv.style.display = "none"
+    divList[2] = updatesDiv;
+    MiscData.appendChild(updatesDiv);
+
+
+    /////////////////////////////////////////////////////////////
+    let guidesDiv = document.createElement("div");
+    guidesDiv.id = "guidesDiv";
+    guidesDiv.style.display = "none"
+    divList[3] = guidesDiv;
+    MiscData.appendChild(guidesDiv);
+
+
+
+
+
+
+    /////////////////////////////////////////////////////////////
+        miscModeSwapper(miscMode, miscMode);//setup default tab
+        function miscModeSwapper(prev, curr){
+            miscMode = curr;
+
+            tabList[prev].style.backgroundColor = "#cfc3ff"
+            divList[prev].style.display = "none"
+
+            MiscData.style.backgroundColor = bgList[curr]
+            tabList[curr].style.backgroundColor = "#fbfaff"
+            divList[curr].style.display = ""
+        }
+}
+
 /////////////////////////////////////////////////////////
 function setLuck(){
     luck = 70 + (Math.round(2 * (Math.random() * 40)) / 2);
@@ -2756,12 +2953,12 @@ function calculateBoard(){
     document.getElementById("cdnd20").innerHTML = plotCount[20];
     document.getElementById("cdnd21").innerHTML = plotCount[21];
 
-    let sov = 0;//18
-    let soc = 0;
-    soc =1 - Math.pow((1-cloverStrangeEffect), plotCount[18]);
-    sov = (plotList[18].minYield + plotCount[8]) * plotList[18].value * 5;
-    sovuv = (plotList[18].minYield + plotCount[8]) * 1.25 * plotList[18].value * 5;
-    document.getElementById("2").innerHTML = "Chance of 1 S.Onion: " + Math.round(100000 * soc) / 1000 + "% <br>S.Onion Value: " + sov + "*UV=" + sovuv;
+    //let sov = 0;//18
+    //let soc = 0;
+    //soc =1 - Math.pow((1-cloverStrangeEffect), plotCount[18]);
+    //sov = (plotList[18].minYield + plotCount[8]) * plotList[18].value * 5;
+    //sovuv = (plotList[18].minYield + plotCount[8]) * 1.25 * plotList[18].value * 5;
+    //document.getElementById("2").innerHTML = "Chance of 1 S.Onion: " + Math.round(100000 * soc) / 1000 + "% <br>S.Onion Value: " + sov + "*UV=" + sovuv;
     
     //document.getElementById("breedProfitTable10,2").innerHTML = averageLuckChange;
     //document.getElementById("breedProfitTable9,2").innerHTML = averageLuck;
@@ -2769,6 +2966,12 @@ function calculateBoard(){
     for(let i = 0; i < plotList.length; i++){
         //c.style.color = "lime";
         let breedableCounter = 0;
+
+        if(plotList[i].isCrop && i != 12){
+            //console.log(i)
+            document.getElementById("scc" + i).innerHTML = Math.round(100000 * (1 - Math.pow((1-cloverStrangeEffect), plotCount[i]))) / 1000 + "%";
+        }
+
         if(plotList[i].isBreedable){
             document.getElementById("breedTable" + i + ",0").innerHTML = plotCount[i];
             document.getElementById("breedTable" + i + ",1").innerHTML = breedSpotCount[i];
