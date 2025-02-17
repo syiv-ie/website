@@ -17,88 +17,194 @@ table{
     border-collapse: collapse;
 }
 
+a{
+    color:#272d38;
+}
 a:hover{
     height: 2vh;
-    color:crimson;
-}
-
-.bar{
-    height: 4vh;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1vh;
-    padding: 0px;
-}
-#barRow{
-    height: 4vh;
-}
-#barBox{
-    height: 4vh;
-}
-
-#resume{
-    border: 0;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-    height: 1300px;
-}
-
-.homeButton{
-    height: 4vh;
-    margin-top: 1vh;
-}
-.unfilled{
-    height: 2vh;
-    font-size: 2vh;
-    background-color: white;
-    border-style: outset; 
-    border-width: .25vh; 
-    border-radius: 1vh;
-    border-color: white; 
-    color: black;
-    text-decoration: none;
-}
-.filled{
-    height: 2vh;
-    font-size: 2vh;
-    background-color: lightblue;
-    border-style: outset; 
-    border-width: .25vh; 
-    border-radius: 1vh;
-    border-color: lightblue; 
-    color: rgb(42, 42, 42);
-    text-decoration: none;
+    color:#aa65d2;
 }
 
 ::-webkit-scrollbar {
+    display: none;
+    background: #ffffff00;
     position: absolute;
     right: 2vh;
     width: 1vh;
 }
 ::-webkit-scrollbar-track {
+    display: none;
     margin: 1vh;
     right: 2vh;
     border-radius: .5vh;
-    background: transparent;
+    background: #ffffff00;
 }
 ::-webkit-scrollbar-thumb {
+    display: none;
     width: 5vh;
     border-radius: .5vh;
-    background: #555;
+    background: #ffffff00;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #888;
+    display: none;
+    background: #ffffff00;
 }
 ::-webkit-scrollbar-track-piece:end {
-    background: transparent;
+    display: none;
+    background: #ffffff00;
     margin-bottom: 1vh; 
 }
 ::-webkit-scrollbar-track-piece:start {
-    background: transparent;
+    display: none;
+    background: #ffffff00;
     margin-top: 1vh;
 }
 
+/*///////////////////////////////////////////////*/
+#topBar{
+    overflow-y: hidden; 
+    overflow-x: hidden;
+    text-decoration: none;
+    width: 0vw;
+    height: 0vw;
+    left: 0vw;
+    top: 0vw;
+}
+    #topBarBox{
+        overflow-y: hidden; 
+        overflow-x: hidden;
+        position: absolute;
+        background-color: #272d38;
+        font-size: 0vw;
+        border-radius: 0vw; 
+        padding: 0vw;
+        width: 100vw;
+        height: 7vw;
+        left: 0vw;
+        top: 0vw;
+        white-space: 0vw;
+    }
+        #pageIconBox{
+            background-color: #1f1f1f00;
+            font-size: 0vw;
+            position: absolute;
+            border-radius: 1vw; 
+            padding: 0vw;
+            width: 6vw;
+            height: 6vw;
+            left: .5vw;
+            top: .5vw;
+            white-space: 0vw;
+        }
+            #pageIcon{
+                position: absolute;
+                rotate: 0deg;
+                padding: 0vw;
+                height: 6vw;
+                left: 0vw;
+                top: 0vw;
+                white-space: 0vw;
+            }
+        #titleDiv{
+            position: absolute;
+            border-radius: .4vw; 
+            padding: 0vw;
+            width: 86vw;
+            height: 6vw;
+            left: 7vw;
+            top: .5vw;
+            white-space: 0vw;
+        }
+            #title{
+                position: relative;
+                text-align: center;
+                color: #f7f7f7;
+                font-size: 5vw;
+                padding: 0vw;
+                left: 0vw;
+                top: 0vw;
+                white-space: 0vw;
+            }
+        #waffleBox{
+            background-color: #1f1f1f00;
+            font-size: 0vw;
+            position: absolute;
+            border-radius: 1vw; 
+            padding: 0vw;
+            width: 6vw;
+            height: 6vw;
+            left: 93.5vw;
+            top: .5vw;
+            white-space: 0vw;
+        }
+            #waffleIcon{
+                position: absolute;
+                filter: invert(93%) sepia(6%) saturate(1466%) hue-rotate(182deg) brightness(103%) contrast(105%);
+                rotate: 0deg;
+                padding: 0vw;
+                height: 6vw;
+                left: 0vw;
+                top: 0vw;
+                white-space: 0vw;
+            }
+        
+        #topNavigationBox{
+            background-color: #fbfaff;
+            font-size: 2.5vw;
+            position: absolute;
+            z-index: 90;
+            border-style:solid; 
+            border-color: #c9c9c9; 
+            border-width: 1vw; 
+            border-radius: 2vw; 
+            padding: 0vw;
+            width: 16vw;
+            height: 17vw;
+            left: 82vw;
+            top: 7vw;
+            white-space: 0vw;
+        }
+            .linkBox{
+                position: relative;
+                border-radius: .4vw; 
+                padding: 0vw;
+                width: 16vw;
+                height: 4vw;
+                left: .5vw;
+                top: .5vw;
+                white-space: 0vw;
+            }
+                .link{
+                    position: relative;
+                    text-align: center;
+                    color: #f7f7f7;
+                    padding: 0vw;
+                    left: 0vw;
+                    top: 0vw;
+                    white-space: 0vw;
+                }
+
+
+
+
+/*///////////////////////////////////////////////*/
+#resume{
+    position: absolute;
+    border: 0;
+    left: 1.5vw;
+    top: 12vw;
+    width: 97vw;
+    height: 130vw;
+}
+
+
+/*///////////////////////////////////////////////*/
+#everything{
+    position: absolute;
+    top: 10vw;
+    left: 1.9vw;
+}
+/*///////////////////////////////////////////////*/
 
 #farmPlotBox{
     background: radial-gradient( #41587b,#1f1f1f,#1f1f1f);
@@ -165,208 +271,7 @@ a:hover{
     .gridTable tr:nth-child(odd) td:nth-child(odd){
         background-color: #cdffcd;
     }
-/*////////////////////////////////////*/
-#MiscData{
-    background-color: #fbfaff;
-    border-radius: 2vw; 
-    color: #000000;
-    text-decoration: none;
-    padding: 0vw;
-    width: 90vw;
-    height: 93vw;
-    margin-top: 17vw;
-    margin-left: auto;
-    margin-right: auto;
-}
-    #navbarDiv{
-        position: relative;
-        padding: 0vw;
-        width: 0vw;
-        height: 0vw;
-        white-space: 0vw;
-        top: -13.5vw;
-        left: 0vw;    
-    }
-        #navbarTitleBox{
-            position: absolute;
-            background-color: #fbfaff;
-            font-size: 0vw;
-            border-radius: 1vw; 
-            padding: 0vw;
-            width: 25.5vw;
-            height: 6vw;
-            left: 1vw;
-            top: 0vw;
-            white-space: 0vw;
-        }
-            #navbarTitle{
-                position: absolute;
-                height: 0vw;
-                color: #493d68;
-                font-size: 3vw;
-                left: 1vw;
-                top: .5vw;
-            }
-        #lineBox{
-            overflow-y: hidden; 
-            overflow-x: hidden;
-            position: absolute;
-            background-color: #493d68;
-            font-size: 0vw;
-            border-radius: 1vw; 
-            padding: 0vw;
-            width: 90vw;
-            height: 3vw;
-            left: 0vw;
-            top: 4.4vw;
-            white-space: 0vw;
-        }
-        .navTab{
-            position: absolute;
-            text-align: center;
-            font-size: 0vw;
-            border-radius: 1vw; 
-            padding: 0vw;
-            height: 5.5vw;
-            top: 6vw;
-            white-space: 0vw;
-        }
-            .navTitle{          
-                position: absolute;
-                color: #493d68;
-                font-size: 3vw;
-                left: 1vw;
-                top: 1.5vw;
-            }
-        #dataTab{
-            left: 1vw;
-            width: 18vw;
-        }
-        #cardsTab{
-            left: 20vw;
-            width: 10.5vw;
-        }
-        #updatesTab{
-            left: 31.5vw;
-            width: 14.5vw;
-        }
-        #guidesTab{
-            left: 47vw;
-            width: 12vw;
-        }
-    #dataDiv{
-        position: relative;
-        padding: 0vw;
-        width: 0vw;
-        height: 0vw;
-        white-space: 0vw;
-        top: 0vw;
-        left: 0vw;    
-    }
-        #strangeDataDiv{
-            position: absolute;
-            background-color: #493d68;
-            border-style:solid; 
-            border-color: #fbfaff; 
-            border-width: 1vw; 
-            border-radius: 2vw; 
-            padding: 0vw;
-            width: 28vw;
-            height: 63vw;
-            white-space: 0vw;
-            top: 2vw;
-            left: 2vw;    
-        }
-            #strangeDataTitleBox{
-                position: absolute;
-                text-align: center;
-                font-size: 0vw;
-                border-radius: 1vw; 
-                padding: 0vw;
-                height: 0vw;
-                width: 28vw;
-                top: 0vw;
-                left: 0vw;
-                white-space: 0vw;
-            }
-                #strangeDataTitle{
-                    position: absolute;
-                    color: #fbfaff;
-                    font-size: 2.3vw;
-                    left: 1.6vw;
-                    top: 1.5vw;
-                }
-            #strangeCropDisplay{
-                position: absolute;
-                background-color: #fbfaff;
-                font-size: 0vw;
-                border-radius: 1vw; 
-                padding: 0vw;
-                width: 7vw;
-                height: 55vw;
-                left: 4.5vw;
-                top: 6.5vw;
-                white-space: 0vw;
-            }
-                .scDiv{
-                    position: relative;
-                    width: 0vw;
-                    height: 5vw;
-                    left: 1vw;
-                    padding-top: 1vw;
-                }
-                    .scImg{
-                        position: relative;
-                        height: 5vw;
-                        left: 0vw;
-                    }
-                .sccDiv{
-                    position: relative;
-                    text-align: center;
-                    background-color: #fbfaff;
-                    border-radius: 1vw; 
-                    width: 9vw;
-                    height: 3vw;
-                    left: 9vw;
-                    top: -55vw;
-                    margin-top: 3vw;
-                }
-                    .scc{
-                        position: absolute;
-                        text-align: right;
-                        color: #493d68;
-                        font-size: 2vw;
-                        left: .8vw;
-                        width: 7.9vw;
-                        top: .1vw;
-                    }
-    #cardsDiv{
-        position: relative;
-        padding: 0vw;
-        width: 0vw;
-        height: 0vw;
-        white-space: 0vw;
-        top: 0vw;
-        left: 0vw;    
-    }
-    #updatesDiv{
-        position: relative;
-        padding: 0vw;
-        width: 0vw;
-        height: 0vw;
-        white-space: 0vw;
-        top: 0vw;
-        left: 0vw;    
-    }
-    #guidesDiv{
-        position: relative;
-        padding: 0vw;
-        width: 0vw;
-        height: 0vw;
-        white-space: 0vw;
-        top: 0vw;
-        left: 0vw;    
-    }
+
 /*////////////////////////////////////*/
 #Farm{
     overflow-y: hidden; 
@@ -1342,7 +1247,7 @@ a:hover{
             border-radius: 3vw; 
             padding: 0vw;
             width: 14vw;
-            height: 14vw;
+            height: 14vw; 
             left: 1vw;
             top: 1vw;
             white-space: 0vw;
@@ -2163,6 +2068,220 @@ a:hover{
         width: 4vw;
         height: 4vw;
     }
+
+
+
+
+
+/*////////////////////////////////////*/
+#MiscData{
+    background-color: #fbfaff;
+    border-radius: 2vw; 
+    color: #000000;
+    text-decoration: none;
+    padding: 0vw;
+    width: 90vw;
+    height: 93vw;
+    margin-top: 17vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+    #navbarDiv{
+        position: relative;
+        padding: 0vw;
+        width: 0vw;
+        height: 0vw;
+        white-space: 0vw;
+        top: -13.5vw;
+        left: 0vw;    
+    }
+        #navbarTitleBox{
+            position: absolute;
+            background-color: #fbfaff;
+            font-size: 0vw;
+            border-radius: 1vw; 
+            padding: 0vw;
+            width: 25.5vw;
+            height: 6vw;
+            left: 1vw;
+            top: 0vw;
+            white-space: 0vw;
+        }
+            #navbarTitle{
+                position: absolute;
+                height: 0vw;
+                color: #493d68;
+                font-size: 3vw;
+                left: 1vw;
+                top: .5vw;
+            }
+        #lineBox{
+            overflow-y: hidden; 
+            overflow-x: hidden;
+            position: absolute;
+            background-color: #493d68;
+            font-size: 0vw;
+            border-radius: 1vw; 
+            padding: 0vw;
+            width: 90vw;
+            height: 3vw;
+            left: 0vw;
+            top: 4.4vw;
+            white-space: 0vw;
+        }
+        .navTab{
+            position: absolute;
+            text-align: center;
+            font-size: 0vw;
+            border-radius: 1vw; 
+            padding: 0vw;
+            height: 5.5vw;
+            top: 6vw;
+            white-space: 0vw;
+        }
+            .navTitle{          
+                position: absolute;
+                color: #493d68;
+                font-size: 3vw;
+                left: 1vw;
+                top: 1.5vw;
+            }
+        #dataTab{
+            left: 1vw;
+            width: 18vw;
+        }
+        #cardsTab{
+            left: 20vw;
+            width: 10.5vw;
+        }
+        #updatesTab{
+            left: 31.5vw;
+            width: 14.5vw;
+        }
+        #guidesTab{
+            left: 47vw;
+            width: 12vw;
+        }
+    #dataDiv{
+        position: relative;
+        padding: 0vw;
+        width: 0vw;
+        height: 0vw;
+        white-space: 0vw;
+        top: 0vw;
+        left: 0vw;    
+    }
+        #strangeDataDiv{
+            position: absolute;
+            background-color: #493d68;
+            border-style:solid; 
+            border-color: #fbfaff; 
+            border-width: 1vw; 
+            border-radius: 2vw; 
+            padding: 0vw;
+            width: 28vw;
+            height: 63vw;
+            white-space: 0vw;
+            top: 2vw;
+            left: 2vw;    
+        }
+            #strangeDataTitleBox{
+                position: absolute;
+                text-align: center;
+                font-size: 0vw;
+                border-radius: 1vw; 
+                padding: 0vw;
+                height: 0vw;
+                width: 28vw;
+                top: 0vw;
+                left: 0vw;
+                white-space: 0vw;
+            }
+                #strangeDataTitle{
+                    position: absolute;
+                    color: #fbfaff;
+                    font-size: 2.3vw;
+                    left: 1.6vw;
+                    top: 1.5vw;
+                }
+            #strangeCropDisplay{
+                position: absolute;
+                background-color: #fbfaff;
+                font-size: 0vw;
+                border-radius: 1vw; 
+                padding: 0vw;
+                width: 7vw;
+                height: 55vw;
+                left: 4.5vw;
+                top: 6.5vw;
+                white-space: 0vw;
+            }
+                .scDiv{
+                    position: relative;
+                    width: 0vw;
+                    height: 5vw;
+                    left: 1vw;
+                    padding-top: 1vw;
+                }
+                    .scImg{
+                        position: relative;
+                        height: 5vw;
+                        left: 0vw;
+                    }
+                .sccDiv{
+                    position: relative;
+                    text-align: center;
+                    background-color: #fbfaff;
+                    border-radius: 1vw; 
+                    width: 9vw;
+                    height: 3vw;
+                    left: 9vw;
+                    top: -55vw;
+                    margin-top: 3vw;
+                }
+                    .scc{
+                        position: absolute;
+                        text-align: right;
+                        color: #493d68;
+                        font-size: 2vw;
+                        left: .8vw;
+                        width: 7.9vw;
+                        top: .1vw;
+                    }
+    #cardsDiv{
+        position: relative;
+        padding: 0vw;
+        width: 0vw;
+        height: 0vw;
+        white-space: 0vw;
+        top: 0vw;
+        left: 0vw;    
+    }
+    #updatesDiv{
+        position: relative;
+        padding: 0vw;
+        width: 0vw;
+        height: 0vw;
+        white-space: 0vw;
+        top: 0vw;
+        left: 0vw;    
+    }
+    #guidesDiv{
+        position: relative;
+        padding: 0vw;
+        width: 0vw;
+        height: 0vw;
+        white-space: 0vw;
+        top: 0vw;
+        left: 0vw;    
+    }
+
+
+
+
+
+
+
 /*/////////////////////////////////*/
     /* 
     #toggleDisplayDiv{
@@ -2433,13 +2552,11 @@ a:hover{
     }
     #groupF tr:nth-child(even) td:nth-child(odd){
         background-color: #cdffcd;
-    } */
+    } 
 
 
 
 
-
-/*
     #CloverFarm{
         background-color: rgb(0, 0, 0);
         border-style: outset; 
