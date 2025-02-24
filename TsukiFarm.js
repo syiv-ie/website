@@ -10,7 +10,7 @@ startingFarm = window.location.search
 let tutorialFarm = "`/2.1.0/ag10//-bqlmnbpd3r-dqlfn-hll-jlj/////`"
 let pausedFarm = ""
 
-let miscMode = 1;
+let miscMode = 4;
 
 let chosenFarmSpot = 12;
 let previousPlot = chosenFarmSpot;
