@@ -2075,6 +2075,8 @@ a:hover{
 
 /*////////////////////////////////////*/
 #MiscData{
+    overflow-y: hidden; 
+    overflow-x: hidden;
     background-color: #fbfaff;
     border-radius: 2vw; 
     color: #000000;
