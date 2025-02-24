@@ -138,5 +138,58 @@ const data = {//width/height x/y are swapped in here.. oops? idk it doesnt rlly 
                 {x:9,y:9}
             ]
         }
+    ],
+
+    wtm: [
+        {
+            title: "Clover Layout",
+            code: "`/2.2/aaa0/-blg-dlale-flclg-hlale-jlclg-llale/-alglklolslw-clelilmlqluly-elclglklolslw-glalelilmlqluly-ilclglklolslw-klalelilmlqluly-mlclglklolslw-olalelilmlqluly-qlclglklolslw-slalelilmlqluly-ulclglklolslw-wlalelilmlqlu-ylclglklols/-alc-clale-elc-glale-ilc-kla///-aleli-clclg-elaleli-glclg-ilale/`"
+        }
+    ],
+
+    ne: [
+        {
+            title: "Basic",
+            code: "`/2.2/aaa0//-hnhnjnl-jnhfjnl-lnhnjnl-nnfohojolnn-prbidifihfjiliniprr-rrbfdsfqhojqlsnfprr-tnbidsfqhojqlsniprr-vidifihsjilinip-xihijil/////`"
+        },
+        {
+            title: "Iron",
+            code: "`/2.2/aaa0//-hnhnjnl-jnhfjnlnn-lnhnjnlnnfpnr-nnfohojolnnnpnr-prbidifihfjiliniprr-rrbfdsfqhojqlsnfprr-tnbidsfqhojqlsniprr-vidifihsjilinip-xihijil/////`"
+        },
+        {
+            title: "Steel",
+            code: "`/2.2/caa0//-difihijilinipir-fifshsjslsnspir-hodffqhqjflqnqpfrot-jidsfohojolonopsrit-lidifqhqjqnqpirit-nidsfohoj-podffqhqjflrnrprrrt-rifshsjilrnrpfrrt-tifihijilrprrrt/////`"
+        },
+        {
+            title: "Gold",
+            code: "`/2.2/daa0//-difihijilinipir-fodifshsjslsnspirot-hidffqhqjflqnqpfrit-jidsfohojolonopsrit-lidifqhqjqnqpirit-nidsfohoj-pidffqhqjflrnrprrrt-rodifshsjilrnrpfrrt-tifihijilrprrrt-vnhfjnl-xnhnjnl/////`"
+        },
+        {
+            title: "Ruby",
+            code: "`/2.2/eaa0//-bihijilinipirit-drfihsjslsnspsritrv-fiffhqjqlfnqpqrftiv-hifshojolonoporstiv-jifihqjqlqpqritiv-lifshojolonoporstivox-niffhqjqlfnqpqrstfvox-pifshojolinspqrstivox-rifihqjqlinipiritiv-tihsjslin-vihijflin-xrjrlrn/////`"
+        },
+        {
+            title: "Diamond",
+            code: "`/2.2/faa0//-bihijilinipirit-drfihsjslsnspsritrv-fiffhqjqlfnqpqrftiv-hifshojolonoporstiv-jifihqjqlqpqritiv-lifshojolonoporstivox-niffhqjqlfnqpqrstfvox-pifshojolinspqrstivox-rifihqjqlinipiritiv-tihsjslinrprr-vihijflinfprr-xrjrlrnrprr/////`"
+        },
+        {
+            title: "Obsidian",
+            code: "`/2.2/gaa0//-bihijilinipirit-drfihsjslsnspsritrv-fiffhqjqlfnqpqrftiv-hifshojolonoporstiv-jifihqjqlqpqritiv-lifshojolonoporstiv-niffhqjqlfnqpqrftiv-pifshojolonoporstiv-rrdifihqjqlqpqritiv-trdffshojolonoporstiv-vrdifihqjqlfnqpqritiv-xijslinspir/////`"
+        }
+    ],
+
+    cf: [
+        {
+            title: "Onion gamble",
+            equip: "Obsidian +5",
+            code: "`/2.2/gga5/-bieig-cia-dicieig-eia-ficieig-gia-hicieig-iia-jicieig-kia-licieig/-bifihijilinipiritivix-didqfihijilinipsrstivd3x-fibsdsfd1hijslsnipqrqtivix-hibidqfihijqlqnd1porotsvix-jibsdsfihsjolond3pqrqtivix-libidqfihijqlqnd1porotsvix-nibsdsfihsjolond3pqrqtivix-pibidqfihijqlqnd1porotsvix-ribsdsfihsjolond3pqrqtivix-tibidqfihijqlqnipsrstivd3x-vibsdsfd1hijslsnipiritiv-xibidqfihijilinipirit/-aiaicie-ciaicie-eiaicie-giaicie-iiaic-kia-mia/-bd2b-dob/-alc-clb-ela/-bibe2dih-dobodofoh-fobodofoh-hd1bodofoh/`",
+            creator: "@tsukiglitchhunter"
+        },
+        {
+            title: "100 Plots",
+            equip: "Obsidian +20",
+            code: "`/2.2/gga20/-ad2f-cnbndnf-enbbdnf-gnbndnf-id0bd0dbf-kd1bndnf/-bbfd2jbld2nd2pbrd2td2v-dqdqfd3hqjd2lqnqpd2rqtqv-fbbodofohd2jolonoporotovbx-he1bqdqfbhqjblqnqpbrqtqve3x-jodofohd1jolonoporotov-lbbqdqfd0hqjd1lqnqpbrqtqvbx-ne1bodofbhd1jblonoporotove3x-pqdqfd2hqjd1lqnqpbrqtqv-rbbodofohd1jolonoporotovbx-te1bqdqfbhqjblqnqpd0rqtqvd3x-vodofohd1jolonopbre3t-xbbqdqfbhqjblqnqpd3r/-ala-clc///-bnbndnfnh-dnbbdbfnh-fnbndnfnh-hd0bd0dd0fd0h/`",
+            creator: "@syiv"
+        }
     ]
 }

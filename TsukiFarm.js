@@ -10,7 +10,7 @@ startingFarm = window.location.search
 let tutorialFarm = "`/2.1.0/ag10//-bqlmnbpd3r-dqlfn-hll-jlj/////`"
 let pausedFarm = ""
 
-let miscMode = 0;
+let miscMode = 1;
 
 let chosenFarmSpot = 12;
 let previousPlot = chosenFarmSpot;
@@ -111,7 +111,7 @@ let laneSprinkler = new plot(
      ['w','w','x','w','w'],
      ['w','w','x','w','w'],
      ['z','w','z','w','z']],  
-    'LaneSprinkler',
+    'Lane Sprinkler',
     0,0,0,0,0);
     laneSprinkler.isDirectional = true;
 let megagrow = new plot(
@@ -133,14 +133,14 @@ let goatFert = new plot(
     [['f','f','f'],
      ['f','x','f'],
      ['f','f','f']],  
-    'GoatFert',
+    'Goat Fert',
     0,0,0,0,0);
 let bullFert = new plot(
     [['f','f','f','f'],
      ['f','x','x','f'],
      ['f','x','x','f'],
      ['f','f','f','f']],  
-    'BullFert',
+    'Bull Fert',
     0,0,0,0,0);
 let elephantFert = new plot(
     [['f','f','f','f','f'],
@@ -148,7 +148,7 @@ let elephantFert = new plot(
      ['f','x','x','x','f'],
      ['f','x','x','x','f'],
      ['f','f','f','f','f']],  
-    'ElephantFert',
+    'Elephant Fert',
     0,0,0,0,0);
 let plantFlower = new plot(
     [['p','p','p'],
@@ -2238,6 +2238,7 @@ function buildMiscData(){
         "#fbfaffa0",
         "#fbfaff40",
         "#fbfaffa0",
+        "#fbfaffa0",
         "#fbfaffa0"
     ];
 
@@ -2300,7 +2301,6 @@ function buildMiscData(){
             updatesTab.appendChild(updatesTitle);
             updatesTitle.innerHTML = "Updates"
 
-
         let guidesTab = document.createElement("div");
         guidesTab.id = "guidesTab";
         guidesTab.className = "navTab"
@@ -2315,6 +2315,21 @@ function buildMiscData(){
             guidesTitle.className = "navTitle"
             guidesTab.appendChild(guidesTitle);
             guidesTitle.innerHTML = "Guides"
+
+        let templatesTab = document.createElement("div");
+        templatesTab.id = "templatesTab";
+        templatesTab.className = "navTab"
+        templatesTab.style.backgroundColor = "#cfc3ff"
+        tabList[4] = templatesTab;
+        templatesTab.onclick = function(){
+            miscModeSwapper(miscMode, 4);
+        }
+        navbarDiv.appendChild(templatesTab);
+            let templatesTitle = document.createElement("div");
+            templatesTitle.id = "templatesTitle";
+            templatesTitle.className = "navTitle"
+            templatesTab.appendChild(templatesTitle);
+            templatesTitle.innerHTML = "Templates"
 
         let lineBox = document.createElement("div");
         lineBox.id = "lineBox";
@@ -2379,6 +2394,68 @@ function buildMiscData(){
     divList[1] = cardsDiv;
     MiscData.appendChild(cardsDiv);
 
+            /////////////////////////////////////////////////////////////
+            //let cabDiv = document.createElement("div"); //"whats the best"(wtm)
+            //cabDiv.id = "cabDiv";
+            //templatesDiv.appendChild(cabDiv);
+
+            for(let i=1; i<plotList.length; i++){
+                let ocDiv = document.createElement("div");
+                ocDiv.id = "ocDiv" + i; //outer card Div #
+                ocDiv.className = "ocDiv";
+                cardsDiv.appendChild(ocDiv);
+                let icDiv = document.createElement("div");
+                icDiv.id = "icDiv" + i; //inner card Div #
+                icDiv.className = "icDiv";
+                ocDiv.appendChild(icDiv);
+
+                ocDiv.style.top = ((i-1)%4)*-6 + (i*6) -4 + "vw";
+                ocDiv.style.left = ((i-1)%4)*22 + 2 + "vw";
+
+                let cardImgBox = document.createElement("div");
+                cardImgBox.className = "cardImgBox";
+                icDiv.appendChild(cardImgBox);
+                    let cardImg = document.createElement("img");
+                    cardImg.id = "cardImg" + i;
+                    cardImg.className = "cardImg";
+                    cardImg.src = "images/farmPlots/" + plotList[i].namae + ".png";
+                    cardImgBox.appendChild(cardImg);
+
+                let cardTitleBox = document.createElement("div");
+                cardTitleBox.className = "cardTitleBox";
+                icDiv.appendChild(cardTitleBox);
+                    let cardTitle = document.createElement("span");
+                    cardTitle.className = "cardTitle";
+                    cardTitleBox.appendChild(cardTitle);
+                    cardTitle.innerHTML = plotList[i].namae
+
+                if(plotList[i].isConsumable){
+                    icDiv.style.borderColor = "#ca583c";
+                    cardTitle.style.color = "#ca583c";
+                }
+                if(plotList[i].isUV){
+                    icDiv.style.borderColor = "#8d79dd";
+                    cardTitle.style.color = "#8d79dd";
+                }
+                if(plotList[i].isSprinkler){
+                    icDiv.style.borderColor = "#56b5d0";
+                    cardTitle.style.color = "#56b5d0";
+                }
+                if(plotList[i].isFert){
+                    icDiv.style.borderColor = "#9d7647";
+                    cardTitle.style.color = "#9d7647";
+                }
+                if(plotList[i].namae.localeCompare('Plant')==0){
+                    icDiv.style.borderColor = "#d18989";
+                    cardTitle.style.color = "#d18989";
+                }
+                if(plotList[i].isBreedable){
+                    icDiv.style.borderColor = "#8dc174";
+                    cardTitle.style.color = "#8dc174";
+                }
+                
+            }
+
 
     /////////////////////////////////////////////////////////////
     let updatesDiv = document.createElement("div");
@@ -2396,8 +2473,149 @@ function buildMiscData(){
     MiscData.appendChild(guidesDiv);
 
 
+    /////////////////////////////////////////////////////////////
+    let templatesDiv = document.createElement("div");
+    templatesDiv.id = "templatesDiv";
+    templatesDiv.style.display = "none"
+    divList[4] = templatesDiv;
+    MiscData.appendChild(templatesDiv);
+
+        /////////////////////////////////////////////////////////////
+        let cabDiv = document.createElement("div"); //"whats the best"(wtm)
+        cabDiv.id = "cabDiv";
+        templatesDiv.appendChild(cabDiv);
+
+            let cabTitleBox = document.createElement("div");
+            cabTitleBox.id = "cabTitleBox";
+            cabDiv.appendChild(cabTitleBox);
+                let cabTitle = document.createElement("div");
+                cabTitle.id = "cabTitle";
+                cabTitleBox.appendChild(cabTitle);
+                cabTitle.innerHTML = "Click a button to load it in the farm"
+
+        /////////////////////////////////////////////////////////////
+        let wtmDiv = document.createElement("div"); //"whats the best"(wtm)
+        wtmDiv.id = "wtmDiv";
+        templatesDiv.appendChild(wtmDiv);
+
+            let wtmTitleBox = document.createElement("div");
+            wtmTitleBox.id = "wtmTitleBox";
+            wtmDiv.appendChild(wtmTitleBox);
+                let wtmTitle = document.createElement("div");
+                wtmTitle.id = "wtmTitle";
+                wtmTitleBox.appendChild(wtmTitle);
+                wtmTitle.innerHTML = "Whats the meta... ?"
+
+            let metaDisplay = document.createElement("div");
+            metaDisplay.id = "metaDisplay";
+            wtmDiv.appendChild(metaDisplay);
+                for(let i=0; i<data.wtm.length; i++){
+                    let mfDiv = document.createElement("div");
+                    mfDiv.id = "mfDiv" + i; //meta farm Div #
+                    mfDiv.className = "mfDiv";
+                    metaDisplay.appendChild(mfDiv);
+                        let mf = document.createElement("div");
+                        mf.id = "mf" + i;
+                        mf.className = "mf";
+                        mfDiv.appendChild(mf);
+                        mf.innerHTML = data.wtm[i].title;
+                    mfDiv.onclick = function(){
+                        undoRedoList[undoRedoPosition] = "";
+                        undoRedoList[undoRedoPosition] = printFarmstructure();
+                        canRedo = false;
+                        highestRedoPosition = undoRedoPosition;
+                        undoRedoPosition++
+                        readFarmstructure(data.wtm[i].code);
+                        calculateBoard();
+                    }
+                }
 
 
+        /////////////////////////////////////////////////////////////
+        let neDiv = document.createElement("div"); //"no equipment"(ne)
+        neDiv.id = "neDiv";
+        templatesDiv.appendChild(neDiv);
+
+            let neTitleBox = document.createElement("div");
+            neTitleBox.id = "neTitleBox";
+            neDiv.appendChild(neTitleBox);
+                let neTitle = document.createElement("div");
+                neTitle.id = "neTitle";
+                neTitleBox.appendChild(neTitle);
+                neTitle.innerHTML = "\"I have no equipment!\""
+
+            let neHoesDisplay = document.createElement("div");
+            neHoesDisplay.id = "neHoesDisplay";
+            neDiv.appendChild(neHoesDisplay);
+                for(let i=0; i<data.ne.length; i++){
+                    let nehDiv = document.createElement("div");
+                    nehDiv.id = "nehDiv" + i; //no equip hoe Div #
+                    nehDiv.className = "nehDiv";
+                    neHoesDisplay.appendChild(nehDiv);
+                        let neh = document.createElement("div");
+                        neh.id = "neh" + i;
+                        neh.className = "neh";
+                        nehDiv.appendChild(neh);
+                        neh.innerHTML = data.ne[i].title;
+                    nehDiv.onclick = function(){
+                        undoRedoList[undoRedoPosition] = "";
+                        undoRedoList[undoRedoPosition] = printFarmstructure();
+                        canRedo = false;
+                        highestRedoPosition = undoRedoPosition;
+                        undoRedoPosition++
+                        readFarmstructure(data.ne[i].code);
+                        calculateBoard();
+                    }
+                }
+                
+        /////////////////////////////////////////////////////////////
+        let creatorsDiv = document.createElement("div"); //"no equipment"(ne)
+        creatorsDiv.id = "creatorsDiv";
+        templatesDiv.appendChild(creatorsDiv);
+
+            let creatorsTitleBox = document.createElement("div");
+            creatorsTitleBox.id = "creatorsTitleBox";
+            creatorsDiv.appendChild(creatorsTitleBox);
+                let creatorsTitle = document.createElement("div");
+                creatorsTitle.id = "creatorsTitle";
+                creatorsTitleBox.appendChild(creatorsTitle);
+                creatorsTitle.innerHTML = "Community Farms"
+
+            let cfDisplay = document.createElement("div");
+            cfDisplay.id = "cfDisplay";
+            creatorsDiv.appendChild(cfDisplay);
+                for(let i=0; i<data.cf.length; i++){
+                    let cfDiv = document.createElement("div");
+                    cfDiv.id = "cfDiv" + i; //creator farm Div #
+                    cfDiv.className = "cfDiv";
+                    cfDisplay.appendChild(cfDiv);
+                        let cf = document.createElement("div");
+                        cf.id = "cf" + i;
+                        cf.className = "cf";
+                        cfDiv.appendChild(cf);
+                        cf.innerHTML = data.cf[i].title;
+
+                        let cfe = document.createElement("div");//creator name
+                        cfe.id = "cfe" + i;
+                        cfe.className = "cfe";
+                        cfDiv.appendChild(cfe);
+                        cfe.innerHTML = data.cf[i].equip;
+
+                        let cn = document.createElement("div");//creator name
+                        cn.id = "cn" + i;
+                        cn.className = "cn";
+                        cfDiv.appendChild(cn);
+                        cn.innerHTML = data.cf[i].creator;
+                    cfDiv.onclick = function(){
+                        undoRedoList[undoRedoPosition] = "";
+                        undoRedoList[undoRedoPosition] = printFarmstructure();
+                        canRedo = false;
+                        highestRedoPosition = undoRedoPosition;
+                        undoRedoPosition++
+                        readFarmstructure(data.cf[i].code);
+                        calculateBoard();
+                    }
+                }
 
 
     /////////////////////////////////////////////////////////////
