@@ -10,7 +10,7 @@ startingFarm = window.location.search
 let tutorialFarm = "`/2.1.0/ag10//-bqlmnbpd3r-dqlfn-hll-jlj/////`"
 let pausedFarm = ""
 
-let miscMode = 4;
+let miscMode = 1;
 
 let chosenFarmSpot = 12;
 let previousPlot = chosenFarmSpot;
@@ -2409,7 +2409,7 @@ function buildMiscData(){
                 icDiv.className = "icDiv";
                 ocDiv.appendChild(icDiv);
 
-                ocDiv.style.top = ((i-1)%4)*-6 + (i*6) -4 + "vw";
+                ocDiv.style.top = ((i-1)%4)*-8 + (i*8) -6 + "vw";
                 ocDiv.style.left = ((i-1)%4)*22 + 2 + "vw";
 
                 let cardImgBox = document.createElement("div");
@@ -2429,6 +2429,90 @@ function buildMiscData(){
                     cardTitleBox.appendChild(cardTitle);
                     cardTitle.innerHTML = plotList[i].namae
 
+
+
+                
+                if(plotList[i].isCrop && i != 12){
+
+                    let yield = 0;
+                    let value = 0;
+                    let time = 0;
+
+                    let cardMathBox = document.createElement("div");
+                    cardMathBox.className = "cardMathBox";
+                    icDiv.appendChild(cardMathBox);
+                        let cardYield = document.createElement("div");
+                        cardYield.className = "cardYield";
+                        cardMathBox.appendChild(cardYield);
+                        if(plotList[i].minYield == plotList[i].maxYield){
+                            yield = plotList[i].minYield;
+                            cardYield.innerHTML = "Yield: " + yield
+                        }else{
+                            yield = (plotList[i].maxYield+plotList[i].minYield)/2
+                            cardYield.innerHTML = "Yield: " + plotList[i].minYield + " - " + plotList[i].maxYield + " ≈ " + yield
+                        }
+
+                        let cardValue = document.createElement("div");
+                        cardValue.className = "cardValue";
+                        cardMathBox.appendChild(cardValue);
+                        if(plotList[i].price == 0){
+                            value = plotList[i].value;
+                            cardValue.innerHTML = "Value: " + value + "c"
+                        }else{
+                            value = (plotList[i].value-plotList[i].price);
+                            cardValue.innerHTML = "Value: " + plotList[i].value + " - " + plotList[i].price + " = " + value + "c"
+                        }
+
+                        time = plotList[i].time
+                        let cardTime = document.createElement("div");
+                        cardTime.className = "cardTime";
+                        cardMathBox.appendChild(cardTime);
+                        cardTime.innerHTML = "Hrs till harvest: " + time
+                        
+
+                        let cardFormulaBox = document.createElement("div");
+                        cardFormulaBox.className = "cardFormulaBox";
+                        icDiv.appendChild(cardFormulaBox);
+
+                            let cardFormulaYield = document.createElement("div");
+                            cardFormulaYield.className = "cardFormulaYield";
+                            cardFormulaBox.appendChild(cardFormulaYield);
+                            cardFormulaYield.innerHTML = yield
+                            
+                            let cardFormulaMultiply = document.createElement("div");
+                            cardFormulaMultiply.className = "cardFormulaMultiply";
+                            cardFormulaBox.appendChild(cardFormulaMultiply);
+                            cardFormulaMultiply.innerHTML = "x"
+                            
+                            let cardFormulaValue = document.createElement("div");
+                            cardFormulaValue.className = "cardFormulaValue";
+                            cardFormulaBox.appendChild(cardFormulaValue);
+                            cardFormulaValue.innerHTML = value + "c"
+                            
+                            let cardFormulaTime = document.createElement("div");
+                            cardFormulaTime.className = "cardFormulaTime";
+                            cardFormulaBox.appendChild(cardFormulaTime);
+                            cardFormulaTime.innerHTML = time + "hr"
+                            
+                            let cardFormulaAnswer = document.createElement("div");
+                            cardFormulaAnswer.className = "cardFormulaAnswer";
+                            cardFormulaBox.appendChild(cardFormulaAnswer);
+                            cardFormulaAnswer.innerHTML = "= " + Math.round(10 * ((yield * value)/time)) / 10 + "c/hr"
+                            
+                            let cardFormulaBar = document.createElement("div");
+                            cardFormulaBar.className = "cardFormulaBar";
+                            cardFormulaBox.appendChild(cardFormulaBar);
+                            cardFormulaBar.innerHTML = "━━━━━"
+                }else{
+                    let cardInfoBox = document.createElement("div");
+                    cardInfoBox.className = "cardInfoBox";
+                    icDiv.appendChild(cardInfoBox);
+                }
+
+                if(plotList[i].isCrop){
+                    icDiv.style.borderColor = "#a88e84";
+                    cardTitle.style.color = "#a88e84";
+                }
                 if(plotList[i].isConsumable){
                     icDiv.style.borderColor = "#ca583c";
                     cardTitle.style.color = "#ca583c";

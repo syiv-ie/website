@@ -190,6 +190,18 @@ const data = {//width/height x/y are swapped in here.. oops? idk it doesnt rlly 
             equip: "Obsidian +20",
             code: "`/2.2/gga20/-ad2f-cnbndnf-enbbdnf-gnbndnf-id0bd0dbf-kd1bndnf/-bbfd2jbld2nd2pbrd2td2v-dqdqfd3hqjd2lqnqpd2rqtqv-fbbodofohd2jolonoporotovbx-he1bqdqfbhqjblqnqpbrqtqve3x-jodofohd1jolonoporotov-lbbqdqfd0hqjd1lqnqpbrqtqvbx-ne1bodofbhd1jblonoporotove3x-pqdqfd2hqjd1lqnqpbrqtqv-rbbodofohd1jolonoporotovbx-te1bqdqfbhqjblqnqpd0rqtqvd3x-vodofohd1jolonopbre3t-xbbqdqfbhqjblqnqpd3r/-ala-clc///-bnbndnfnh-dnbbdbfnh-fnbndnfnh-hd0bd0dd0fd0h/`",
             creator: "@syiv"
+        },
+        {
+            title: "Glitch Grapes",
+            equip: "Obsidian +5",
+            code: "`/2.2/gga5//-bd2fd2hc2jqnipir-dqfqhqlqnspird3t-fofoholone3pbrrt-hibbdqfqhc2jqlqnirrte3v-jd1bsdofoholonspirrt-libidqfqhqlqnipc2rrtrve3x-ne1dofohc2jolone3prtrv-pibqfqhqlqnrtrv-ribsdofoholonspirotovd3x-tibbdqfqhc0jqlqnipirotbvrx-ve1dofoholone3pd1rotov-xqfqhqlqn///-alc-clb-ela/-be1drfrh-dbfrh-frfrh/`",
+            creator: "@tsukiglitchhunter"
+        },
+        {
+            title: "scrlk Grapes",
+            equip: "Obsidian +5",
+            code: "`/2.2/gga5//-be2fc2jd1lqnqpbrqtqvbx-drdrfrhd1lonoporotove3x-fbbrdrhd1lqnqpbrqtqv-hd1brdrhc2jd1lonoporotovbx-jc0be2fd1lqnqpbrqtqve3x-lrdrfrhd1lonoporotov-nrdrhc2jd1lqnqpbrqtqvbx-pd1brdrhd1lonoporotove3x-rc2be2fd1lqnqpbrqtqv-trdrfrhc2jd1lonoporotovbx-vrdrhd1lqnqpbrqtqv-xd1brdrhe0r/////`",
+            creator: "@_scrlk"
         }
     ]
 }
