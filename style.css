@@ -2400,7 +2400,7 @@ a:hover{
             .cardFormulaBox{
                 position: absolute;
                 text-align: left;
-                background-color: #ff00951f;
+                background-color: #ffffff61;
                 font-size: 0vw;
                 border-radius: 1vw; 
                 padding: 0vw;
@@ -2463,7 +2463,7 @@ a:hover{
                 .cardFormulaAnswer{
                     position: absolute;
                     text-align:right;
-                    color: #a45483; 
+                    color: #6d6c6c; 
                     background-color: #ff009500;
                     font-size: 1.5vw;
                     border-radius: 1vw; 
@@ -2471,7 +2471,7 @@ a:hover{
                     width: 7.5vw;
                     height: 2;
                     left: 9vw;
-                    top: 1.6vw;
+                    top: 1.41vw;
                 }
     #updatesDiv{
         position: relative;
