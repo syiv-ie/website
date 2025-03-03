@@ -2463,6 +2463,7 @@ function buildMiscData(){
                 if(plotList[i].isCrop && i != 12){
                     cardInfoBox.style.height = "6vw"
                     cardInfoBox.style.top = "20.7vw" 
+                    cardImg.src = "images/farmPlots/strange" + plotList[i].namae + ".png";
 
                     let yield = 0;
                     let value = 0;
