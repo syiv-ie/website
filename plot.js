@@ -1,8 +1,9 @@
 class plot {
-    constructor(shape, namae,  time, value, price, minYield, maxYield) {
+    constructor(shape, namae, description, time, value, price, minYield, maxYield) {
         this.shape = shape;
         this.img = 'images/farmPlots/' + namae + '.png';
         this.namae = namae; //japanese for "name" idk
+        this.description = description;
         this.time = time;
         this.value = value;
         this.price = price;

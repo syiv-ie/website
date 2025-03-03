@@ -2330,15 +2330,26 @@ a:hover{
                     height: 0;
                     left: 0vw;
                 }
+            .cardNote{
+                position: absolute;
+                text-align:right;
+                font-size: .8vw;
+                width: 16.5vw;
+                height: 0;
+                left: .5vw;
+                top: 6.4vw;
+            }
             .cardInfoBox{
                 position: absolute;
-                text-align: left;
+                text-align: center;
                 background-color: #0000001f;
-                font-size: 0vw;
+                color: #ffffff; 
+                font-size: 1vw;
                 border-radius: 1.5vw; 
-                padding: 0vw;
-                height: 20vw;
-                width: 17vw;
+                padding: 0.5vw;
+                padding-top: 0.3vw;
+                height: 19.2vw;
+                width: 16vw;
                 top: 7.5vw;
                 left: .5vw;
                 white-space: 0vw;
@@ -2391,10 +2402,10 @@ a:hover{
                 text-align: left;
                 background-color: #ff00951f;
                 font-size: 0vw;
-                border-radius: 1.5vw; 
+                border-radius: 1vw; 
                 padding: 0vw;
                 height: 5.2vw;
-                width: 8.6vw;
+                width: 8.5vw;
                 top: 15vw;
                 left: .5vw;
                 white-space: 0vw;
@@ -2453,10 +2464,13 @@ a:hover{
                     position: absolute;
                     text-align:right;
                     color: #a45483; 
+                    background-color: #ff009500;
                     font-size: 1.5vw;
-                    width: 16vw;
-                    height: 0;
-                    left: .5vw;
+                    border-radius: 1vw; 
+                    padding: .2vw;
+                    width: 7.5vw;
+                    height: 2;
+                    left: 9vw;
                     top: 1.6vw;
                 }
     #updatesDiv{

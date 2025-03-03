@@ -98,12 +98,14 @@ var endgameIDs = [
 let clear = new plot(
     [['x']],
     'Empty',    
+    'jh,jhbljbljn',
     0,0,0,0,0);
 let sprinkler = new plot(
     [['w','w','w'],
      ['w','x','w'],
      ['w','w','w']],
-    'Sprinkler',    
+    'Sprinkler',       
+    'Waters all 8 crops around it.  This decreases the time of a crop', 
     0,0,0,0,0);
 let laneSprinkler = new plot(
     [['z','w','z','w','z'],
@@ -111,7 +113,8 @@ let laneSprinkler = new plot(
      ['w','w','x','w','w'],
      ['w','w','x','w','w'],
      ['z','w','z','w','z']],  
-    'Lane Sprinkler',
+    'Lane Sprinkler',    
+    'On each side; waters a line of 5 for the first row next to it, then a line of 3 for the second row away from it.  This decreases the time of a crop', 
     0,0,0,0,0);
     laneSprinkler.isDirectional = true;
 let megagrow = new plot(
@@ -119,28 +122,32 @@ let megagrow = new plot(
      ['u'],
      ['u'],
      ['x']],  
-    'MegaGrow',
+    'MegaGrow',    
+    'Applies the UV effect to 3 crops in the column in front of it.  This increases the yield of a crop, or if its a consumable, decreases the time',
     0,0,0,0,0);
     megagrow.isDirectional = true;
 let gigagrow = new plot(
     [['u','u','u','u'],
      ['u','u','u','u'],
      ['z','x','x','z']],  
-    'GigaGrow',
+    'GigaGrow',    
+    'Applies the UV effect in a area of 2 rows and 4 columns in front of it.  This increases the yield of a crop, or if its a consumable, decreases the time',
     0,0,0,0,0);
     gigagrow.isDirectional = true;
 let goatFert = new plot(
     [['f','f','f'],
      ['f','x','f'],
      ['f','f','f']],  
-    'Goat Fert',
+    'Goat Fert',   
+    'Fertilizes all 8 crops around it.  This increases the yield of a crop, or if its a consumable, decreases the time', 
     0,0,0,0,0);
 let bullFert = new plot(
     [['f','f','f','f'],
      ['f','x','x','f'],
      ['f','x','x','f'],
      ['f','f','f','f']],  
-    'Bull Fert',
+    'Bull Fert',    
+    '2x2 structure, Fertilizes all 12 crops around it.  This increases the yield of a crop, or if its a consumable, decreases the time', 
     0,0,0,0,0);
 let elephantFert = new plot(
     [['f','f','f','f','f'],
@@ -148,84 +155,99 @@ let elephantFert = new plot(
      ['f','x','x','x','f'],
      ['f','x','x','x','f'],
      ['f','f','f','f','f']],  
-    'Elephant Fert',
+    'Elephant Fert',  
+    '3x3 structure, Fertilizes all 16 crops around it.  This increases the yield of a crop, or if its a consumable, decreases the time', 
     0,0,0,0,0);
 let plantFlower = new plot(
     [['p','p','p'],
      ['p','x','p'],
      ['p','p','p']],  
-     'Plant',
+     'Plant',    
+     'When placed next to an Onion, it increases the onions yield by one. It can place outside of the same grid as plots, but wont add to the onion count if it is placed like that.  IT DOES NOT HAVE TO BE THIS PURPLE PLANT',
     0,0,0,0,0);
     plantFlower.canFreePlace = true;
 let fourLeafClover = new plot(
     [['b','z','b'],
      ['z','x','z'],
      ['b','z','b']],  
-    '4 Leaf Clover',
+    '4 Leaf Clover',    
+    'When placed, it will increase the strange crop rate on your farm.  It can also breed with other clovers of the same leaf count when placed in such a way that the corners are touching.  In the simulator, the corners will light up pink and 2 red dots appear where they can breed.  You want to maximize the pink hearts as they are your ammount of breeding chances and will get you more clovers',
     0,0,0,0,0);
     fourLeafClover.canFreePlace = true;
 let sixteenLeafClover = new plot(
     [['b','z','b'],
      ['z','x','z'],
      ['b','z','b']],  
-    '16 Leaf Clover',
+    '16 Leaf Clover',  
+    'When placed, it will increase the strange crop rate on your farm.  It can also breed with other clovers of the same leaf count when placed in such a way that the corners are touching.  In the simulator, the corners will light up pink and 2 red dots appear where they can breed.  You want to maximize the pink hearts as they are your ammount of breeding chances and will get you more clovers',
     0,0,0,0,0);
     sixteenLeafClover.canFreePlace = true;
 let sixtyfourLeafClover = new plot(
     [['b','z','b'],
      ['z','x','z'],
      ['b','z','b']],  
-    '64 Leaf Clover',
+    '64 Leaf Clover',  
+    'When placed, it will increase the strange crop rate on your farm.  It can also breed with other clovers of the same leaf count when placed in such a way that the corners are touching.  In the simulator, the corners will light up pink and 2 red dots appear where they can breed.  You want to maximize the pink hearts as they are your ammount of breeding chances and will get you more clovers',
     0,0,0,0,0);
     sixtyfourLeafClover.canFreePlace = true;
 let emptyPlot = new plot(
     [['x']],  
-    'Farm',
+    'Farm',    
+    'Empty farming plot that is created when you till a new area with the hoe',
     2,0,0,0,0);
     emptyPlot.isCrop = true; //the usual check to see if there is a min yield wont work here so I have to let it know
 let carrot = new plot(
     [['x']],  
-    'Carrot',
+    'Carrot',    
+    'Basic crop that has an unlimited seed count',
     2,1,0,20,20);
 let grape = new plot(
     [['x']],  
-    'Grape',
+    'Grape',    
+    'the first harvest after planting takes 12 hours, but all others only take 2.  This crop is one of the best',
     2,4,0,6,6);
     grape.isSeedCapped = true;
 let gloamroot = new plot(
     [['x']],  
-    'Gloamroot',
+    'Gloamroot',    
+    'Can only be harvested between 7pm and 7am but can still grow outside those times.  The phases of the moon determine the yield',
     2,5,0,5,5);//can be ten max with moon..
     gloamroot.isSeedCapped = true;
 let strawberry = new plot(
     [['s','s','s'],
      ['s','x','s'],
      ['s','s','s']],  
-    'Strawberry',
+    'Strawberry',    
+    'Upon harvest, will reduce nearby crops by .5hr . If the nearby crop\'s time is reduced by water, then the .5hrs is as well',
     2,2,0,5,5);
     strawberry.isSeedCapped = true;
 let turnip = new plot(
     [['x']],  
-    'Turnip',
+    'Turnip',    
+    'Produces a random yield.  Calculations made with the average because with enough of them, the stats look like a bell curve',
     2,1,0,12,32);
     turnip.isSeedCapped = true;
 let potato = new plot(
     [['x']],  
-    'Potato',
+    'Potato',    
+    'Shortest harvest time, but provides the same value as the average of a turnip',
     1,1,0,11,11);
     potato.isSeedCapped = true;
 let onion = new plot(
     [['x']],  
-    'Onion',
+    'Onion',    
+    'For each plant next to it in the closest 8 squares, increases yield by 1. Reccomended use is with 2 strawberry',
     3,3,0,6,6);
     onion.isSeedCapped = true;
 let pumpkin = new plot(
     [['x']],  
-    'Pumpkin',
+    'Pumpkin',    
+    'Will rot if not harvested within a certian time window after it ripens. If the harvest time is reduced, so is the time to rot. be on time!',
     2,100,50,1,1);
 let melon = new plot(
     [['x']],  
-    'Melon',
+    'Melon',    
+    'Takes 6 hours to harvest, so it is reccomended to plant at night, or with all time boosting effects {water, UV, fert, strawberry}',
     6,200,60,1,1);
 
 let plotList = [        // I HATEEEE having IDs so much but idk how to move on from them for now...ugh
@@ -2429,10 +2451,18 @@ function buildMiscData(){
                     cardTitleBox.appendChild(cardTitle);
                     cardTitle.innerHTML = plotList[i].namae
 
-
-
+                let cardNote = document.createElement("span");
+                cardNote.className = "cardNote";
+                icDiv.appendChild(cardNote);
+                
+                let cardInfoBox = document.createElement("div");
+                cardInfoBox.className = "cardInfoBox";
+                icDiv.appendChild(cardInfoBox);
+                cardInfoBox.innerHTML = plotList[i].description
                 
                 if(plotList[i].isCrop && i != 12){
+                    cardInfoBox.style.height = "6vw"
+                    cardInfoBox.style.top = "20.7vw" 
 
                     let yield = 0;
                     let value = 0;
@@ -2467,73 +2497,93 @@ function buildMiscData(){
                         let cardTime = document.createElement("div");
                         cardTime.className = "cardTime";
                         cardMathBox.appendChild(cardTime);
-                        cardTime.innerHTML = "Hrs till harvest: " + time
+                        cardTime.innerHTML = "Hrs till Harvest: " + time
                         
 
-                        let cardFormulaBox = document.createElement("div");
-                        cardFormulaBox.className = "cardFormulaBox";
-                        icDiv.appendChild(cardFormulaBox);
+                    let cardFormulaBox = document.createElement("div");
+                    cardFormulaBox.className = "cardFormulaBox";
+                    icDiv.appendChild(cardFormulaBox);
 
-                            let cardFormulaYield = document.createElement("div");
-                            cardFormulaYield.className = "cardFormulaYield";
-                            cardFormulaBox.appendChild(cardFormulaYield);
-                            cardFormulaYield.innerHTML = yield
-                            
-                            let cardFormulaMultiply = document.createElement("div");
-                            cardFormulaMultiply.className = "cardFormulaMultiply";
-                            cardFormulaBox.appendChild(cardFormulaMultiply);
-                            cardFormulaMultiply.innerHTML = "x"
-                            
-                            let cardFormulaValue = document.createElement("div");
-                            cardFormulaValue.className = "cardFormulaValue";
-                            cardFormulaBox.appendChild(cardFormulaValue);
-                            cardFormulaValue.innerHTML = value + "c"
-                            
-                            let cardFormulaTime = document.createElement("div");
-                            cardFormulaTime.className = "cardFormulaTime";
-                            cardFormulaBox.appendChild(cardFormulaTime);
-                            cardFormulaTime.innerHTML = time + "hr"
-                            
-                            let cardFormulaAnswer = document.createElement("div");
-                            cardFormulaAnswer.className = "cardFormulaAnswer";
-                            cardFormulaBox.appendChild(cardFormulaAnswer);
-                            cardFormulaAnswer.innerHTML = "= " + Math.round(10 * ((yield * value)/time)) / 10 + "c/hr"
-                            
-                            let cardFormulaBar = document.createElement("div");
-                            cardFormulaBar.className = "cardFormulaBar";
-                            cardFormulaBox.appendChild(cardFormulaBar);
-                            cardFormulaBar.innerHTML = "━━━━━"
+                        let cardFormulaYield = document.createElement("div");
+                        cardFormulaYield.className = "cardFormulaYield";
+                        cardFormulaBox.appendChild(cardFormulaYield);
+                        cardFormulaYield.innerHTML = yield
+                        
+                        let cardFormulaMultiply = document.createElement("div");
+                        cardFormulaMultiply.className = "cardFormulaMultiply";
+                        cardFormulaBox.appendChild(cardFormulaMultiply);
+                        cardFormulaMultiply.innerHTML = "x"
+                        
+                        let cardFormulaValue = document.createElement("div");
+                        cardFormulaValue.className = "cardFormulaValue";
+                        cardFormulaBox.appendChild(cardFormulaValue);
+                        cardFormulaValue.innerHTML = value + "c"
+                        
+                        let cardFormulaTime = document.createElement("div");
+                        cardFormulaTime.className = "cardFormulaTime";
+                        cardFormulaBox.appendChild(cardFormulaTime);
+                        cardFormulaTime.innerHTML = time + "hr"
+                        
+                        let cardFormulaAnswer = document.createElement("div");
+                        cardFormulaAnswer.className = "cardFormulaAnswer";
+                        cardFormulaBox.appendChild(cardFormulaAnswer);
+                        cardFormulaAnswer.innerHTML = "= " + Math.round(10 * ((yield * value)/time)) / 10 + "c/hr"
+                        
+                        let cardFormulaBar = document.createElement("div");
+                        cardFormulaBar.className = "cardFormulaBar";
+                        cardFormulaBox.appendChild(cardFormulaBar);
+                        cardFormulaBar.innerHTML = "━━━━━"
+                        
                 }else{
-                    let cardInfoBox = document.createElement("div");
-                    cardInfoBox.className = "cardInfoBox";
-                    icDiv.appendChild(cardInfoBox);
                 }
+                
 
                 if(plotList[i].isCrop){
+                    cardNote.innerHTML = "*renewable"
+                    cardNote.style.color = "#a88e84";
+
                     icDiv.style.borderColor = "#a88e84";
                     cardTitle.style.color = "#a88e84";
                 }
                 if(plotList[i].isConsumable){
+                    cardNote.innerHTML = "*consumable"
+                    cardNote.style.color = "#ca583c";
+
                     icDiv.style.borderColor = "#ca583c";
                     cardTitle.style.color = "#ca583c";
                 }
                 if(plotList[i].isUV){
+                    cardNote.innerHTML = "*UV"
+                    cardNote.style.color = "#8d79dd";
+
                     icDiv.style.borderColor = "#8d79dd";
                     cardTitle.style.color = "#8d79dd";
                 }
                 if(plotList[i].isSprinkler){
+                    cardNote.innerHTML = "*water"
+                    cardNote.style.color = "#56b5d0";
+
                     icDiv.style.borderColor = "#56b5d0";
                     cardTitle.style.color = "#56b5d0";
                 }
                 if(plotList[i].isFert){
+                    cardNote.innerHTML = "*fertilizer"
+                    cardNote.style.color = "#9d7647";
+
                     icDiv.style.borderColor = "#9d7647";
                     cardTitle.style.color = "#9d7647";
                 }
                 if(plotList[i].namae.localeCompare('Plant')==0){
+                    cardNote.innerHTML = "*any plant works"
+                    cardNote.style.color = "#d18989";
+
                     icDiv.style.borderColor = "#d18989";
                     cardTitle.style.color = "#d18989";
                 }
                 if(plotList[i].isBreedable){
+                    cardNote.innerHTML = "*breedable"
+                    cardNote.style.color = "#8dc174";
+
                     icDiv.style.borderColor = "#8dc174";
                     cardTitle.style.color = "#8dc174";
                 }
