@@ -1970,6 +1970,19 @@ a:hover{
             color: white;
             background-color: red;
         }
+        .plotPlanted{
+            position: absolute;
+            width: 1vw;
+            height: 1.5vw;
+            margin-left: 0vw;
+            margin-top: 0vw;
+            font-size: 1.2vw;
+            padding: 0px;
+            font-weight: bold;
+            text-align: center;
+            color: white;
+            background-color: #2dc337;
+        }
 
         .plotBreed1{
             position: absolute;

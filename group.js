@@ -374,6 +374,11 @@ class group {
                                         document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML += 
                                             "<img class=\"plotWatered\" src=\"images/farmPlots/watered.png\">"
                                     }
+                                    if(this.planted[rowOffset + row*2][colOffset + col*2] > 0 && 
+                                        plotList[this.plots[rowOffset + row*2][colOffset + col*2]].namae.localeCompare('Onion')==0){
+                                        document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML += 
+                                            "<div class=\"plotPlanted\"> " + this.planted[rowOffset + row*2][colOffset + col*2] + " </div>"
+                                    }
                                     if(this.strawberried[rowOffset + row*2][colOffset + col*2] > 0 && 
                                        !(plotList[this.plots[rowOffset + row*2][colOffset + col*2]].isStrawberry)){
                                         document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML += 
@@ -413,6 +418,18 @@ class group {
                                 this.fert[rowOffset + row*2][colOffset + col*2]++;
                             }
                             if((structure[row][col]).localeCompare('p') == 0){
+                                if(plotList[this.plots[rowOffset + row*2][colOffset + col*2]].namae.localeCompare('Onion')==0){
+                                     if(this.planted[rowOffset + row*2][colOffset + col*2] == 0){
+                                         document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML += 
+                                             "<div class=\"plotPlanted\"> " + (this.planted[rowOffset + row*2][colOffset + col*2]+1) + " </div>"
+                                     }else{
+                                         document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML =
+                                         document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML.replace(
+                                             "<div class=\"plotPlanted\"> " + this.planted[rowOffset + row*2][colOffset + col*2] + " </div>",
+                                             "<div class=\"plotPlanted\"> " + (this.planted[rowOffset + row*2][colOffset + col*2]+1) + " </div>"
+                                             );
+                                     }
+                                 }
                                 this.planted[rowOffset + row*2][colOffset + col*2]++;
                             }
                             if((structure[row][col]).localeCompare('s') == 0){
@@ -547,6 +564,21 @@ class group {
                             }
                             if((structure[row][col]).localeCompare('p') == 0){
                                 this.planted[rowOffset + row*2][colOffset + col*2]--;
+                                if(plotList[this.plots[rowOffset + row*2][colOffset + col*2]].namae.localeCompare('Onion')==0 && 
+                                   this.planted[rowOffset + row*2][colOffset + col*2] == 0){
+            
+                                    document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML =
+                                    document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML.replace(
+                                        "<div class=\"plotPlanted\"> " + (this.planted[rowOffset + row*2][colOffset + col*2]+1) + " </div>",
+                                        ""
+                                        );
+                                }else if(plotList[this.plots[rowOffset + row*2][colOffset + col*2]].namae.localeCompare('Onion')==0){
+                                    document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML =
+                                    document.getElementById("plot" + letta + (rowOffset + row*2) + "," + (colOffset + col*2)).innerHTML.replace(
+                                        "<div class=\"plotPlanted\"> " + (this.planted[rowOffset + row*2][colOffset + col*2]+1) + " </div>",
+                                        "<div class=\"plotPlanted\"> " + this.planted[rowOffset + row*2][colOffset + col*2] + " </div>"
+                                        );
+                                }
                             }
                             if((structure[row][col]).localeCompare('s') == 0){
                                 this.strawberried[rowOffset + row*2][colOffset + col*2]--;
