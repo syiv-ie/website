@@ -202,6 +202,12 @@ const data = {//width/height x/y are swapped in here.. oops? idk it doesnt rlly 
             equip: "Obsidian +5",
             code: "`/2.2/gga5//-be2fc2jd1lqnqpbrqtqvbx-drdrfrhd1lonoporotove3x-fbbrdrhd1lqnqpbrqtqv-hd1brdrhc2jd1lonoporotovbx-jc0be2fd1lqnqpbrqtqve3x-lrdrfrhd1lonoporotov-nrdrhc2jd1lqnqpbrqtqvbx-pd1brdrhd1lonoporotove3x-rc2be2fd1lqnqpbrqtqv-trdrfrhc2jd1lonoporotovbx-vrdrhd1lqnqpbrqtqv-xd1brdrhe0r/////`",
             creator: "@_scrlk"
+        },
+        {
+            title: "10orb + 7fert",
+            equip: "Obsidian +10",
+            code: "`/2.2/ggi10//-bc3fc1le1rqtqvc2x-dpdpfphd3jplpnppotov-fd1bpdffphe1jplfnope3rqtqv-hd1bpdpfphplpnopotovbx-jc3bc3hd2nd2pbrqtqve3x-ld2bd2dd2fd2hd2jd2lc1notfv-nqbodqfohqjolqnopqrotqvbx-pqbodqfohqjolqnopqrotqv-rbbfdbfohbjflbnopfrotbve3x-tqbodqfohqjolqnopqrotqv-vqbodqfohqjolqnopqrotqv-xbbe0dbhbje0lc3p////-bd2dd2fd2h-dc2bpdpfph-fffbh-hpdpfph/`",
+            creator: "@_scrlk"
         }
     ]
 }
