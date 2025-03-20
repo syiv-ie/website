@@ -206,7 +206,7 @@ const data = {//width/height x/y are swapped in here.. oops? idk it doesnt rlly 
         {
             title: "10orb + 7fert",
             equip: "Obsidian +10",
-            code: "`/2.2/ggi10//-bc3fc1le1rqtqvc2x-dpdpfphd3jplpnppotov-fd1bpdffphe1jplfnope3rqtqv-hd1bpdpfphplpnopotovbx-jc3bc3hd2nd2pbrqtqve3x-ld2bd2dd2fd2hd2jd2lc1notfv-nqbodqfohqjolqnopqrotqvbx-pqbodqfohqjolqnopqrotqv-rbbfdbfohbjflbnopfrotbve3x-tqbodqfohqjolqnopqrotqv-vqbodqfohqjolqnopqrotqv-xbbe0dbhbje0lc3p////-bd2dd2fd2h-dc2bpdpfph-fffbh-hpdpfph/`",
+            code: "`/2.2/ggi10/-cd2bd2dd2f-epbbdpf-gpbfdpf-ipbpdpf-kc3b/-bphbjpld3nqrqvd3x-dphfjpld3ne1pbrotd2vbx-fphpjpld3nqrotqvc2x-hd2bd2fd2hd2jbld2nd2pqrotqv-jbbd2dc1fd2lc1notfv-lqbodqfohqjolqnopqrotqve3x-nqbodqfohqjolqnopqrotqv-pbbodffohbjolfnopbrotfvbx-rqbodqfohqjolqnopqrotqve3x-tqbodqfohqjolqnopqrotqv-vc3bd0hc3jd0pc1r-xd0bd0dd0fd0jd0ld0nd0r////-bd2dd2fd2h-dc2bpdpfph-fpdffbh-hpdpfoh/`",
             creator: "@_scrlk"
         }
     ]
