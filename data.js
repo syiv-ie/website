@@ -218,6 +218,12 @@ const data = {//width/height x/y are swapped in here.. oops? idk it doesnt rlly 
             equip: "Obsidian +6",
             code: "`/2.2/gga6/-cd2bd2dd2f-erbbdof-grbfdof-iobodof-kc3b/-bifihqjqlc0nqpqritivd3x-dc2dd1fshojoloporstd3vc2x-fiffhqjqlqpqrftiv-hd1fshojolc0noporstd3v-jd1difihqjqlqpqritivd3x-lc2dd1fshojoloporstd3vc2x-nifihqjqlc0nqpqritiv-pd1fshojoloporstd3v-rd1diffhqjqlqpqrftiv-td1difshojole1noporstivd3x-vd1difihqjqlqpqritiv-xc3fd0lc1p/-brbrd-dfbbd-frbrd-hd0bd0d//-clb-ela/-bd1brdbfrh-dd1brdffrh-fd1brdrfrh-hc1d/`",
             creator: "@tsukiglitchhunter + @syiv"
+        },
+        {
+            title: "j4kio's 10",
+            equip: "Obsidian +10",
+            code: "`/2.2/gga10/-cd2bd2dd2f-erbbdrf-grbfdrf-irbrdrf-kc3b/-brfbhrjd3ld1pqrbtqv-drffhrjd3lbrotd2v-frfrhrjd3le1pqrotqvbx-hd2bd2dd2fbhd2jd2ld2nqrotqv-jc1bd2hc1jd2pbrotfvbx-lqbodqfohqjolqnopqrotqvd3x-nqbodqfohqjolqnopqrotqvd3x-pbbodffohbjolfnopbrotfvbx-rqbodqfohqjolqnopqrotqvd3x-tqbodqfohqjolqnopqrotqvd3x-vbbd0dc3fd0lc1nd0tbv-xd0bd0fd0hd0jd0nd0p////-brbbdrfd3h-drbfdrfd3h-frbrdofd3h-hc1b/`",
+            creator: "@j5kio.8311"
         }
     ]
 }
