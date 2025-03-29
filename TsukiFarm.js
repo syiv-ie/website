@@ -275,6 +275,44 @@ let plotList = [        // I HATEEEE having IDs so much but idk how to move on f
     melon               //21
 ];
 
+strangeFormulas(13,0,0,10);
+function strangeFormulas(plotID, row, col, plantCount) {
+    strangeProfit = 0;
+
+    switch(plotList[plotID].namae){
+        case "Carrot"://worth 5x
+            strangeProfit  = plotList[plotID].value *4;
+            break;
+        case "Grape"://worth 5x
+            strangeProfit  = plotList[plotID].value *4;
+            break;
+        case "Gloamroot"://worth 5x
+            strangeProfit  = plotList[plotID].value *4;
+            break;
+        case "Strawberry"://worth 5x and insta harvests all crops nearby
+        
+            break;
+        case "Turnip"://worth 5x
+            strangeProfit  = plotList[plotID].value *4;
+            break;
+        case "Potato"://worth 5x
+            strangeProfit  = plotList[plotID].value *4;
+            break;
+        case "Onion"://worth 5x and adds all plants in farm
+        
+            break;
+        case "Pumpkin"://worth 5x and doesnt rot
+            strangeProfit  = plotList[plotID].value *4;
+            break;
+        case "Melon"://worth 5x
+            strangeProfit  = plotList[plotID].value *4;
+            break;
+    }
+
+    return strangeProfit;
+}
+
+
 /////////////////////////////////////////////
 
 function makeGroups() {
