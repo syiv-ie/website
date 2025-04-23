@@ -224,6 +224,12 @@ const data = {//width/height x/y are swapped in here.. oops? idk it doesnt rlly 
             equip: "Obsidian +10",
             code: "`/2.2/gga10/-cd2bd2dd2f-erbbdrf-grbfdrf-irbrdrf-kc3b/-brfbhrjd3ld1pqrbtqv-drffhrjd3lbrotd2v-frfrhrjd3le1pqrotqvbx-hd2bd2dd2fbhd2jd2ld2nqrotqv-jc1bd2hc1jd2pbrotfvbx-lqbodqfohqjolqnopqrotqvd3x-nqbodqfohqjolqnopqrotqvd3x-pbbodffohbjolfnopbrotfvbx-rqbodqfohqjolqnopqrotqvd3x-tqbodqfohqjolqnopqrotqvd3x-vbbd0dc3fd0lc1nd0tbv-xd0bd0fd0hd0jd0nd0p////-brbbdrfd3h-drbfdrfd3h-frbrdofd3h-hc1b/`",
             creator: "@j4kio."
+        },
+        {
+            title: "j4kio battery",
+            equip: "Obsidian +5",
+            code: "`/2.2/gga5/-cd2bd2dd2f-erbbdrf-grbfdrf-irbrdrf-kc3b/-bd2x-de1rrtbvrx-frtfvrx-hd2bd2dd2fbhd2jd2ld2nrtrvrx-jc1bd2hc1jd2pc1t-lqbodqfohqjolqnopqrotqvd3x-nqbodqfohqjolqnopqrotqvd3x-pbbodffohbjolfnopbrotfvbx-rqbodqfohqjolqnopqrotqvd3x-tqbodqfohqjolqnopqrotqvd3x-vbbd0dc3fd0lc1nd0tbv-xd0bd0fd0hd0jd0nd0p////-brbbdrfd3h-drbfdrfd3h-frbrdrfd3h-hc1b/`",
+            creator: "@j4kio."
         }
     ]
 }
