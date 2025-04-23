@@ -154,31 +154,31 @@ const data = {//width/height x/y are swapped in here.. oops? idk it doesnt rlly 
     ne: [
         {
             title: "Basic",
-            code: "`/2.2/aaa0//-hnhnjnl-jnhfjnl-lnhnjnl-nnfohojolnn-prbidifihfjiliniprr-rrbfdsfqhojqlsnfprr-tnbidsfqhojqlsniprr-vidifihsjilinip-xihijil/////`"
+            code: "`/2.2/aaa0//-lidifih-nnbidsfihnnnpnr-pnbfdqfqhijilnnfpnr-ribsdofohsjilnnnpnr-tibidqfqhfjilonrprr-vidsfshijnlonfprr-xidifihijonrprr/////`"
         },
         {
             title: "Iron",
-            code: "`/2.2/aaa0//-hnhnjnl-jnhfjnlnn-lnhnjnlnnfpnr-nnfohojolnnnpnr-prbidifihfjiliniprr-rrbfdsfqhojqlsnfprr-tnbidsfqhojqlsniprr-vidifihsjilinip-xihijil/////`"
+            code: "`/2.2/bba0//-fnnnpnr-hnnfpnr-jnnnpnr-lidifihonoprr-nidsfihijonfprr-pibidqfqhfjilrnrprr-ribsdofohsjilnnnpnr-tibfdqfqhijilnnfpnr-vidsfshijnnnpnr-xidifihij/////`"
         },
         {
             title: "Steel",
-            code: "`/2.2/caa0//-difihijilinipir-fifshsjslsnspir-hodffqhqjflqnqpfrot-jidsfohojolonopsrit-lidifqhqjqnqpirit-nidsfohoj-podffqhqjflrnrprrrt-rifshsjilrnrpfrrt-tifihijilrprrrt/////`"
+            code: "`/2.2/cca0//-bifihijiloporrt-didifqhqjilinrpfrrt-fidsfohojslinrprrrt-hidffqhqjflinrprrrt-jidsfohojslinfrrt-lidifqhqjilin-nidsfohojslin-pidffqhqjflin-ridsfohojslin-tidifqhqjilin-vifshsjil-xifihijil/////`"
         },
         {
             title: "Gold",
-            code: "`/2.2/daa0//-difihijilinipir-fodifshsjslsnspirot-hidffqhqjflqnqpfrit-jidsfohojolonopsrit-lidifqhqjqnqpirit-nidsfohoj-pidffqhqjflrnrprrrt-rodifshsjilrnrpfrrt-tifihijilrprrrt-vnhfjnl-xnhnjnl/////`"
+            code: "`/2.2/dda0//-difihijil-fifshsjil-hidifqhqjilin-jidsfohojslin-lidffqhqjflin-nidsfohojslnnnpnrnt-pidifqhqjilinrpfrnt-ridsfohojslinrprrrt-tidffqhqjflinrprrrt-vidsfohojslinrpfrrt-xidifqhqjilinoporrt/////`"
         },
         {
             title: "Ruby",
-            code: "`/2.2/eaa0//-bihijilinipirit-drfihsjslsnspsritrv-fiffhqjqlfnqpqrftiv-hifshojolonoporstiv-jifihqjqlqpqritiv-lifshojolonoporstivox-niffhqjqlfnqpqrstfvox-pifshojolinspqrstivox-rifihqjqlinipiritiv-tihsjslin-vihijflin-xrjrlrn/////`"
+            code: "`/2.2/eea0//-didifihijilrprrrt-fidsfshsjilrpfrrt-hibfdqfqhqlrporot-jibsdofohojil-libidqfqhfjqlqnipir-nibsdofohojolonsprr-pibfdqfqhqlqnfpir-ribsdofohojolonspir-tibidqfqhfjqlqnipir-vidsfshsjslsnip-xidifihijilinip/////`"
         },
         {
             title: "Diamond",
-            code: "`/2.2/faa0//-bihijilinipirit-drfihsjslsnspsritrv-fiffhqjqlfnqpqrftiv-hifshojolonoporstiv-jifihqjqlqpqritiv-lifshojolonoporstivox-niffhqjqlfnqpqrstfvox-pifshojolinspqrstivox-rifihqjqlinipiritiv-tihsjslinrprr-vihijflinfprr-xrjrlrnrprr/////`"
+            code: "`/2.2/ffa0//-dihijilinip-fihsjslsniprr-hqhijqlqnfpir-jihojolonsprr-libidqfqhfjqlqnipir-nrbsdofohojolonsprrrtrvrx-pibfdqfqhqlqnfpirrtfvrx-rrbsdofohojolonsprrotovrx-tibidqfqhfjqlqnipir-vidsfshsjslsnip-xidifihijilinip/////`"
         },
         {
             title: "Obsidian",
-            code: "`/2.2/gaa0//-bihijilinipirit-drfihsjslsnspsritrv-fiffhqjqlfnqpqrftiv-hifshojolonoporstiv-jifihqjqlqpqritiv-lifshojolonoporstiv-niffhqjqlfnqpqrftiv-pifshojolonoporstiv-rrdifihqjqlqpqritiv-trdffshojolonoporstiv-vrdifihqjqlfnqpqritiv-xijslinspir/////`"
+            code: "`/2.2/gga0//-bihijilinipir-drdifshijslinspirrt-fidffqhqjilqnqpfrit-hidsfohojolonopsrrt-jidifqhqjflqnqpirit-lidsfohojolonopsrrt-nidffqhqjqnqpfrit-pidsfohojolonopsrit-ridifqhqjflqnqpirit-tidsfohojolonopsrit-vidffqhqjilqnqpfrit-xrdifshijslinspirrt/////`"
         }
     ],
 
