@@ -10,7 +10,8 @@ class plot {
         this.minYield = minYield;
         this.maxYield = maxYield;
 
-        this.isCrop = false;    
+        this.isCrop = false;   
+        this.isEquipment = false; 
         this.isSprinkler = false;
         this.isUV = false;
         this.isFert = false;
@@ -62,7 +63,11 @@ class plot {
             this.isCrop = true;
         }
         if(price > 0){
-            this.isConsumable = true;
+            if(this.isCrop){
+                this.isConsumable = true;
+            }else{
+                this.isEquipment = true;
+            }
         }
     }
 

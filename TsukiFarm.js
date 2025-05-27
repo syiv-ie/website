@@ -10,7 +10,7 @@ startingFarm = window.location.search
 let tutorialFarm = "`/2.1.0/ag10//-bqlmnbpd3r-dqlfn-hll-jlj/////`"
 let pausedFarm = ""
 
-let miscMode = 1;
+let miscMode = 0;
 
 let chosenFarmSpot = 12;
 let previousPlot = chosenFarmSpot;
@@ -106,7 +106,7 @@ let sprinkler = new plot(
      ['w','w','w']],
     'Sprinkler',       
     'Waters all 8 crops around it.  This decreases the time of a crop', 
-    0,0,0,0,0);
+    0,0,5000,0,0);
 let laneSprinkler = new plot(
     [['z','w','z','w','z'],
      ['w','w','x','w','w'],
@@ -115,7 +115,7 @@ let laneSprinkler = new plot(
      ['z','w','z','w','z']],  
     'Lane Sprinkler',    
     'On each side; waters a line of 5 for the first row next to it, then a line of 3 for the second row away from it.  This decreases the time of a crop', 
-    0,0,0,0,0);
+    0,0,8000,0,0);
     laneSprinkler.isDirectional = true;
 let megagrow = new plot(
     [['u'],
@@ -124,7 +124,7 @@ let megagrow = new plot(
      ['x']],  
     'MegaGrow',    
     'Applies the UV effect to 3 crops in the column in front of it.  This increases the yield of a crop, or if its a consumable, decreases the time',
-    0,0,0,0,0);
+    0,0,3000,0,0);
     megagrow.isDirectional = true;
 let gigagrow = new plot(
     [['u','u','u','u'],
@@ -132,7 +132,7 @@ let gigagrow = new plot(
      ['z','x','x','z']],  
     'GigaGrow',    
     'Applies the UV effect in a area of 2 rows and 4 columns in front of it.  This increases the yield of a crop, or if its a consumable, decreases the time',
-    0,0,0,0,0);
+    0,0,500,0,0);
     gigagrow.isDirectional = true;
 let goatFert = new plot(
     [['f','f','f'],
@@ -2445,7 +2445,48 @@ function buildMiscData(){
                 strangeDataTitleBox.appendChild(strangeDataTitle);
                 strangeDataTitle.innerHTML = "Strange Crop Chances"
 
+        /////////////////////////////////////////////////////////////
+        let equipCostDiv = document.createElement("div");
+        equipCostDiv.id = "equipCostDiv";
+        dataDiv.appendChild(equipCostDiv);
 
+            let equipDisplay = document.createElement("div");
+            equipDisplay.id = "equipDisplay";
+            equipCostDiv.appendChild(equipDisplay);
+                for(let i=0; i<plotList.length; i++){
+                    if(plotList[i].isEquipment){
+                        let sc = document.createElement("div");
+                        sc.id = "scDiv" + i; //strange crop Div #
+                        sc.className = "scDiv";
+                        equipDisplay.appendChild(sc);
+                            let scImg = document.createElement("img");
+                            scImg.id = "scImg" + i;
+                            scImg.className = "scImg";
+                            scImg.src = "images/farmPlots/strange" + plotList[i].namae + ".png";
+                            sc.appendChild(scImg);
+                    }
+                }
+                for(let i=0; i<plotList.length; i++){
+                    if(plotList[i].isEquipment){
+                        let sccDiv = document.createElement("div");
+                        sccDiv.id = "sccDiv" + i; //strange crop Div #
+                        sccDiv.className = "sccDiv";
+                        equipDisplay.appendChild(sccDiv);
+                            let scc = document.createElement("div");
+                            scc.id = "scc" + i;
+                            scc.className = "scc";
+                            sccDiv.appendChild(scc);
+                            scc.innerHTML = "0%"
+                    }
+                }
+                
+            let strangeDataTitleBox = document.createElement("div");
+            strangeDataTitleBox.id = "strangeDataTitleBox";
+            equipCostDiv.appendChild(strangeDataTitleBox);
+                let strangeDataTitle = document.createElement("div");
+                strangeDataTitle.id = "strangeDataTitle";
+                strangeDataTitleBox.appendChild(strangeDataTitle);
+                strangeDataTitle.innerHTML = "Strange Crop Chances"
 
     /////////////////////////////////////////////////////////////
     let cardsDiv = document.createElement("div");
