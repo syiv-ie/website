@@ -132,7 +132,7 @@ let gigagrow = new plot(
      ['z','x','x','z']],  
     'GigaGrow',    
     'Applies the UV effect in a area of 2 rows and 4 columns in front of it.  This increases the yield of a crop, or if its a consumable, decreases the time',
-    0,0,500,0,0);
+    0,0,5000,0,0);
     gigagrow.isDirectional = true;
 let goatFert = new plot(
     [['f','f','f'],
