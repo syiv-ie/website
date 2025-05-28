@@ -2455,32 +2455,38 @@ function buildMiscData(){
             equipCostDiv.appendChild(equipDisplay);
                 for(let i=0; i<plotList.length; i++){
                     if(plotList[i].isEquipment){
-                        let sc = document.createElement("div");
-                        sc.id = "scDiv" + i; //strange crop Div #
-                        sc.className = "scDiv";
-                        equipDisplay.appendChild(sc);
-                            let scImg = document.createElement("img");
-                            scImg.id = "scImg" + i;
-                            scImg.className = "scImg";
-                            scImg.src = "images/farmPlots/strange" + plotList[i].namae + ".png";
-                            sc.appendChild(scImg);
+                        let e = document.createElement("div");
+                        e.id = "eDiv" + i; //equip Div #
+                        e.className = "eDiv";
+                        equipDisplay.appendChild(e);
+                            let eImg = document.createElement("img");
+                            eImg.id = "eImg" + i;
+                            eImg.className = "eImg";
+                            eImg.src = "images/farmPlots/" + plotList[i].namae + ".png";
+                            e.appendChild(eImg);
                     }
                 }
                 for(let i=0; i<plotList.length; i++){
                     if(plotList[i].isEquipment){
-                        let sccDiv = document.createElement("div");
-                        sccDiv.id = "sccDiv" + i; //strange crop Div #
-                        sccDiv.className = "sccDiv";
-                        equipDisplay.appendChild(sccDiv);
-                            let scc = document.createElement("div");
-                            scc.id = "scc" + i;
-                            scc.className = "scc";
-                            sccDiv.appendChild(scc);
-                            scc.innerHTML = "0%"
+                        let ecDiv = document.createElement("div");
+                        ecDiv.id = "ecDiv" + i; //equip cost Div #
+                        ecDiv.className = "ecDiv";
+                        equipDisplay.appendChild(ecDiv);
+                            let ec = document.createElement("div");
+                            ec.id = "ec" + i;
+                            ec.className = "ec";
+                            ecDiv.appendChild(ec);
+                            ec.innerHTML = "0"
                     }
                 }
                 
-            
+            let equipTitleBox = document.createElement("div");
+            equipTitleBox.id = "equipTitleBox";
+            equipCostDiv.appendChild(equipTitleBox);
+                let equipTitle = document.createElement("div");
+                equipTitle.id = "equipTitle";
+                equipTitleBox.appendChild(equipTitle);
+                equipTitle.innerHTML = "(WIP)"
 
     /////////////////////////////////////////////////////////////
     let cardsDiv = document.createElement("div");

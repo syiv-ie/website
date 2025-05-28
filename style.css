@@ -2266,6 +2266,83 @@ a:hover{
                         width: 7.9vw;
                         top: .1vw;
                     }
+        #equipCostDiv{
+            position: absolute;
+            background-color: #e3a1d7;
+            border-style:solid; 
+            border-color: #fbfaff; 
+            border-width: 1vw; 
+            border-radius: 2vw; 
+            padding: 0vw;
+            width: 28vw;
+            height: 35vw;
+            white-space: 0vw;
+            top: 2vw;
+            left: 58vw;    
+        }
+            #equipTitleBox{
+                position: absolute;
+                text-align: center;
+                font-size: 0vw;
+                border-radius: 1vw; 
+                padding: 0vw;
+                height: 0vw;
+                width: 28vw;
+                top: 0vw;
+                left: 3vw;
+                white-space: 0vw;
+            }
+                #equipTitle{
+                    position: absolute;
+                    color: #fbfaff;
+                    font-size: 2.3vw;
+                    left: 1.6vw;
+                    top: 1.5vw;
+                }
+            #equipDisplay{
+                position: absolute;
+                background-color: #fbfaff;
+                font-size: 0vw;
+                border-radius: 1vw; 
+                padding: 0vw;
+                width: 7vw;
+                height: 26vw;
+                left: 4.5vw;
+                top: 6.5vw;
+                white-space: 0vw;
+            }
+                .eDiv{
+                    position: relative;
+                    width: 0vw;
+                    height: 5vw;
+                    left: 1vw;
+                    padding-top: 1vw;
+                }
+                    .eImg{
+                        position: relative;
+                        height: 5vw;
+                        left: 0vw;
+                    }
+                .ecDiv{
+                    position: relative;
+                    text-align: center;
+                    background-color: #fbfaff;
+                    border-radius: 1vw; 
+                    width: 9vw;
+                    height: 3vw;
+                    left: 9vw;
+                    top: -25vw;
+                    margin-top: 3vw;
+                }
+                    .ec{
+                        position: absolute;
+                        text-align: right;
+                        color: #493d68;
+                        font-size: 2vw;
+                        left: .8vw;
+                        width: 7.9vw;
+                        top: .1vw;
+                    }
     #cardsDiv{
         position: relative;
         padding: 0vw;
