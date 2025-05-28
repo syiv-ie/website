@@ -2486,7 +2486,7 @@ function buildMiscData(){
                 let equipTitle = document.createElement("div");
                 equipTitle.id = "equipTitle";
                 equipTitleBox.appendChild(equipTitle);
-                equipTitle.innerHTML = "(WIP)"
+                equipTitle.innerHTML = "Equipment costs"
 
     /////////////////////////////////////////////////////////////
     let cardsDiv = document.createElement("div");
@@ -3362,28 +3362,12 @@ function calculateBoard(){
     document.getElementById("strangeRateScore").innerHTML = Math.round(100000 * cloverStrangeEffect) / 1000 + "%";
     document.getElementById("timeRateScore").innerHTML = Math.round(100000 * (1/cloverTimeEffect)) / 1000 + "%";
 
-    document.getElementById("cdnd0").innerHTML = totalPlots;
-    document.getElementById("cdnd1").innerHTML = plotCount[1];
-    document.getElementById("cdnd2").innerHTML = plotCount[2]/3;
-    document.getElementById("cdnd3").innerHTML = plotCount[3];
-    document.getElementById("cdnd4").innerHTML = plotCount[4]/2;
-    document.getElementById("cdnd5").innerHTML = plotCount[5];
-    document.getElementById("cdnd6").innerHTML = plotCount[6]/4;
-    document.getElementById("cdnd7").innerHTML = plotCount[7]/9;
-    document.getElementById("cdnd8").innerHTML = plotCount[8];
-    document.getElementById("cdnd9").innerHTML = plotCount[9];
-    document.getElementById("cdnd10").innerHTML = plotCount[10];
-    document.getElementById("cdnd11").innerHTML = plotCount[11];
-    document.getElementById("cdnd12").innerHTML = plotCount[12];
-    document.getElementById("cdnd13").innerHTML = plotCount[13];
-    document.getElementById("cdnd14").innerHTML = plotCount[14];
-    document.getElementById("cdnd15").innerHTML = plotCount[15];
-    document.getElementById("cdnd16").innerHTML = plotCount[16];
-    document.getElementById("cdnd17").innerHTML = plotCount[17];
-    document.getElementById("cdnd18").innerHTML = plotCount[18];
-    document.getElementById("cdnd19").innerHTML = plotCount[19];
-    document.getElementById("cdnd20").innerHTML = plotCount[20];
-    document.getElementById("cdnd21").innerHTML = plotCount[21];
+   
+
+    plotCount[2] /= 3;
+    plotCount[4] /= 2;
+    plotCount[6] /= 4;
+    plotCount[7] /= 9;
 
     //let sov = 0;//18
     //let soc = 0;
@@ -3399,9 +3383,18 @@ function calculateBoard(){
         //c.style.color = "lime";
         let breedableCounter = 0;
 
-        if(plotList[i].isCrop && i != 12){
+        if(i==0){
+            document.getElementById("cdnd0").innerHTML = totalPlots;
+        }else{
+            document.getElementById("cdnd" + i).innerHTML = plotCount[i];
+        }
+
+        if(plotList[i].isCrop && i != 12){//strange crop chances
             //console.log(i)
             document.getElementById("scc" + i).innerHTML = Math.round(100000 * (1 - Math.pow((1-cloverStrangeEffect), plotCount[i]))) / 1000 + "%";
+        }
+        if(plotList[i].isEquipment){//equip cost
+            document.getElementById("ec" + i).innerHTML = plotCount[i] * plotList[i].price;
         }
 
         if(plotList[i].isBreedable){
@@ -3691,6 +3684,28 @@ function read3(farmImport){
 /*
 //retired code i might want to reference again.. maybe
 
+ document.getElementById("cdnd0").innerHTML = totalPlots;
+    document.getElementById("cdnd1").innerHTML = plotCount[1];
+    document.getElementById("cdnd2").innerHTML = plotCount[2]/3;
+    document.getElementById("cdnd3").innerHTML = plotCount[3];
+    document.getElementById("cdnd4").innerHTML = plotCount[4]/2;
+    document.getElementById("cdnd5").innerHTML = plotCount[5];
+    document.getElementById("cdnd6").innerHTML = plotCount[6]/4;
+    document.getElementById("cdnd7").innerHTML = plotCount[7]/9;
+    document.getElementById("cdnd8").innerHTML = plotCount[8];
+    document.getElementById("cdnd9").innerHTML = plotCount[9];
+    document.getElementById("cdnd10").innerHTML = plotCount[10];
+    document.getElementById("cdnd11").innerHTML = plotCount[11];
+    document.getElementById("cdnd12").innerHTML = plotCount[12];
+    document.getElementById("cdnd13").innerHTML = plotCount[13];
+    document.getElementById("cdnd14").innerHTML = plotCount[14];
+    document.getElementById("cdnd15").innerHTML = plotCount[15];
+    document.getElementById("cdnd16").innerHTML = plotCount[16];
+    document.getElementById("cdnd17").innerHTML = plotCount[17];
+    document.getElementById("cdnd18").innerHTML = plotCount[18];
+    document.getElementById("cdnd19").innerHTML = plotCount[19];
+    document.getElementById("cdnd20").innerHTML = plotCount[20];
+    document.getElementById("cdnd21").innerHTML = plotCount[21];
 
 
     //document.getElementById("1").innerHTML = printFarmstructure();
