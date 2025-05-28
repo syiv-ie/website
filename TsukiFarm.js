@@ -2480,13 +2480,7 @@ function buildMiscData(){
                     }
                 }
                 
-            let strangeDataTitleBox = document.createElement("div");
-            strangeDataTitleBox.id = "strangeDataTitleBox";
-            equipCostDiv.appendChild(strangeDataTitleBox);
-                let strangeDataTitle = document.createElement("div");
-                strangeDataTitle.id = "strangeDataTitle";
-                strangeDataTitleBox.appendChild(strangeDataTitle);
-                strangeDataTitle.innerHTML = "Strange Crop Chances"
+            
 
     /////////////////////////////////////////////////////////////
     let cardsDiv = document.createElement("div");
