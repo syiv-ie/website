@@ -140,10 +140,64 @@ const data = {//width/height x/y are swapped in here.. oops? idk it doesnt rlly 
         }
     ],
 
+    updates: [
+        {
+            version: "-1",
+            added: [
+                {name: "Build Mode", message: "If you tap the new dark purple tab with a hand at the bottom left of the counter display, it will replace that with the build mode display.  Tap the pink tab to swap back,"},
+                {name: "D Pad", message: "Shift the farm up down left and right using the arrows.  If the farm has a gridLocked item then the farm will shift by 2 instead to compensate"},
+                {name: "Copy", message: "While in \"build mode\" tap the board to place a blue then red square.  once they are on the board and lit up in the build display, you can tap the board again to clear them, or tap the lock icon in the buildBox to lock your copy selection in."},
+                {name: "TilePaste", message: "Once a copy selection is locked, repeat the same process of tapping squares on the board but this time they are grey.  if you want to redo the paste selection, tap the board again.  if you want to paste your copied selection, then tap the fill icon under the lock icon"},
+                {name: "gridLock Notification", message: "If your copy selection included a gridLocked item, then the selection preview will include a little icon showing that and your pastes will shift accordingly"},
+                {name: "Link copy and regular copy buttons", message: "added 2 new buttons to the blue code box for more ease and help people share farms"}
+            ],
+            changed: [
+                {name: "strange onion calc", message: "moved below the farm"}
+            ],
+            removed: [
+                {name: "", message: ""}
+            ]
+        },
+        {
+            version: "-2",
+            added: [
+                {name: "moon phases", message: "tap the moon button next to the caltulation box"},
+                {name: "code in link", message: "you can add the codes at the end of the site's url if you put a question mark after the url and then the code"}
+            ],
+            changed: [
+                {name: "calc negatives", message: "negative profits from fert and clovers increasing time are more obvious and highlight in red"}
+            ],
+            removed: [
+                {name: "", message: ""}
+            ]
+        },
+        {
+            version: "-3",
+            added: [
+                {name: "Help menu/button", message: ""},
+                {name: "A total for a full harvest", message: ""},
+                {name: "the base 0 yield sickle", message: ""}
+            ],
+            changed: [
+                {name: "Revamped the whole hourly profit box", message: "added 4 toggles that: separate consumables profit from regular, subtracts fertilizer cost, adds/subtracts the strange effect to crops (if clover time slows the farm enough then thats a profit loss), adds sickle profit to the hourly total"},
+                {name: "top bar change", message: "the top bar that shows my name and discord link looks hella baller now frfr"},
+                {name: "clover effects", message: "moved clover effects into the clover box"},
+                {name: "orb counter", message: "orb counter will just put (9-# of orbs) instead of infinite $2.56 mils lagging the site"},
+                {name: "moved the erase farm button", message: ""},
+                {name: "display box positions", message: "grouped the items in the display box to be with their similar effects"},
+                {name: "codes", message: "saving a code now saves the tools and orb count"}
+            ],
+            removed: [
+                {name: "English/spanish button", message: "srry gang i just change the site so much its tuff to keep up with it"},
+                {name: "the total extra that sickles would add every 6 hours.", message: "If you still want to know this, subtract the full harvest when sickle toggle is added in profit calculation from when it isnt"}
+            ]
+        },
+    ],
+
     wtm: [
         {
             title: "Clover Layout",
-            code: "`/2.2/aaa0/-ble-dlclg-flale-hlclg-jlale-llclg/-alglklolslw-clelilmlqluly-elclglklolslw-glalelilmlqluly-ilclglklolslw-klalelilmlqluly-mlclglklolslw-olalelilmlqluly-qlclglklolslw-slalelilmlqluly-ulclglklolslw-wlalelilmlqlu-ylclglklols/-alc-clale-elc-glale-ilc-kla///-aleli-clclg-elaleli-glclg-ilale/`"
+            code: "`/2.2/aaa0/-bke-dkckg-fkake-hkckg-jkake-lkckg/-akgkkkokskw-ckekikmkqkuky-ekckgkkkokskw-gkakekikmkqkuky-ikckgkkkokskw-kkakekikmkqkuky-mkckgkkkokskw-okakekikmkqkuky-qkckgkkkokskw-skakekikmkqkuky-ukckgkkkokskw-wkakekikmkqku-ykckgkkkoks/-akc-ckake-ekc-gkake-ikc-kka///-akeki-ckckg-ekakeki-gkckg-ikake/`"
         },
         {
             title: "Sylvie's Farm",

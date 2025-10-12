@@ -2572,6 +2572,73 @@ a:hover{
         top: 0vw;
         left: 0vw;    
     }
+        .uDiv{
+            user-select: none;
+            position:relative;
+            background-color: #58838d;
+            border-style:solid; 
+            border-color: #fbfaff; 
+            border-width: 1vw; 
+            border-radius: 2vw; 
+            padding: 0vw;
+            width: 84vw;
+            height: 28vw;
+            white-space: 0vw;
+            top: 2vw;
+            left: 2vw;    
+            margin-bottom: 2vw;
+        }
+            .uTitleBox{
+                position: absolute;
+                text-align: center;
+                font-size: 0vw;
+                border-radius: 1vw; 
+                padding: 0vw;
+                height: 0vw;
+                width: 44vw;
+                top: 0vw;
+                left: 0vw;
+                white-space: 0vw;
+            }
+                .uTitle{
+                    position: absolute;
+                    color: #fbfaff;
+                    font-size: 2.3vw;
+                    left: 1.6vw;
+                    top: 1.5vw;
+                }
+            #metaDisplay{
+                position: absolute;
+                background-color: #332f4100;
+                font-size: 0vw;
+                border-radius: 1vw; 
+                padding: 0vw;
+                width: 0vw;
+                height: 0vw;
+                left: 1vw;
+                top: 4vw;
+                white-space: 0vw;
+            }
+                .mfDiv{
+                    position: relative;
+                    text-align: center;
+                    background-color: #fbfaff;
+                    border-radius: 1vw; 
+                    width: 20vw;
+                    height: 3.5vw;
+                    left: 0vw;
+                    top: 0vw;
+                    margin-top: 3vw;
+                }
+                    .mf{
+                        position: absolute;
+                        text-align:center;
+                        color: #58838d;
+                        font-size: 2.5vw;
+                        left: 0vw;
+                        width: 20vw;
+                        top: .1vw;
+                    }
     #guidesDiv{
         position: relative;
         padding: 0vw;

@@ -2678,6 +2678,50 @@ function buildMiscData(){
     divList[2] = updatesDiv;
     MiscData.appendChild(updatesDiv);
 
+        /////////////////////////////////////////////////////////////
+        for(let i=0; i<data.wtm.length; i++){
+            let uDiv = document.createElement("div"); //"whats the best"(wtm)
+            uDiv.id = "uDiv" + i;
+            uDiv.className = "uDiv";
+            updatesDiv.appendChild(uDiv);
+
+                let uTitleBox = document.createElement("div");
+                uTitleBox.id = "uTitleBox" + i;;
+                uTitleBox.className = "uTitleBox";
+                uDiv.appendChild(uTitleBox);
+                    let uTitle = document.createElement("div");
+                    uTitle.id = "uTitle" + i;
+                    uTitle.className = "uTitle";
+                    uTitleBox.appendChild(uTitle);
+                    uTitle.innerHTML = "Version n. " + data.updates[i].version
+
+                /*let metaDisplay = document.createElement("div");
+                metaDisplay.id = "metaDisplay";
+                wtmDiv.appendChild(metaDisplay);
+                    for(let i=0; i<data.wtm.length; i++){
+                        let mfDiv = document.createElement("div");
+                        mfDiv.id = "mfDiv" + i; //meta farm Div #
+                        mfDiv.className = "mfDiv";
+                        metaDisplay.appendChild(mfDiv);
+                            let mf = document.createElement("div");
+                            mf.id = "mf" + i;
+                            mf.className = "mf";
+                            mfDiv.appendChild(mf);
+                            mf.innerHTML = data.wtm[i].title;
+                        mfDiv.onclick = function(){
+                            undoRedoList[undoRedoPosition] = "";
+                            undoRedoList[undoRedoPosition] = printFarmstructure();
+                            canRedo = false;
+                            highestRedoPosition = undoRedoPosition;
+                            undoRedoPosition++
+                            readFarmstructure(data.wtm[i].code);
+                            calculateBoard();
+                        }
+                    }*/
+        }
+
+        
+
 
     /////////////////////////////////////////////////////////////
     let guidesDiv = document.createElement("div");
